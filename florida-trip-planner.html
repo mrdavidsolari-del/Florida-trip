@@ -771,10 +771,10 @@ function saveFBConfig() {
   if (!raw) { alert('Please paste your Firebase config.'); return; }
   try {
     // Normalise JS object literal → valid JSON
+    // (do NOT strip // with a simple regex — it destroys https:// URLs in the config)
     const json = raw
-      .replace(/\/\/.*$/gm, '')            // strip // comments
       .replace(/,\s*([}\]])/g, '$1')       // trailing commas
-      .replace(/([{,]\s*)([a-zA-Z_]\w*)\s*:/g, '$1"$2":')  // unquoted keys
+      .replace(/([{,]\s*)([a-zA-Z_]\w*)\s*:/g, '$1"$2":')  // unquoted keys → "key":
       .replace(/'/g, '"');                 // single → double quotes
     const cfg = JSON.parse(json);
     if (!cfg.apiKey)      { alert('❌ Missing apiKey — please re-copy the full config from Firebase.'); return; }
