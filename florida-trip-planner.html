@@ -8,6 +8,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com"></script>
+<!-- Firebase Realtime Database (compat SDK – works without bundler) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <script>
 tailwind.config = {
   darkMode: 'class',
@@ -295,6 +298,7 @@ tailwind.config = {
     </div>
     <div class="flex items-center gap-2">
       <span id="dayCounter" class="bg-white/15 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 hidden md:inline-flex items-center gap-1.5"></span>
+      <span id="syncBadge"></span>
       <button id="darkToggle" class="text-white/90 hover:text-white p-2 hover:bg-white/15 rounded-xl transition text-lg">🌙</button>
       <button onclick="exportJSON()" class="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 backdrop-blur text-white text-xs font-bold px-3 py-2 rounded-xl border border-white/20 transition no-print">
         <span>📤</span><span>Export</span>
@@ -544,18 +548,17 @@ const DEFAULT_STATE = {
   tripStart: '2026-04-01',
   tripEnd:   '2026-04-10',
   people: [
-    {id:1,name:'Me (David)',emoji:'😎',car:1,driver:false},
-    {id:2,name:'Wife',emoji:'👩',car:1,driver:false},
-    {id:3,name:'Mum-in-law',emoji:'👵',car:2,driver:false},
-    {id:4,name:'Dad-in-law',emoji:'👴',car:2,driver:false},
-    {id:5,name:'Sister 1',emoji:'👩‍🦱',car:1,driver:false},
-    {id:6,name:'Brother 1',emoji:'👨',car:2,driver:false},
-    {id:7,name:'Sister 2',emoji:'👩‍🦳',car:1,driver:false},
-    {id:8,name:'Partner S2',emoji:'🧔',car:2,driver:false},
-    {id:9,name:'Kid 1',emoji:'🧒',car:1,driver:false},
-    {id:10,name:'Kid 2',emoji:'👦',car:2,driver:false},
-    {id:11,name:'Kid 3',emoji:'👧',car:1,driver:false},
-    {id:12,name:'Kid 4',emoji:'🧒',car:2,driver:false},
+    {id:1, name:'David',   emoji:'😎', car:1, driver:false},
+    {id:2, name:'Hannah',  emoji:'👩', car:1, driver:false},
+    {id:3, name:'Loz',     emoji:'👩‍🦱', car:1, driver:false},
+    {id:4, name:'Paul',    emoji:'👨', car:1, driver:false},
+    {id:5, name:'Shazza',  emoji:'👩‍🦳', car:2, driver:false},
+    {id:6, name:'James',   emoji:'🧔', car:2, driver:false},
+    {id:7, name:'Zoe',     emoji:'👧', car:2, driver:false},
+    {id:8, name:'Rob',     emoji:'🧑', car:2, driver:false},
+    {id:9, name:'Evelyn',  emoji:'👵', car:1, driver:false},
+    {id:10,name:'Islay',   emoji:'🧒', car:1, driver:false},
+    {id:11,name:'Holly',   emoji:'🌸', car:2, driver:false},
   ],
   itinerary: {
     0:{park:'Magic Kingdom',activities:[{id:'a1',time:'09:00',name:'Park Opening – Rope Drop',duration:30,notes:'Arrive early!',status:'must'},{id:'a2',time:'10:00',name:'Seven Dwarfs Mine Train',duration:60,notes:'Book Lightning Lane',status:'must'},{id:'a3',time:'12:30',name:'Lunch at Be Our Guest',duration:60,notes:'Pre-book required',status:'must'},{id:'a4',time:'14:00',name:'Haunted Mansion',duration:45,notes:'',status:'flexible'},{id:'a5',time:'16:00',name:'Afternoon Parade',duration:30,notes:'Find spot 20min early',status:'flexible'},{id:'a6',time:'21:00',name:"Cinderella's Castle Fireworks",duration:30,notes:'Fantasyland Hub',status:'must'}]},
@@ -667,6 +670,130 @@ function loadState() {
     const d = localStorage.getItem('floridaTrip2026');
     if (d) S = JSON.parse(d);
   } catch(e) {}
+}
+
+// ============================================================
+// FIREBASE LIVE POLL SYNC
+// ============================================================
+let _fbDb = null, _fbLive = false;
+
+function fbLoadConfig() {
+  try { return JSON.parse(localStorage.getItem('floridaTripFBConfig') || 'null'); } catch(e) { return null; }
+}
+function fbSaveConfig(cfg) { localStorage.setItem('floridaTripFBConfig', JSON.stringify(cfg)); }
+
+function initFirebase() {
+  if (typeof firebase === 'undefined') return;
+  const cfg = fbLoadConfig();
+  if (!cfg || !cfg.apiKey || !cfg.databaseURL) { updateSyncBadge(); return; }
+  try {
+    const app = firebase.apps.length ? firebase.apps[0] : firebase.initializeApp(cfg);
+    _fbDb = firebase.database(app);
+    _fbDb.ref('.info/connected').on('value', snap => {
+      _fbLive = snap.val() === true;
+      updateSyncBadge();
+    });
+    fbListenPolls();
+  } catch(e) { console.warn('Firebase init error:', e.message); updateSyncBadge(); }
+}
+
+function updateSyncBadge() {
+  const badge = $('syncBadge');
+  if (!badge) return;
+  const cfg = fbLoadConfig();
+  if (!cfg || !cfg.apiKey) {
+    badge.innerHTML = `<button onclick="openFirebaseSetup()" class="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 backdrop-blur text-white text-xs font-bold px-3 py-2 rounded-xl border border-white/20 transition">☁️ Sync</button>`;
+    return;
+  }
+  badge.innerHTML = `<button onclick="openFirebaseSetup()" title="Firebase Live Sync" class="flex items-center gap-1.5 bg-white/15 hover:bg-white/25 backdrop-blur text-white text-xs font-bold px-3 py-2 rounded-xl border border-white/20 transition">
+    <span class="w-2 h-2 rounded-full inline-block ${_fbLive ? 'bg-green-400 animate-pulse' : 'bg-yellow-400'}"></span>
+    <span>${_fbLive ? 'Live' : 'Connecting…'}</span>
+  </button>`;
+}
+
+function fbWritePoll(pollId) {
+  if (!_fbDb) return;
+  const poll = S.polls.find(p => p.id === pollId);
+  if (!poll) return;
+  _fbDb.ref('polls/' + pollId).update({ votes: poll.votes || {}, closed: poll.closed || false })
+    .catch(e => console.warn('FB write error:', e));
+}
+
+function fbListenPolls() {
+  if (!_fbDb) return;
+  _fbDb.ref('polls').on('value', snap => {
+    const data = snap.val();
+    if (!data) return;
+    let changed = false;
+    Object.entries(data).forEach(([pollId, fbPoll]) => {
+      const local = S.polls.find(p => p.id === pollId);
+      if (!local) return;
+      const newVotes  = fbPoll.votes  || {};
+      const newClosed = fbPoll.closed !== undefined ? fbPoll.closed : local.closed;
+      if (JSON.stringify(local.votes) !== JSON.stringify(newVotes)) { local.votes = newVotes; changed = true; }
+      if (local.closed !== newClosed) { local.closed = newClosed; changed = true; }
+    });
+    if (changed) { saveState(); if (S.currentSection === 'polls') renderSection(); }
+  });
+}
+
+function openFirebaseSetup() {
+  const connected = fbLoadConfig() !== null;
+  openModal(`
+    <div class="p-1">
+      <h2 class="text-xl font-black mb-1">☁️ Live Poll Sync</h2>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Connect Firebase so votes appear live on every family phone — free, takes ~5 mins.</p>
+      <div class="bg-blue-50 dark:bg-slate-800 rounded-2xl p-3 mb-4">
+        <p class="font-bold text-blue-700 dark:text-blue-300 mb-2 text-sm">📋 Quick setup:</p>
+        <ol class="text-slate-600 dark:text-slate-300 space-y-1.5 pl-4 list-decimal text-xs leading-relaxed">
+          <li>Go to <a href="https://console.firebase.google.com" target="_blank" class="text-blue-600 dark:text-blue-400 underline font-semibold">console.firebase.google.com</a> &amp; sign in with Google</li>
+          <li>Click <strong>Add project</strong> → name it <code class="bg-white dark:bg-slate-700 px-1 rounded font-mono">florida-trip-2026</code> → Create</li>
+          <li>Click <strong>&lt;/&gt; Web</strong> (add web app) → Register app → copy the <code class="font-mono bg-white dark:bg-slate-700 px-1 rounded">firebaseConfig</code> block</li>
+          <li>In left sidebar: <strong>Build → Realtime Database → Create database → Start in test mode</strong></li>
+          <li>Paste the config JSON below and click Connect</li>
+        </ol>
+      </div>
+      <p class="text-xs font-bold text-slate-600 dark:text-slate-400 mb-1.5">Paste your firebaseConfig JSON here:</p>
+      <textarea id="fbConfigPaste" rows="7"
+        placeholder='{\n  "apiKey": "AIza...",\n  "authDomain": "your-project.firebaseapp.com",\n  "databaseURL": "https://your-project-default-rtdb.firebaseio.com",\n  "projectId": "your-project",\n  "storageBucket": "your-project.appspot.com",\n  "messagingSenderId": "123456789",\n  "appId": "1:123456789:web:abc123"\n}'
+        class="w-full text-xs font-mono border border-slate-200 dark:border-slate-600 rounded-xl p-3 bg-white dark:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none whitespace-pre"></textarea>
+      <div class="flex gap-2 mt-3">
+        <button onclick="saveFBConfig()" class="btn-primary flex-1 py-2.5 text-sm font-bold">🔌 Connect</button>
+        <button onclick="closeModal()" class="flex-1 py-2.5 text-sm font-bold border border-slate-200 dark:border-slate-600 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-800 transition">Cancel</button>
+      </div>
+      ${connected ? '<button onclick="disconnectFB()" class="w-full mt-3 text-xs text-red-400 hover:text-red-600 py-1 transition">Disconnect Firebase</button>' : ''}
+    </div>
+  `);
+}
+
+function saveFBConfig() {
+  const raw = ($('fbConfigPaste').value || '').trim();
+  if (!raw) { alert('Please paste your Firebase config.'); return; }
+  try {
+    // Normalise JS object literal → valid JSON
+    const json = raw
+      .replace(/\/\/.*$/gm, '')            // strip // comments
+      .replace(/,\s*([}\]])/g, '$1')       // trailing commas
+      .replace(/([{,]\s*)([a-zA-Z_]\w*)\s*:/g, '$1"$2":')  // unquoted keys
+      .replace(/'/g, '"');                 // single → double quotes
+    const cfg = JSON.parse(json);
+    if (!cfg.apiKey)      { alert('❌ Missing apiKey — please re-copy the full config from Firebase.'); return; }
+    if (!cfg.databaseURL) { alert('❌ Missing databaseURL — make sure you created a Realtime Database and included the databaseURL in the config.'); return; }
+    fbSaveConfig(cfg);
+    closeModal();
+    alert('✅ Firebase config saved! Reloading to connect…');
+    location.reload();
+  } catch(e) {
+    alert('❌ Could not parse config.\n\nMake sure you copy the entire firebaseConfig object from the Firebase console (the curly-braces block).');
+  }
+}
+
+function disconnectFB() {
+  if (confirm('Disconnect Firebase? Votes will be local-only until you reconnect.')) {
+    localStorage.removeItem('floridaTripFBConfig');
+    closeModal();
+    location.reload();
+  }
 }
 
 // ============================================================
@@ -1714,9 +1841,16 @@ function savePoll() {
 function castVote(pi,opt,personId) {
   if(S.polls[pi].closed) return;
   S.polls[pi].votes[personId]=opt;
-  saveState(); renderSection();
+  saveState();
+  fbWritePoll(S.polls[pi].id);
+  renderSection();
 }
-function closePoll(pi) { S.polls[pi].closed=!S.polls[pi].closed; saveState(); renderSection(); }
+function closePoll(pi) {
+  S.polls[pi].closed=!S.polls[pi].closed;
+  saveState();
+  fbWritePoll(S.polls[pi].id);
+  renderSection();
+}
 function deletePoll(pi) {
   if(S.polls[pi].isDay) return alert("Day polls can't be deleted – use the Lock button to close voting.");
   if(confirm('Delete this poll?')) { S.polls.splice(pi,1); saveState(); renderSection(); }
@@ -2230,6 +2364,26 @@ function migrateSavedState() {
   S.tripEnd   = '2026-04-10';
   S.tripName  = "Loz & Paul's Family Mega Hol Treat";
 
+  // Always enforce the correct crew names (updates any phone with old placeholder names)
+  const crew = [
+    {id:1, name:'David',   emoji:'😎', car:1},
+    {id:2, name:'Hannah',  emoji:'👩', car:1},
+    {id:3, name:'Loz',     emoji:'👩‍🦱', car:1},
+    {id:4, name:'Paul',    emoji:'👨', car:1},
+    {id:5, name:'Shazza',  emoji:'👩‍🦳', car:2},
+    {id:6, name:'James',   emoji:'🧔', car:2},
+    {id:7, name:'Zoe',     emoji:'👧', car:2},
+    {id:8, name:'Rob',     emoji:'🧑', car:2},
+    {id:9, name:'Evelyn',  emoji:'👵', car:1},
+    {id:10,name:'Islay',   emoji:'🧒', car:1},
+    {id:11,name:'Holly',   emoji:'🌸', car:2},
+  ];
+  // Merge: keep any existing votes/driver flags, just fix names & emojis
+  S.people = crew.map(c => {
+    const existing = S.people.find(p => p.id === c.id) || {};
+    return { ...existing, id:c.id, name:c.name, emoji:c.emoji, car:c.car, driver: existing.driver||false };
+  });
+
   // Ensure the 10 day-polls exist (add any missing ones)
   const dayPollIds = ['day-0','day-1','day-2','day-3','day-4','day-5','day-6','day-7','day-8','day-9'];
   const dayLabels  = ['Wed 1 Apr','Thu 2 Apr','Fri 3 Apr','Sat 4 Apr','Sun 5 Apr',
@@ -2277,6 +2431,8 @@ function init() {
   buildNav();
   updateHeader();
   renderSection();
+  initFirebase();        // connect Firebase if config is saved
+  updateSyncBadge();     // show Sync button in header
 
   // Auto-save & header update every minute
   setInterval(updateHeader, 60000);
