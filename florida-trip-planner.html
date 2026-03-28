@@ -1,0 +1,2288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, minimum-scale=1.0, maximum-scale=1.0"/>
+<title>🌴 Loz & Paul's Family Mega Hol Treat 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  darkMode: 'class',
+  theme: {
+    extend: {
+      fontFamily: { sans: ['Poppins','ui-sans-serif','system-ui'] },
+      colors: {
+        brand: { orange:'#FF6B35', coral:'#FF8C61', yellow:'#FFD166', teal:'#06D6A0', blue:'#118AB2', navy:'#073B4C', pink:'#EF476F' }
+      },
+      boxShadow: {
+        'card':'0 4px 24px -4px rgba(0,0,0,.10)',
+        'card-hover':'0 12px 40px -8px rgba(0,0,0,.18)',
+        'glow-orange':'0 0 24px rgba(255,107,53,.35)',
+        'glow-teal':'0 0 24px rgba(6,214,160,.3)',
+      }
+    }
+  }
+}
+</script>
+<style>
+  /* ── RESET & BASE ── */
+  *, *::before, *::after { box-sizing: border-box; }
+  :root {
+    --orange: #FF6B35; --coral: #FF8C61; --yellow: #FFD166;
+    --teal: #06D6A0; --blue: #118AB2; --navy: #073B4C; --pink: #EF476F;
+    --sidebar-w: 260px;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Poppins', sans-serif;
+    /* Crisp text rendering on all devices */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    /* Prevent iOS rubber-band blur artefacts */
+    -webkit-overflow-scrolling: touch;
+  }
+  /* Force GPU layer for anything that animates — prevents subpixel blur */
+  .card, .park-card, .sidebar-item, .stat-card, .btn-primary, .btn-secondary {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+  /* Remove heavy backdrop-blur on mobile where it causes rendering fuzz */
+  @media (max-width: 768px) {
+    .modal-bg { backdrop-filter: none; -webkit-backdrop-filter: none; background: rgba(0,0,0,0.72); }
+    #header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    /* Disable hover lift on touch — avoids stuck-transform blur */
+    .card:hover, .park-card:hover, .stat-card:hover { transform: translateZ(0); box-shadow: 0 2px 16px -4px rgba(0,0,0,.08); }
+  }
+
+  /* ── BACKGROUND ── */
+  body { background: #f8faff; }
+  .dark body, .dark { background: #0c1220 !important; }
+
+  /* ── HEADER ── */
+  #header {
+    background: linear-gradient(135deg, #073B4C 0%, #118AB2 40%, #06D6A0 100%);
+    box-shadow: 0 4px 24px rgba(17,138,178,.35);
+  }
+  .dark #header {
+    background: linear-gradient(135deg, #040f1a 0%, #0a3a52 50%, #055a45 100%);
+  }
+  .header-logo { letter-spacing: -0.5px; text-shadow: 0 2px 8px rgba(0,0,0,.25); }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    background: linear-gradient(180deg, #ffffff 0%, #f8faff 100%);
+    border-right: 1px solid rgba(0,0,0,.06);
+  }
+  .dark #sidebar {
+    background: linear-gradient(180deg, #111827 0%, #0c1220 100%);
+    border-right: 1px solid rgba(255,255,255,.06);
+  }
+  .sidebar-item {
+    transition: all .2s cubic-bezier(.4,0,.2,1);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+  .sidebar-item:hover { transform: translateX(3px); }
+  .sidebar-item.active {
+    background: linear-gradient(135deg, var(--orange), var(--coral));
+    color: white !important;
+    box-shadow: 0 4px 16px rgba(255,107,53,.4);
+  }
+  .sidebar-item.active::before {
+    content: '';
+    position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+    background: white; border-radius: 0 2px 2px 0;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    transition: transform .25s cubic-bezier(.4,0,.2,1), box-shadow .25s cubic-bezier(.4,0,.2,1);
+    border: 1px solid rgba(0,0,0,.05);
+    box-shadow: 0 2px 16px -4px rgba(0,0,0,.08);
+  }
+  .card:hover {
+    transform: translateZ(0) translateY(-3px);
+    box-shadow: 0 12px 40px -8px rgba(0,0,0,.15);
+  }
+  .dark .card { border-color: rgba(255,255,255,.06); box-shadow: 0 2px 16px -4px rgba(0,0,0,.4); }
+  .dark .card:hover { box-shadow: 0 12px 40px -8px rgba(0,0,0,.5); }
+
+  /* ── GLASS CARD ── */
+  .glass {
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.6);
+  }
+  .dark .glass {
+    background: rgba(17,24,39,.6);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+
+  /* ── HERO GRADIENT ── */
+  .hero-gradient {
+    background: linear-gradient(135deg, #FF6B35 0%, #FF8C61 30%, #FFD166 60%, #06D6A0 100%);
+    position: relative; overflow: hidden;
+  }
+  .hero-gradient::before {
+    content: ''; position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.06'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .dark-hero {
+    background: linear-gradient(135deg, #1a0a3e 0%, #0d2b4e 40%, #093326 100%);
+  }
+
+  /* ── STAT CARD ── */
+  .stat-card {
+    position: relative; overflow: hidden;
+    border-radius: 20px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .stat-card::after {
+    content: ''; position: absolute; right: -20px; bottom: -20px;
+    width: 80px; height: 80px; border-radius: 50%;
+    background: rgba(255,255,255,.1);
+  }
+  .stat-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px -8px rgba(0,0,0,.2); }
+
+  /* ── PROGRESS ── */
+  .progress-bar { transition: width .7s cubic-bezier(.4,0,.2,1); }
+  .progress-track {
+    background: rgba(0,0,0,.06);
+    border-radius: 999px;
+    height: 8px;
+    overflow: hidden;
+  }
+  .dark .progress-track { background: rgba(255,255,255,.1); }
+
+  /* ── BADGE ── */
+  .badge {
+    display: inline-flex; align-items: center;
+    font-size: .6rem; padding: 3px 8px;
+    border-radius: 999px; font-weight: 700;
+    letter-spacing: .02em; white-space: nowrap;
+  }
+
+  /* ── AVATAR ── */
+  .avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+  }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    background: linear-gradient(135deg, var(--orange), var(--coral));
+    color: white; font-weight: 700; border-radius: 14px;
+    transition: all .2s; box-shadow: 0 4px 16px rgba(255,107,53,.35);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,107,53,.45); }
+  .btn-secondary {
+    background: linear-gradient(135deg, #118AB2, #06D6A0);
+    color: white; font-weight: 700; border-radius: 14px;
+    transition: all .2s; box-shadow: 0 4px 16px rgba(17,138,178,.3);
+  }
+  .btn-secondary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(17,138,178,.4); }
+
+  /* ── FORM ELEMENTS ── */
+  input, textarea, select {
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+    border-radius: 12px !important;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--orange) !important;
+    box-shadow: 0 0 0 3px rgba(255,107,53,.15) !important;
+  }
+
+  /* ── TIMELINE ── */
+  .timeline-dot {
+    width: 14px; height: 14px; border-radius: 50%;
+    flex-shrink: 0; margin-top: 3px;
+    box-shadow: 0 0 0 3px rgba(255,255,255,.8);
+  }
+  .dark .timeline-dot { box-shadow: 0 0 0 3px rgba(17,24,39,.8); }
+
+  /* ── CHECKLIST ── */
+  .checklist-item {
+    border-radius: 10px;
+    transition: background .15s;
+  }
+  .checklist-item:hover { background: rgba(255,107,53,.06); }
+
+  /* ── ANIMATIONS ── */
+  .fade-in { animation: fadeIn .35s cubic-bezier(.4,0,.2,1); }
+  @keyframes fadeIn {
+    from { opacity:0; transform: translateY(12px); }
+    to   { opacity:1; transform: translateY(0); }
+  }
+  .pop-in { animation: popIn .3s cubic-bezier(.34,1.56,.64,1); }
+  @keyframes popIn {
+    from { opacity:0; transform: scale(.92); }
+    to   { opacity:1; transform: scale(1); }
+  }
+  .pulse-dot {
+    animation: pulseDot 2s ease-in-out infinite;
+  }
+  @keyframes pulseDot {
+    0%,100% { box-shadow: 0 0 0 0 rgba(255,107,53,.4); }
+    50%      { box-shadow: 0 0 0 6px rgba(255,107,53,0); }
+  }
+
+  /* ── MODAL ── */
+  .modal-bg { backdrop-filter: blur(8px); }
+  #modalBox {
+    box-shadow: 0 32px 80px rgba(0,0,0,.3);
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0,0,0,.12); border-radius: 999px; }
+  .dark ::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); }
+
+  /* ── PRINT ── */
+  @media print {
+    #sidebar, #header, .no-print { display:none!important; }
+    #main { margin:0!important; padding:0!important; }
+  }
+
+  /* ── MISC ── */
+  .tab-active { border-bottom: 3px solid var(--orange); color: var(--orange); }
+  #qr-canvas { display:block; margin:0 auto; }
+  .drag-over { border: 2px dashed var(--orange); background: rgba(255,107,53,.08); border-radius: 14px; }
+  .line-clamp-2 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+
+  /* ── PARK CARD ── */
+  .park-card {
+    border-radius: 20px;
+    transition: all .25s cubic-bezier(.4,0,.2,1);
+    border: 1.5px solid rgba(0,0,0,.06);
+  }
+  .park-card:hover {
+    transform: translateZ(0) translateY(-4px) scale(1.01);
+    box-shadow: 0 20px 50px -10px rgba(0,0,0,.18);
+    border-color: rgba(255,107,53,.3);
+  }
+  .dark .park-card { border-color: rgba(255,255,255,.07); }
+  .dark .park-card:hover { border-color: rgba(255,107,53,.4); box-shadow: 0 20px 50px -10px rgba(0,0,0,.5); }
+</style>
+</head>
+<body class="text-slate-800 dark:text-slate-100 min-h-screen" style="background:#f0f4ff">
+
+<!-- HEADER -->
+<header id="header" class="fixed top-0 left-0 right-0 z-40">
+  <div class="flex items-center justify-between px-4 md:px-6 h-16">
+    <div class="flex items-center gap-3">
+      <button id="sidebarToggle" class="text-white/90 hover:text-white p-1.5 hover:bg-white/15 rounded-xl transition md:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">🌴</span>
+        <div>
+          <p class="header-logo text-white font-black text-sm md:text-base leading-tight">Loz &amp; Paul's Family Mega Hol</p>
+          <p class="text-white/60 text-xs font-medium leading-none hidden md:block">Florida 2026 · 12 people · 10 days</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <span id="dayCounter" class="bg-white/15 backdrop-blur text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/20 hidden md:inline-flex items-center gap-1.5"></span>
+      <button id="darkToggle" class="text-white/90 hover:text-white p-2 hover:bg-white/15 rounded-xl transition text-lg">🌙</button>
+      <button onclick="exportJSON()" class="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 backdrop-blur text-white text-xs font-bold px-3 py-2 rounded-xl border border-white/20 transition no-print">
+        <span>📤</span><span>Export</span>
+      </button>
+      <button onclick="document.getElementById('importFile').click()" class="hidden sm:flex items-center gap-1.5 bg-white/15 hover:bg-white/25 backdrop-blur text-white text-xs font-bold px-3 py-2 rounded-xl border border-white/20 transition no-print">
+        <span>📥</span><span>Import</span>
+      </button>
+      <input type="file" id="importFile" class="hidden" accept=".json" onchange="importJSON(event)"/>
+    </div>
+  </div>
+</header>
+
+<!-- LAYOUT -->
+<div class="flex pt-16 min-h-screen">
+
+<!-- SIDEBAR -->
+<aside id="sidebar" class="fixed md:sticky top-16 left-0 h-[calc(100vh-4rem)] w-[260px] z-30 transform -translate-x-full md:translate-x-0 transition-transform duration-300 overflow-y-auto flex-shrink-0">
+  <div class="p-4 h-full flex flex-col">
+    <!-- Brand mini -->
+    <div class="flex items-center gap-2 px-2 mb-5">
+      <span class="text-2xl">🌴</span>
+      <div>
+        <p class="text-xs font-black text-slate-700 dark:text-slate-200 leading-tight">Loz &amp; Paul's</p>
+        <p class="text-xs text-slate-400 leading-tight">Mega Hol Treat 2026</p>
+      </div>
+    </div>
+
+    <p class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest px-2 mb-2">Menu</p>
+    <nav class="space-y-0.5 flex-1" id="navMenu"></nav>
+
+    <!-- Trip info card at bottom -->
+    <div class="mt-4 rounded-2xl p-3.5 relative overflow-hidden" style="background:linear-gradient(135deg,#FF6B35,#FF8C61)">
+      <div class="absolute right-2 top-2 text-3xl opacity-20">✈️</div>
+      <p class="text-white/80 text-xs font-semibold uppercase tracking-wide mb-0.5">Trip Dates</p>
+      <p class="text-white font-bold text-xs" id="sidebarDates">Loading…</p>
+      <div class="flex items-center gap-2 mt-2">
+        <span class="bg-white/25 text-white text-xs font-bold px-2 py-0.5 rounded-full" id="sidebarPeople">12 👥</span>
+        <span class="bg-white/25 text-white text-xs font-bold px-2 py-0.5 rounded-full">2 🚗</span>
+      </div>
+    </div>
+  </div>
+</aside>
+<div id="sidebarOverlay" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-20 hidden md:hidden" onclick="closeSidebar()"></div>
+
+<!-- MAIN -->
+<main id="main" class="flex-1 min-w-0 p-4 md:p-6 max-w-5xl mx-auto w-full">
+  <div id="content" class="fade-in"></div>
+</main>
+</div>
+
+<!-- MODAL -->
+<div id="modal" class="fixed inset-0 z-50 hidden modal-bg bg-black/60 flex items-end md:items-center justify-center p-0 md:p-4" onclick="closeModal(event)">
+  <div id="modalBox" class="bg-white dark:bg-slate-900 rounded-t-3xl md:rounded-3xl w-full md:max-w-lg max-h-[92vh] overflow-y-auto pop-in" onclick="e=>e.stopPropagation()">
+    <div class="w-10 h-1 bg-slate-200 dark:bg-slate-700 rounded-full mx-auto mt-3 mb-1 md:hidden"></div>
+    <div id="modalContent" class="p-5 pb-8 md:pb-5"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// DATA & STATE
+// ============================================================
+const PARKS = ['Magic Kingdom','EPCOT','Hollywood Studios','Animal Kingdom','Universal Studios','Islands of Adventure','Gatorland','Discovery Cove','Volcano Bay','SeaWorld Orlando','Disney Springs','Rest Day'];
+const PARK_EMOJIS = {'Magic Kingdom':'🏰','EPCOT':'🌍','Hollywood Studios':'🎬','Animal Kingdom':'🦁','Universal Studios':'🎥','Islands of Adventure':'⚡','Gatorland':'🐊','Discovery Cove':'🐬','Volcano Bay':'🌊','SeaWorld Orlando':'🦈','Disney Springs':'🛍️','Rest Day':'😴'};
+
+// ============================================================
+// PARK INFO DATABASE
+// ============================================================
+const PARK_INFO = {
+  'Magic Kingdom': {
+    emoji:'🏰', tagline:'The Most Magical Place on Earth',
+    description:'The iconic heart of Walt Disney World. Cinderella Castle towers over a land of classic rides, parades, character meets and spectacular nightly fireworks. Perfect for every age.',
+    bestFor:'All ages – especially young children and Disney fans',
+    mustDo:["TRON Lightcycle Run (book at 7am!)","Seven Dwarfs Mine Train","Haunted Mansion","Pirates of the Caribbean","Festival of Fantasy Parade","Cinderella's Castle fireworks (9pm)"],
+    tips:['Arrive 45 min before opening for rope drop advantage','Book Lightning Lane for TRON and Seven Dwarfs at 7am sharp','Stay for the fireworks – they are unmissable','Mobile order food via My Disney Experience app to skip queues','Fantasyland has the most rides for young kids'],
+    duration:'Full day – 9am to 10pm+',bestTime:'Weekdays; avoid weekends',
+    ageRating:'⭐ All ages',cost:'$$$  (Disney park ticket)',
+    address:'1180 Seven Seas Dr, Orlando, FL 32830',
+    driveFromHotel:'25–30 min (14 miles via US-192 W)',parking:'$30/day (Preferred $50). Arrive before 9am or lots fill up.',
+    website:'https://disneyworld.disney.go.com/destinations/magic-kingdom/'
+  },
+  'EPCOT': {
+    emoji:'🌍', tagline:'Where the World Comes Together',
+    description:'Half thrilling rides, half international food & culture festival. World Showcase lets you "visit" 11 countries in one afternoon, each with authentic food and entertainment.',
+    bestFor:'Adults and older kids; foodies; culture lovers',
+    mustDo:['Guardians of the Galaxy: Cosmic Rewind (newest ride!)','Remy\'s Ratatouille Adventure','Frozen Ever After','Soarin\' Around the World','World Showcase food crawl','EPCOT Forever fireworks'],
+    tips:['World Showcase opens at 11am – do rides first thing','Book Guardians Lightning Lane at 7am – always sells out','Each country pavilion has amazing food & drinks','France Pavilion has crêpes and wine','Japan Pavilion has excellent sushi'],
+    duration:'Full day – 9am to 9pm',bestTime:'Any weekday',
+    ageRating:'⭐ All ages, best for 8+',cost:'$$$ (Disney park ticket)',
+    address:'200 Epcot Center Dr, Orlando, FL 32821',
+    driveFromHotel:'20–25 min (11 miles via US-192 W)',parking:'$30/day. Closer than Magic Kingdom.',
+    website:'https://disneyworld.disney.go.com/destinations/epcot/'
+  },
+  'Hollywood Studios': {
+    emoji:'🎬', tagline:'Lights, Camera, Adventure!',
+    description:'Star Wars, Toy Story, Indiana Jones and more. Rise of the Resistance is arguably the best theme park ride on the planet. A must-do for any thrill-seeker.',
+    bestFor:'Older kids (8+), teens, adults, Star Wars fans',
+    mustDo:['Star Wars: Rise of the Resistance','Slinky Dog Dash','Tower of Terror','Rock\'n\'Roller Coaster','Millennium Falcon: Smugglers Run','Star Wars Galaxy\'s Edge area'],
+    tips:['Rise of the Resistance – book at 7am or queue at park open','Slinky Dog Dash fills up fast – go right at rope drop','Galaxy\'s Edge is stunning – allow 2 hours to explore','Tower of Terror is intense – not for the faint-hearted!','Fantasmic evening show is excellent – arrive 45 min early'],
+    duration:'Full day – 9am to 9pm',bestTime:'Weekdays',
+    ageRating:'⭐⭐ Best for ages 8+',cost:'$$$ (Disney park ticket)',
+    address:'351 S Studio Dr, Orlando, FL 32830',
+    driveFromHotel:'20–25 min (12 miles)',parking:'$30/day',
+    website:'https://disneyworld.disney.go.com/destinations/hollywood-studios/'
+  },
+  'Animal Kingdom': {
+    emoji:'🦁', tagline:'A Whole New World of Nature & Adventure',
+    description:'Pandora – The World of Avatar is breathtaking. Plus real animals on the Kilimanjaro Safari, thrilling coasters and gorgeous landscaping. Opens early – make the most of it!',
+    bestFor:'All ages; nature lovers; Avatar fans',
+    mustDo:['Flight of Passage – Avatar (best ride in WDW)','Na\'vi River Journey','Kilimanjaro Safaris (animals most active in morning)','Expedition Everest','Finding Nemo: The Big Show'],
+    tips:['Park opens at 8am – go early, animals are more active','Flight of Passage Lightning Lane sells out by 8:30am','Do the Safari first thing for best animal sightings','Pandora looks incredible lit up at night','Park is largely outdoors – bring sun cream and hat'],
+    duration:'Full day – 8am to 7pm (closes earlier than other parks)',bestTime:'Weekday mornings',
+    ageRating:'⭐ All ages',cost:'$$$ (Disney park ticket)',
+    address:'2901 Osceola Pkwy, Orlando, FL 32830',
+    driveFromHotel:'20–25 min (12 miles via US-192 W)',parking:'$30/day',
+    website:'https://disneyworld.disney.go.com/destinations/animal-kingdom/'
+  },
+  'Universal Studios': {
+    emoji:'🎥', tagline:'Ride the Movies',
+    description:'Harry Potter, Minions, Transformers and more. Adjacent to Islands of Adventure – both parks are on one ticket. CityWalk between them has great restaurants.',
+    bestFor:'Teens and adults; Harry Potter fans; thrill seekers',
+    mustDo:['Escape from Gringotts (Harry Potter)','Minion Mayhem','Hollywood Rip Ride Rockit','Despicable Me Minion Mayhem','Diagon Alley – walk-through area','Butterbeer at the Leaky Cauldron'],
+    tips:['Buy a 2-Park ticket to access both Universal Studios + Islands of Adventure','Early Park Admission is worth buying','Express Pass eliminates queues – consider it for busy days','Diagon Alley is Harry Potter-themed and stunning','CityWalk has great dining – book dinner here'],
+    duration:'Full day – 9am to 9pm',bestTime:'Weekdays',
+    ageRating:'⭐⭐ Best for ages 8+',cost:'$$$ (Universal ticket)',
+    address:'6000 Universal Blvd, Orlando, FL 32819',
+    driveFromHotel:'25–30 min (16 miles via FL-417 N)',parking:'$30/day (on-site garage)',
+    website:'https://www.universalorlando.com'
+  },
+  'Islands of Adventure': {
+    emoji:'⚡', tagline:'Where Thrills Come to Life',
+    description:'Home of Hagrid\'s Magical Creatures Motorbike Adventure – consistently voted the world\'s best theme park ride. Plus Jurassic World, Incredible Hulk and the Wizarding World of Harry Potter.',
+    bestFor:'Thrill seekers; teens; Harry Potter fans',
+    mustDo:['Hagrid\'s Magical Creatures Motorbike Adventure','Velocicoaster (fastest coaster in Florida!)','Incredible Hulk Coaster','Jurassic World Ride (get wet!)','Hogsmeade Village – walk & Butterbeer'],
+    tips:['Hagrid\'s is worth a 90-min queue – do it first thing','Velocicoaster is thrilling – not for those scared of heights','Hogsmeade and Diagon Alley are connected by Hogwarts Express (need 2-Park ticket)','Bring ponchos for Jurassic World and Dudley Do-Right rides','Plan to get soaked – it\'s Florida hot!'],
+    duration:'Full day – 9am to 9pm',bestTime:'Weekday mornings',
+    ageRating:'⭐⭐ Best for ages 8+, thrills focus',cost:'$$$ (Universal ticket – best combined with Universal Studios)',
+    address:'6000 Universal Blvd, Orlando, FL 32819',
+    driveFromHotel:'25–30 min (16 miles)',parking:'$30/day (shared with Universal)',
+    website:'https://www.universalorlando.com/web/en/us/theme-parks/islands-of-adventure'
+  },
+  'Gatorland': {
+    emoji:'🐊', tagline:'The Alligator Capital of the World',
+    description:'A uniquely Florida experience! Thousands of alligators and crocodiles, zip-lines over gator pools, feeding shows and the up-close Screamin\' Gator Zip Line. Half-day is plenty – great value and very close to your hotel!',
+    bestFor:'All ages; younger kids love the animals; adventurous adults',
+    mustDo:['Screamin\' Gator Zip Line (fly over 130 gators!)','Gator Wrestlin\' Show','Jumparoo – watch gators leap for food','Walk the boardwalk through the breeding marsh','Upclose Encounters – hold a baby gator'],
+    tips:['Only 8 miles from Storey Lake – your nearest attraction!','Arrive at 10am when shows start','Allow 3–4 hours – perfect half-day activity','Combine with an afternoon pool day back at the hotel','Book zip line in advance, spots fill up','Great value compared to Disney/Universal – around $35/adult'],
+    duration:'Half day – 3–4 hours ideal',bestTime:'Morning opening',
+    ageRating:'⭐ All ages – kids absolutely love it!',cost:'$$ (~$35 adults, ~$25 kids)',
+    address:'14501 S Orange Blossom Trail, Orlando, FL 32837',
+    driveFromHotel:'15–20 min (8 miles via US-441 S) – CLOSEST ATTRACTION!',parking:'Free parking on-site',
+    website:'https://www.gatorland.com'
+  },
+  'Discovery Cove': {
+    emoji:'🐬', tagline:'Swim with Dolphins in Orlando',
+    description:'An all-inclusive, reservation-only day resort where you SWIM WITH DOLPHINS! Also includes snorkelling with tropical fish, rays and sharks (behind glass), lazy river, and unlimited food & drink. Book well in advance – numbers are strictly limited.',
+    bestFor:'All ages; unforgettable family memory; dolphin lovers',
+    mustDo:['Dolphin Swim Experience (30-min session, included in ticket)','Grand Reef snorkel – rays, sharks, tropical fish','Aviary – hand-feed tropical birds','Wind-Away River (lazy river)','Freshwater oasis pools'],
+    tips:['BOOK IN ADVANCE – maximum 1,000 guests per day!','All food, drinks, snorkelling gear and wetsuit included','No outside food needed – it\'s fully all-inclusive','Minimum age for dolphin swim is usually 6 years old, check when booking','Go on a weekday for the most relaxed experience','You get free admission to SeaWorld + Aquatica for 14 days with your ticket!','Non-dolphin packages available if some prefer to just snorkel'],
+    duration:'Full day – 8am to 5pm. Stay all day!',bestTime:'Any day – it\'s always uncrowded by design',
+    ageRating:'⭐ All ages. Dolphin swim: ages 6+ (check current policy)',cost:'$$$$ (~$200–$400/person all-inclusive)',
+    address:'6000 Discovery Cove Way, Orlando, FL 32821',
+    driveFromHotel:'20–25 min (13 miles via FL-417 N)',parking:'Free parking included',
+    website:'https://www.discoverycove.com'
+  },
+  'Volcano Bay': {
+    emoji:'🌊', tagline:'Universal\'s Tropical Water Theme Park',
+    description:'A stunning tropical water park with an iconic volcano centrepiece. Ride slides, relax on the lazy river, or lounge on the beach. The TapuTapu wristband means no physical queuing – join a virtual queue and get a notification.',
+    bestFor:'All ages on a hot day; families; water lovers',
+    mustDo:['Ko\'okiri Body Plunge (125ft near-vertical drop!)','Krakatau Aqua Coaster (ride uphill with jets)','Kala & Tai Nui Serpentine Body Slides (side-by-side racing)','Wave Village beach & pools','Puka Uli Lagoon lazy river'],
+    tips:['Rent a cabana for guaranteed shade – book in advance','TapuTapu wristband = no physical queuing, just tap and go','Arrive when gates open – waits build fast by 11am','Bring waterproof phone case','Towel rental available on-site','Lockers available near entrance'],
+    duration:'Full day – 9am to 6pm',bestTime:'Weekday mornings',
+    ageRating:'⭐ All ages – great for kids',cost:'$$$ (Universal ticket)',
+    address:'6000 Universal Blvd, Orlando, FL 32819',
+    driveFromHotel:'25–30 min (16 miles)',parking:'$30/day',
+    website:'https://www.universalorlando.com/web/en/us/theme-parks/volcano-bay'
+  },
+  'SeaWorld Orlando': {
+    emoji:'🦈', tagline:'Feel the Thrill of the Ocean',
+    description:'World-class roller coasters alongside marine animal exhibits, shows and conservation. Mako is one of the tallest, fastest coasters in Florida. If you have Discovery Cove tickets, you get free entry here!',
+    bestFor:'All ages; coaster fans; marine life lovers',
+    mustDo:['Mako – 200ft hypercoaster (tallest in Orlando!)','Ice Breaker – unique vertical coaster','Manta Ray flying coaster','Penguin Trek coaster through penguin habitat','Orca Encounter educational show','Antarctic Empire – penguin exhibit'],
+    tips:['Discovery Cove ticket gives 14 days FREE entry here – use it!','Mako and Ice Breaker both have short waits mid-afternoon','Dolphin nursery is free to watch and lovely for kids','The aquarium is world-class and air-conditioned – great midday break','Aquatica water park is next door (same company)'],
+    duration:'Full day – 9am to 7pm',bestTime:'Weekdays',
+    ageRating:'⭐ All ages; coasters best for 8+',cost:'$$$ (or FREE with Discovery Cove ticket!)',
+    address:'7007 SeaWorld Dr, Orlando, FL 32821',
+    driveFromHotel:'20–25 min (12 miles via FL-417 N)',parking:'$30/day',
+    website:'https://seaworld.com/orlando'
+  },
+  'Disney Springs': {
+    emoji:'🛍️', tagline:'Shopping, Dining & Entertainment – No Ticket Needed!',
+    description:'Disney\'s free-entry shopping, dining and entertainment district. World-class restaurants, unique shops, live music and the largest Disney store on earth. Perfect for a relaxed half-day or evening.',
+    bestFor:'Everyone – especially foodies and shoppers',
+    mustDo:['Gideon\'s Bakehouse – insane cookies (queue early!)','World of Disney mega-store','Rainforest Cafe for a fun family dinner','Live music at The Landing waterfront','Earl of Sandwich for amazing value lunch'],
+    tips:['No park ticket needed – completely free entry!','Gideon\'s Bakehouse often has a 45-min queue – arrive at opening','The LEGO Store is amazing for kids','Book restaurants in advance, especially evenings','Great evening out after an early park day'],
+    duration:'2–5 hours',bestTime:'Evenings are most atmospheric',
+    ageRating:'⭐ All ages',cost:'Free entry (pay for food/shopping)',
+    address:'1486 Buena Vista Dr, Orlando, FL 32830',
+    driveFromHotel:'20 min (11 miles)',parking:'Free parking (large garages)',
+    website:'https://www.disneysprings.com'
+  },
+};
+
+// ============================================================
+// TRAVEL TIMES FROM STOREY LAKE RESORT
+// ============================================================
+const HOTEL = {
+  name:'Storey Lake Resort',
+  address:'2519 Luxury Way, Kissimmee, FL 34747',
+  emoji:'🏨',
+  about:'A luxury vacation-home resort in Kissimmee, just minutes from Walt Disney World. Private pools, splash pad, lazy river, gym, game room and shuttle options available.',
+  phone:'+1 (407) 507-0100',
+  checkIn:'3:00 PM',checkOut:'10:00 AM',
+};
+const TRAVEL_TIMES = {
+  'Magic Kingdom':    {drive:'25–30 min',miles:'14 mi',route:'US-192 W → World Dr',parking:'$30/day. Arrive before 9am or lots fill up. Use the monorail from TTC.',trafficTip:'Heavy traffic 8:30–9:30am. Leave by 8am for rope drop.'},
+  'EPCOT':            {drive:'20–25 min',miles:'11 mi',route:'US-192 W → World Dr',parking:'$30/day. Epcot lot is well-organised.',trafficTip:'Moderate traffic. Easy drive – straightforward route.'},
+  'Hollywood Studios':{drive:'20–25 min',miles:'12 mi',route:'US-192 W → Osceola Pkwy',parking:'$30/day.',trafficTip:'Moderate. Similar route to EPCOT.'},
+  'Animal Kingdom':   {drive:'20–25 min',miles:'12 mi',route:'US-192 W → Osceola Pkwy',parking:'$30/day. Large lot, easy to navigate.',trafficTip:'Leave by 7:30am to hit rope drop at 8am.'},
+  'Universal Studios':{drive:'25–30 min',miles:'16 mi',route:'US-192 E → FL-417 N → Universal Blvd',parking:'$30/day (on-site garage).',trafficTip:'FL-417 is a toll road (~$3). Fastest route. I-4 can be very congested.'},
+  'Islands of Adventure':{drive:'25–30 min',miles:'16 mi',route:'FL-417 N → Universal Blvd',parking:'Shared with Universal Studios, $30/day.',trafficTip:'Same as Universal. FL-417 toll road recommended.'},
+  'Gatorland':        {drive:'15–20 min',miles:'8 mi',route:'US-441 S (Orange Blossom Trail)',parking:'Free on-site.',trafficTip:'CLOSEST attraction! Easy drive. Light traffic most times. No tolls.'},
+  'Discovery Cove':   {drive:'20–25 min',miles:'13 mi',route:'FL-417 N → Sea Harbor Dr',parking:'Free included with ticket.',trafficTip:'FL-417 toll (~$3). Arrive at 8am – gates open then and it sets the tone!'},
+  'Volcano Bay':      {drive:'25–30 min',miles:'16 mi',route:'FL-417 N → Universal Blvd',parking:'$30/day.',trafficTip:'Same route as Universal. Go early before crowds.'},
+  'SeaWorld Orlando': {drive:'20–25 min',miles:'12 mi',route:'FL-417 N → Sea Harbor Dr',parking:'$30/day (or free with Discovery Cove ticket).',trafficTip:'Easy drive. Moderate traffic.'},
+  'Disney Springs':   {drive:'20 min',miles:'11 mi',route:'US-192 W → Hotel Plaza Blvd',parking:'Free in Disney Springs garages.',trafficTip:'Easy evening drive. Parking is free and plentiful.'},
+};
+const COLORS = ['bg-sky-400','bg-orange-400','bg-green-400','bg-yellow-400','bg-purple-400','bg-pink-400','bg-teal-400','bg-red-400','bg-indigo-400','bg-lime-400','bg-amber-400','bg-cyan-400'];
+const NAV_ITEMS = [
+  {id:'dashboard',icon:'🏠',label:'Dashboard'},
+  {id:'itinerary',icon:'📅',label:'Itinerary'},
+  {id:'parkguide',icon:'🗺️',label:'Park Guide'},
+  {id:'group',icon:'👨‍👩‍👧‍👦',label:'Group & Cars'},
+  {id:'polls',icon:'🗳️',label:'Polls & Voting'},
+  {id:'budget',icon:'💰',label:'Budget'},
+  {id:'attractions',icon:'🎢',label:'Attractions'},
+  {id:'meals',icon:'🍽️',label:'Meals'},
+  {id:'notes',icon:'📝',label:'Notes & Links'},
+  {id:'extras',icon:'⭐',label:'Extras'},
+];
+
+const DEFAULT_STATE = {
+  darkMode: false,
+  currentSection: 'dashboard',
+  tripName: "Loz & Paul's Family Mega Hol Treat",
+  flyDate:   '2026-03-30',
+  tripStart: '2026-04-01',
+  tripEnd:   '2026-04-10',
+  people: [
+    {id:1,name:'Me (David)',emoji:'😎',car:1,driver:false},
+    {id:2,name:'Wife',emoji:'👩',car:1,driver:false},
+    {id:3,name:'Mum-in-law',emoji:'👵',car:2,driver:false},
+    {id:4,name:'Dad-in-law',emoji:'👴',car:2,driver:false},
+    {id:5,name:'Sister 1',emoji:'👩‍🦱',car:1,driver:false},
+    {id:6,name:'Brother 1',emoji:'👨',car:2,driver:false},
+    {id:7,name:'Sister 2',emoji:'👩‍🦳',car:1,driver:false},
+    {id:8,name:'Partner S2',emoji:'🧔',car:2,driver:false},
+    {id:9,name:'Kid 1',emoji:'🧒',car:1,driver:false},
+    {id:10,name:'Kid 2',emoji:'👦',car:2,driver:false},
+    {id:11,name:'Kid 3',emoji:'👧',car:1,driver:false},
+    {id:12,name:'Kid 4',emoji:'🧒',car:2,driver:false},
+  ],
+  itinerary: {
+    0:{park:'Magic Kingdom',activities:[{id:'a1',time:'09:00',name:'Park Opening – Rope Drop',duration:30,notes:'Arrive early!',status:'must'},{id:'a2',time:'10:00',name:'Seven Dwarfs Mine Train',duration:60,notes:'Book Lightning Lane',status:'must'},{id:'a3',time:'12:30',name:'Lunch at Be Our Guest',duration:60,notes:'Pre-book required',status:'must'},{id:'a4',time:'14:00',name:'Haunted Mansion',duration:45,notes:'',status:'flexible'},{id:'a5',time:'16:00',name:'Afternoon Parade',duration:30,notes:'Find spot 20min early',status:'flexible'},{id:'a6',time:'21:00',name:"Cinderella's Castle Fireworks",duration:30,notes:'Fantasyland Hub',status:'must'}]},
+    1:{park:'EPCOT',activities:[{id:'b1',time:'09:30',name:'Guardians of the Galaxy',duration:60,notes:'Lightning Lane a must',status:'must'},{id:'b2',time:'11:30',name:'Remy\'s Ratatouille',duration:45,notes:'France Pavilion',status:'must'},{id:'b3',time:'13:00',name:'Lunch – World Showcase',duration:75,notes:'Try the international food stalls',status:'flexible'},{id:'b4',time:'15:00',name:'Frozen Ever After',duration:45,notes:'Norway Pavilion',status:'flexible'},{id:'b5',time:'21:00',name:'EPCOT Forever Fireworks',duration:30,notes:'',status:'must'}]},
+    2:{park:'Hollywood Studios',activities:[{id:'c1',time:'09:00',name:'Star Wars: Rise of the Resistance',duration:60,notes:'Book at 7am!',status:'must'},{id:'c2',time:'11:00',name:'Slinky Dog Dash',duration:45,notes:'Toy Story Land',status:'must'},{id:'c3',time:'13:00',name:'Lunch at Sci-Fi Dine-In',duration:60,notes:'Fun retro cars theme',status:'flexible'},{id:'c4',time:'15:00',name:'Tower of Terror',duration:45,notes:'',status:'must'},{id:'c5',time:'17:00',name:'Rock \'n\' Roller Coaster',duration:45,notes:'',status:'must'}]},
+    3:{park:'Animal Kingdom',activities:[{id:'d1',time:'08:00',name:'Early Park Entry + Tiffins Breakfast',duration:60,notes:'',status:'flexible'},{id:'d2',time:'10:00',name:'Flight of Passage – Avatar Land',duration:60,notes:'Top ride, Lightning Lane!',status:'must'},{id:'d3',time:'12:00',name:'Na\'vi River Journey',duration:30,notes:'',status:'flexible'},{id:'d4',time:'13:30',name:'Lunch at Satuli Canteen',duration:60,notes:'Pandora themed food',status:'flexible'},{id:'d5',time:'16:00',name:'Expedition Everest',duration:45,notes:'',status:'must'},{id:'d6',time:'20:00',name:'Rivers of Light Evening Show',duration:45,notes:'',status:'flexible'}]},
+    4:{park:'Universal Studios',activities:[{id:'e1',time:'09:00',name:'Hagrid\'s Motorbike (Early Entry)',duration:60,notes:'Be FIRST in queue',status:'must'},{id:'e2',time:'10:30',name:'Forbidden Journey',duration:45,notes:'Hogsmeade',status:'must'},{id:'e3',time:'12:30',name:'Butterbeer + Lunch',duration:60,notes:'Try the Butterbeer ice cream!',status:'must'},{id:'e4',time:'14:30',name:'Velocicoaster',duration:45,notes:'Islands of Adventure',status:'must'},{id:'e5',time:'16:30',name:'Minion Land',duration:45,notes:'',status:'flexible'}]},
+    5:{park:'Islands of Adventure',activities:[{id:'f1',time:'09:00',name:'Jurassic World Ride',duration:45,notes:'Get wet – bring ponchos',status:'must'},{id:'f2',time:'10:30',name:'Hagrid\'s Motorbike (again!)',duration:45,notes:'Worth riding twice',status:'flexible'},{id:'f3',time:'12:30',name:'Lunch at Three Broomsticks',duration:60,notes:'',status:'flexible'},{id:'f4',time:'14:30',name:'Popeye & Bluto\'s Bilge-Rat Barges',duration:30,notes:'Everyone gets soaked!',status:'flexible'},{id:'f5',time:'17:00',name:'Incredible Hulk Coaster',duration:45,notes:'',status:'must'}]},
+    6:{park:'Gatorland',activities:[{id:'g1',time:'10:00',name:'Arrive at Gatorland – Closest Attraction!',duration:30,notes:'Only 15 min from Storey Lake Resort',status:'must'},{id:'g2',time:'10:30',name:'Gator Wrestlin\' Show',duration:30,notes:'Book show schedule at entrance',status:'must'},{id:'g3',time:'11:15',name:'Screamin\' Gator Zip Line',duration:60,notes:'Fly over 130 gators! Book in advance',status:'must'},{id:'g4',time:'12:30',name:'Jumparoo – Watch gators leap for food',duration:30,notes:'Crowd favourite – great photos',status:'must'},{id:'g5',time:'13:00',name:'Hold a Baby Alligator – Upclose Encounters',duration:30,notes:'Kids absolutely love this',status:'must'},{id:'g6',time:'13:30',name:'Lunch at Pearl\'s Smokehouse (on-site)',duration:60,notes:'Good BBQ food',status:'flexible'},{id:'g7',time:'15:00',name:'Back to Hotel – Pool Afternoon',duration:180,notes:'Storey Lake has a great pool & lazy river',status:'flexible'}]},
+    7:{park:'Discovery Cove',activities:[{id:'h1',time:'08:00',name:'ARRIVE EARLY – gates open 8am',duration:30,notes:'All-inclusive day – breakfast available on arrival',status:'must'},{id:'h2',time:'08:30',name:'Grand Reef Snorkel – Rays & Tropical Fish',duration:90,notes:'Gear all included. Stunning!',status:'must'},{id:'h3',time:'10:00',name:'DOLPHIN SWIM EXPERIENCE',duration:60,notes:'🐬 The highlight! 30-min session in water with dolphins',status:'must'},{id:'h4',time:'11:30',name:'Aviary – Hand-feed tropical birds',duration:45,notes:'Kids love this',status:'must'},{id:'h5',time:'12:30',name:'Lunch – Included buffet',duration:60,notes:'All food & drinks fully included all day',status:'must'},{id:'h6',time:'14:00',name:'Wind-Away Lazy River & Beach',duration:120,notes:'Relax & soak up the sun',status:'flexible'},{id:'h7',time:'16:30',name:'Final snorkel + gift shop',duration:60,notes:'Free SeaWorld tickets included in your booking – use within 14 days!',status:'flexible'}]},
+    8:{park:'Volcano Bay',activities:[{id:'i1',time:'09:00',name:'Arrive Early – Volcano Bay',duration:30,notes:'Crowds build fast after 11am',status:'must'},{id:'i2',time:'09:30',name:'Ko\'okiri Body Plunge (125ft drop!)',duration:60,notes:'Most popular – do it first',status:'must'},{id:'i3',time:'11:00',name:'Krakatau Aqua Coaster',duration:60,notes:'Unique ride that goes UPHILL',status:'must'},{id:'i4',time:'12:30',name:'Lunch at Whakawaiwai Eats',duration:60,notes:'',status:'flexible'},{id:'i5',time:'14:00',name:'Puka Uli Lagoon Lazy River',duration:90,notes:'Chill time with the family',status:'flexible'},{id:'i6',time:'16:00',name:'Kala & Tai Nui Serpentine Slides',duration:60,notes:'Side-by-side racing – kids love it',status:'flexible'}]},
+    8:{park:'SeaWorld Orlando',activities:[{id:'sw1',time:'09:30',name:'Arrive – FREE entry with Discovery Cove ticket!',duration:30,notes:'Your Discovery Cove booking includes 14 days free SeaWorld entry',status:'must'},{id:'sw2',time:'10:00',name:'Mako – Tallest Coaster in Orlando (200ft!)',duration:45,notes:'Go straight here on arrival',status:'must'},{id:'sw3',time:'11:00',name:'Ice Breaker Coaster',duration:45,notes:'Unique vertical launch coaster',status:'must'},{id:'sw4',time:'12:00',name:'Penguin Trek coaster',duration:45,notes:'Coaster through a penguin habitat – amazing',status:'must'},{id:'sw5',time:'13:00',name:'Lunch at Sharks Underwater Grill',duration:60,notes:'Eat surrounded by a shark tank',status:'flexible'},{id:'sw6',time:'14:30',name:'Manta Ray Flying Coaster',duration:45,notes:'',status:'flexible'},{id:'sw7',time:'16:00',name:'Orca Encounter Show',duration:45,notes:'Educational – great for kids',status:'flexible'}]},
+    9:{park:'Magic Kingdom',activities:[{id:'j1',time:'09:00',name:'Final Day – Magic Kingdom!',duration:60,notes:'Pack bags in morning before heading out',status:'must'},{id:'j2',time:'10:00',name:'Ride the kids\' favourites one more time',duration:120,notes:'Let the kids choose!',status:'flexible'},{id:'j3',time:'13:00',name:'Farewell Lunch – Plaza Restaurant or Casey\'s',duration:90,notes:'Make it special',status:'must'},{id:'j4',time:'15:00',name:'One last walk through Fantasyland',duration:60,notes:'Soak it all in',status:'flexible'},{id:'j5',time:'16:30',name:'Depart for Airport / Home',duration:30,notes:'Allow 90 min buffer for airport',status:'must'}]},
+  },
+  carAssignments: {}, // {dayIndex: {car1Driver: personId, car2Driver: personId}}
+  polls: [
+    {id:'day-0',isDay:true,dayIndex:0,question:'Day 1 — Wed 1 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-1',isDay:true,dayIndex:1,question:'Day 2 — Thu 2 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-2',isDay:true,dayIndex:2,question:'Day 3 — Fri 3 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-3',isDay:true,dayIndex:3,question:'Day 4 — Sat 4 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-4',isDay:true,dayIndex:4,question:'Day 5 — Sun 5 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-5',isDay:true,dayIndex:5,question:'Day 6 — Mon 6 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-6',isDay:true,dayIndex:6,question:'Day 7 — Tue 7 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-7',isDay:true,dayIndex:7,question:'Day 8 — Wed 8 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-8',isDay:true,dayIndex:8,question:'Day 9 — Thu 9 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-9',isDay:true,dayIndex:9,question:'Day 10 — Fri 10 Apr: Where do we go?',   options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'p-dinner',isDay:false,question:'Preferred dinner time?',options:['6:00 PM','6:30 PM','7:00 PM','7:30 PM'],votes:{},closed:false,created:Date.now()},
+  ],
+  expenses: [],
+  checklist: {
+    packing:[
+      {id:'pk1',text:'Sunscreen (SPF 50+)',done:false},
+      {id:'pk2',text:'Comfortable walking shoes',done:false},
+      {id:'pk3',text:'Ponchos / Rain gear',done:false},
+      {id:'pk4',text:'Portable chargers x4',done:false},
+      {id:'pk5',text:'Reusable water bottles',done:false},
+      {id:'pk6',text:'First aid kit',done:false},
+      {id:'pk7',text:'Park tickets / app downloaded',done:false},
+      {id:'pk8',text:'Hotel confirmation printed',done:false},
+      {id:'pk9',text:'Travel insurance docs',done:false},
+      {id:'pk10',text:'Snacks for car journey',done:false},
+      {id:'pk11',text:'Hand sanitiser',done:false},
+      {id:'pk12',text:'Hats / visors for sun',done:false},
+    ],
+    rides: {
+      'Magic Kingdom':[
+        {id:'r1',name:'Seven Dwarfs Mine Train',done:false,tier:'Lightning Lane'},
+        {id:'r2',name:'TRON Lightcycle Run',done:false,tier:'Lightning Lane'},
+        {id:'r3',name:'Haunted Mansion',done:false,tier:'Standard'},
+        {id:'r4',name:'Space Mountain',done:false,tier:'Standard'},
+        {id:'r5',name:'Big Thunder Mountain',done:false,tier:'Standard'},
+        {id:'r6',name:'Pirates of the Caribbean',done:false,tier:'Standard'},
+      ],
+      'EPCOT':[
+        {id:'r7',name:'Guardians of the Galaxy',done:false,tier:'Lightning Lane'},
+        {id:'r8',name:"Remy's Ratatouille Adventure",done:false,tier:'Lightning Lane'},
+        {id:'r9',name:'Frozen Ever After',done:false,tier:'Standard'},
+        {id:'r10',name:'Test Track',done:false,tier:'Standard'},
+        {id:'r11',name:'Soarin\' Around the World',done:false,tier:'Standard'},
+      ],
+      'Hollywood Studios':[
+        {id:'r12',name:'Rise of the Resistance',done:false,tier:'Lightning Lane'},
+        {id:'r13',name:'Slinky Dog Dash',done:false,tier:'Lightning Lane'},
+        {id:'r14',name:'Tower of Terror',done:false,tier:'Standard'},
+        {id:'r15',name:"Rock 'n' Roller Coaster",done:false,tier:'Standard'},
+        {id:'r16',name:'Millennium Falcon: Smugglers Run',done:false,tier:'Standard'},
+      ],
+      'Animal Kingdom':[
+        {id:'r17',name:'Flight of Passage',done:false,tier:'Lightning Lane'},
+        {id:'r18',name:"Na'vi River Journey",done:false,tier:'Lightning Lane'},
+        {id:'r19',name:'Expedition Everest',done:false,tier:'Standard'},
+        {id:'r20',name:'Kilimanjaro Safaris',done:false,tier:'Standard'},
+      ],
+      'Universal Studios':[
+        {id:'r21',name:"Hagrid's Motorbike",done:false,tier:'Express Pass'},
+        {id:'r22',name:'Velocicoaster',done:false,tier:'Express Pass'},
+        {id:'r23',name:'Forbidden Journey',done:false,tier:'Standard'},
+        {id:'r24',name:'Escape from Gringotts',done:false,tier:'Standard'},
+        {id:'r25',name:'Minion Mayhem',done:false,tier:'Standard'},
+      ],
+    }
+  },
+  meals: {
+    0:{breakfast:'Hotel buffet',lunch:'Be Our Guest Restaurant',dinner:'Chef Mickey\'s (Character Dining)'},
+    1:{breakfast:'Hotel',lunch:'World Showcase – Morocco Pavilion',dinner:'Le Cellier Steakhouse (EPCOT Canada)'},
+    2:{breakfast:'Hotel',lunch:'Sci-Fi Dine-In Theater',dinner:'Mama Melrose\'s Ristorante'},
+    3:{breakfast:'Tiffins Restaurant',lunch:'Satuli Canteen (Pandora)',dinner:'Rainforest Cafe (Disney Springs)'},
+    4:{breakfast:'Hotel',lunch:'Three Broomsticks (Universal)',dinner:'Cowfish (Universal CityWalk)'},
+    5:{breakfast:'Hotel',lunch:'Mythos Restaurant (IoA)',dinner:'Antojitos Authentic Mexican (CityWalk)'},
+    6:{breakfast:'Hotel (early)',lunch:'Whakawaiwai Eats (Volcano Bay)',dinner:'BBQ from store – pool night'},
+    7:{breakfast:'Hotel',lunch:'Sharks Underwater Grill (SeaWorld)',dinner:'Florida Mall – restaurant of choice'},
+    8:{breakfast:'Late brunch – hotel',lunch:'Chicken Guy! (Disney Springs)',dinner:'Jaleo by José Andrés (Disney Springs)'},
+    9:{breakfast:'Hotel checkout breakfast',lunch:'Farewell lunch – Casey\'s Corner MK',dinner:'Airport / travel home'},
+  },
+  notes: '# Loz & Paul\'s Family Mega Hol Treat 🌴\n\n## ✈️ Travel Info\n- Fly OUT: Monday 30 March 2026\n- Fly BACK: Friday 10 April 2026\n- First park day: Wednesday 1 April 2026\n- Last park day: Friday 10 April 2026\n\n## 🏨 Hotel Info\n- Hotel: Storey Lake Resort, Kissimmee\n- Address: 2519 Luxury Way, Kissimmee, FL 34747\n- Check-in: 1 April 2026 (3pm)\n- Check-out: 10 April 2026 (10am)\n- Phone: +1 (407) 507-0100\n\n## Important Numbers\n- Disney Dining Reservations: +1 407-939-3463\n- Universal Orlando: +1 407-363-8000\n- Discovery Cove Bookings: +1 407-513-4600\n- Gatorland: +1 407-855-5496\n\n## KEY REMINDERS\n- BOOK DISCOVERY COVE IN ADVANCE – strictly limited to 1,000 guests/day!\n- Download My Disney Experience app for Lightning Lane & mobile ordering\n- Lightning Lane purchases open at 7am each day\n- Arrive at parks 45min before opening for rope drop advantage\n- Bring ponchos – Florida rains briefly most afternoons\n- Free ice water at most Disney quick-service locations\n- Discovery Cove ticket includes FREE SeaWorld entry for 14 days',
+  links: [
+    {id:'l1',title:'My Disney Experience App',url:'https://disneyworld.disney.go.com/plan/my-disney-experience/'},
+    {id:'l2',title:'Universal Orlando App',url:'https://www.universalorlando.com/web/en/us/mobile-app'},
+    {id:'l3',title:'Disney Genie+ Info',url:'https://disneyworld.disney.go.com/experience-updates/genie/'},
+  ],
+  messages: [],
+};
+
+let S = JSON.parse(JSON.stringify(DEFAULT_STATE));
+
+function saveState() { try { localStorage.setItem('floridaTrip2026', JSON.stringify(S)); } catch(e){} }
+function loadState() {
+  try {
+    const d = localStorage.getItem('floridaTrip2026');
+    if (d) S = JSON.parse(d);
+  } catch(e) {}
+}
+
+// ============================================================
+// UTILITIES
+// ============================================================
+function $(id) { return document.getElementById(id); }
+function el(tag,cls,inner='') { const e=document.createElement(tag); if(cls) e.className=cls; if(inner) e.innerHTML=inner; return e; }
+function fmtDate(str) { const d=new Date(str+'T12:00:00'); return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'}); }
+function dayLabel(i) { const d=new Date(S.tripStart+'T12:00:00'); d.setDate(d.getDate()+i); return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'}); }
+function daysUntilFlight() {
+  // Inclusive count: today + days until flight (so "3 days" on the Saturday before a Monday flight)
+  const now  = new Date();
+  const fly  = new Date((S.flyDate||'2026-03-30')+'T00:00:00');
+  const nowMidnight = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const flyMidnight = new Date(fly.getFullYear(),fly.getMonth(),fly.getDate());
+  const diff = Math.round((flyMidnight-nowMidnight)/(1000*60*60*24));
+  return diff > 0 ? diff + 1 : diff; // +1 for inclusive "including today" counting
+}
+function isFlightDay() {
+  const now = new Date();
+  const fly = new Date((S.flyDate||'2026-03-30')+'T00:00:00');
+  return now.getFullYear()===fly.getFullYear() && now.getMonth()===fly.getMonth() && now.getDate()===fly.getDate();
+}
+function isTravelDay() {
+  // Any day between fly-out and first park day (e.g. March 31 in transit)
+  const now      = new Date();
+  const nowD     = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const fly      = new Date((S.flyDate||'2026-03-30')+'T00:00:00');
+  const parkStart= new Date(S.tripStart+'T00:00:00');
+  return nowD > fly && nowD < parkStart;
+}
+function daysUntil() {
+  // Legacy alias used by header counter — points to flight
+  return daysUntilFlight();
+}
+function daysRemaining() {
+  const now=new Date(); const end=new Date(S.tripEnd+'T23:59:59');
+  const start=new Date(S.tripStart+'T00:00:00');
+  if(now<start) return 10;
+  const diff=Math.ceil((end-now)/(1000*60*60*24));
+  return Math.max(0,diff);
+}
+function currentTripDay() {
+  const now=new Date(); const start=new Date(S.tripStart+'T00:00:00');
+  const diff=Math.floor((now-start)/(1000*60*60*24));
+  if(diff<0||diff>9) return -1;
+  return diff;
+}
+function genId() { return '_'+Math.random().toString(36).substr(2,9); }
+function personById(id) { return S.people.find(p=>p.id===id); }
+function avatarBg(i) { return COLORS[i%COLORS.length]; }
+function initials(name) { return name.split(' ').map(w=>w[0]).join('').toUpperCase().substr(0,2); }
+
+// ============================================================
+// MODAL
+// ============================================================
+function openModal(html) {
+  $('modalContent').innerHTML = html;
+  $('modal').classList.remove('hidden');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e) {
+  if(!e||e.target===$('modal')) { $('modal').classList.add('hidden'); document.body.style.overflow=''; }
+}
+document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function buildNav() {
+  const nav = $('navMenu');
+  nav.innerHTML = NAV_ITEMS.map(item=>`
+    <button onclick="navigate('${item.id}')"
+      class="sidebar-item w-full flex items-center gap-3 px-3 py-2.5 text-sm font-semibold transition ${S.currentSection===item.id ? 'active text-white' : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60'}">
+      <span class="text-base w-6 text-center">${item.icon}</span>
+      <span>${item.label}</span>
+      ${S.currentSection===item.id ? '<span class="ml-auto w-1.5 h-1.5 rounded-full bg-white/70 pulse-dot"></span>' : ''}
+    </button>
+  `).join('');
+}
+function navigate(section) {
+  S.currentSection = section;
+  saveState();
+  buildNav();
+  renderSection();
+  closeSidebar();
+}
+function closeSidebar() {
+  $('sidebar').classList.add('-translate-x-full');
+  $('sidebarOverlay').classList.add('hidden');
+}
+
+// ============================================================
+// DARK MODE
+// ============================================================
+function applyDark() {
+  if(S.darkMode) document.documentElement.classList.add('dark');
+  else document.documentElement.classList.remove('dark');
+  $('darkToggle').textContent = S.darkMode ? '☀️' : '🌙';
+}
+
+// ============================================================
+// EXPORT / IMPORT
+// ============================================================
+function exportJSON() {
+  const blob=new Blob([JSON.stringify(S,null,2)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download='florida-trip-'+Date.now()+'.json'; a.click();
+}
+function importJSON(e) {
+  const file=e.target.files[0]; if(!file) return;
+  const r=new FileReader();
+  r.onload=ev=>{ try{ S=JSON.parse(ev.target.result); saveState(); applyDark(); buildNav(); renderSection(); updateHeader(); alert('✅ Data imported successfully!'); }catch(err){ alert('❌ Invalid JSON file'); } };
+  r.readAsText(file);
+  e.target.value='';
+}
+
+// ============================================================
+// HEADER UPDATE
+// ============================================================
+function updateHeader() {
+  const d = daysUntil();
+  const dc = $('dayCounter');
+  if(!dc) return;
+  const td = currentTripDay();
+  const _df = daysUntilFlight();
+  if(td>=0)          dc.innerHTML = `<span class="w-2 h-2 rounded-full bg-green-400 pulse-dot inline-block"></span> Day ${td+1} of 10`;
+  else if(isFlightDay() || _df===0) dc.innerHTML = `✈️ WE FLY TODAY!`;
+  else if(isTravelDay())            dc.innerHTML = `🛬 En route to Florida!`;
+  else if(_df>0)     dc.innerHTML = `🛫 ${_df} day${_df!==1?'s':''} to liftoff`;
+  else               dc.innerHTML = `🎉 Memories forever!`;
+  dc.classList.remove('hidden');
+
+  const sd = $('sidebarDates');
+  const sp = $('sidebarPeople');
+  if(sd) sd.textContent = `${fmtDate(S.tripStart)} – ${fmtDate(S.tripEnd)}`;
+  if(sp) sp.textContent = `${S.people.length} 👥`;
+}
+
+// ============================================================
+// RENDER SECTION
+// ============================================================
+function renderSection() {
+  const c=$('content');
+  c.className='fade-in';
+  void c.offsetWidth; // trigger reflow for animation
+  c.className='fade-in';
+  switch(S.currentSection) {
+    case 'dashboard': c.innerHTML=renderDashboard(); break;
+    case 'itinerary': c.innerHTML=renderItinerary(); break;
+    case 'parkguide': c.innerHTML=renderParkGuide(); break;
+    case 'group': c.innerHTML=renderGroup(); break;
+    case 'polls': c.innerHTML=renderPolls(); break;
+    case 'budget': c.innerHTML=renderBudget(); break;
+    case 'attractions': c.innerHTML=renderAttractions(); break;
+    case 'meals': c.innerHTML=renderMeals(); break;
+    case 'notes': c.innerHTML=renderNotes(); break;
+    case 'extras': c.innerHTML=renderExtras(); break;
+  }
+  bindSectionEvents();
+}
+
+// ============================================================
+// DASHBOARD
+// ============================================================
+function renderDashboard() {
+  const td=currentTripDay(); const du=daysUntil(); const dr=daysRemaining();
+  const totalActs=Object.values(S.itinerary).reduce((a,d)=>a+(d.activities?.length||0),0);
+  const doneActs=Object.values(S.itinerary).reduce((a,d)=>a+(d.activities?.filter(x=>x.status==='done').length||0),0);
+  const totalExp=S.expenses.reduce((a,e)=>a+parseFloat(e.amount||0),0);
+  const packDone=S.checklist.packing.filter(x=>x.done).length;
+
+  const df = daysUntilFlight();
+  const flyDay = isFlightDay();
+  const travelDay = isTravelDay();
+  let heroText='', heroSub='', heroClass='hero-gradient';
+  if(td>=0) {
+    heroText=`🌟 Day ${td+1} of 10 — Let's Go!`;
+    heroSub=`Today: ${S.itinerary[td]?.park||'...'} ${PARK_EMOJIS[S.itinerary[td]?.park]||''}`;
+  } else if(flyDay) {
+    heroText=`✈️ TODAY WE FLY! 🎉`;
+    heroSub=`${S.tripName} — Florida, here comes the family!`;
+  } else if(travelDay) {
+    heroText=`🛬 Touch down & check in!`;
+    heroSub=`Storey Lake Resort awaits — first park day is TOMORROW 🏰`;
+  } else if(df>0) {
+    heroText=`🛫 ${df} Day${df!==1?'s':''} to Liftoff!`;
+    heroSub=`Flying Monday 30 March · ${S.tripName}`;
+  } else if(df===0) {
+    heroText=`✈️ TODAY WE FLY! 🎉`;
+    heroSub=`${S.tripName} — Florida, here comes the family!`;
+  } else {
+    heroText='🎉 What a Trip!';
+    heroSub='The memories will last forever. 💛';
+  }
+
+  let todayCard='';
+  if(td>=0) {
+    const day=S.itinerary[td];
+    const acts=(day?.activities||[]).slice(0,4);
+    todayCard=`
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl p-5 mb-5">
+      <div class="flex items-center gap-2 mb-4">
+        <span class="text-2xl">${PARK_EMOJIS[day?.park]||'📅'}</span>
+        <div>
+          <p class="font-black text-base">${day?.park||'TBD'}</p>
+          <p class="text-xs text-slate-400 font-medium">Today's itinerary</p>
+        </div>
+        <button onclick="navigate('itinerary')" class="ml-auto text-xs font-bold text-orange-500 hover:text-orange-600">Full plan →</button>
+      </div>
+      <div class="space-y-2">
+        ${acts.map(a=>`
+          <div class="flex items-center gap-3 px-3 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-700/60">
+            <span class="text-xs font-black w-10 flex-shrink-0" style="color:var(--orange)">${a.time}</span>
+            <span class="text-sm font-semibold flex-1">${a.name}</span>
+            <span class="badge ${a.status==='must'?'bg-red-100 text-red-600':a.status==='done'?'bg-green-100 text-green-600':'bg-sky-100 text-sky-600'}">${a.status}</span>
+          </div>
+        `).join('')}
+        ${day?.activities?.length>4?`<p class="text-xs text-slate-400 text-center pt-1">+${day.activities.length-4} more activities</p>`:''}
+      </div>
+    </div>`;
+  }
+
+  return `
+  <!-- HERO -->
+  <div class="${heroClass} rounded-3xl p-6 md:p-8 text-white mb-6 relative overflow-hidden shadow-xl">
+    <div class="relative z-10">
+      <p class="text-white/70 text-xs font-bold uppercase tracking-widest mb-1">Welcome back 👋</p>
+      <h1 class="text-2xl md:text-4xl font-black leading-tight mb-1">${heroText}</h1>
+      <p class="text-white/80 text-sm md:text-base mb-5">${heroSub}</p>
+      <div class="flex flex-wrap gap-2">
+        <button onclick="openAddActivity()" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white text-xs font-bold px-4 py-2 rounded-full border border-white/30 transition">➕ Activity</button>
+        <button onclick="navigate('parkguide')" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white text-xs font-bold px-4 py-2 rounded-full border border-white/30 transition">🗺️ Park Guide</button>
+        <button onclick="navigate('polls');setTimeout(()=>openAddPoll(),100)" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white text-xs font-bold px-4 py-2 rounded-full border border-white/30 transition">🗳️ New Poll</button>
+        <button onclick="navigate('budget');setTimeout(()=>openAddExpense(),100)" class="bg-white/20 hover:bg-white/30 backdrop-blur text-white text-xs font-bold px-4 py-2 rounded-full border border-white/30 transition">💰 Log Expense</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAT CARDS -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mb-5">
+    ${statCard('📅','Days Left',dr,'of 10','from-sky-400 to-blue-600')}
+    ${statCard('🎢','Activities',totalActs,doneActs+' done','from-orange-400 to-red-500')}
+    ${statCard('💰','Spent',totalExp>0?'$'+totalExp.toFixed(0):'$0','group total','from-emerald-400 to-teal-600')}
+    ${statCard('🎒','Packed',packDone+'/'+S.checklist.packing.length,'items','from-purple-400 to-violet-600')}
+  </div>
+
+  ${todayCard}
+
+  <!-- 10-DAY GRID + GROUP -->
+  <div class="grid md:grid-cols-2 gap-4 mb-5">
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl p-5">
+      <h2 class="font-black text-sm mb-3 flex items-center gap-2"><span>🗓️</span> 10-Day Overview</h2>
+      <div class="grid grid-cols-5 gap-1.5">
+        ${Array.from({length:10},(_,i)=>{
+          const day=S.itinerary[i]; const park=day?.park||'TBD';
+          const isToday=td===i;
+          return `<button onclick="navigate('itinerary');setTimeout(()=>openDayModal(${i}),200)"
+            class="flex flex-col items-center p-2 rounded-xl text-center transition border ${isToday?'border-orange-400 text-white shadow-lg':'border-transparent bg-slate-50 dark:bg-slate-700/50 hover:border-orange-200 hover:bg-orange-50/50 dark:hover:bg-slate-600/50'}"
+            style="${isToday?'background:linear-gradient(135deg,#FF6B35,#FF8C61)':''}">
+            <span class="text-xs font-bold ${isToday?'text-white/80':'text-slate-400'}">${dayLabel(i).split(' ')[0]}</span>
+            <span class="text-xl my-0.5">${PARK_EMOJIS[park]||'📅'}</span>
+            <span class="text-xs leading-tight font-semibold ${isToday?'text-white':'text-slate-600 dark:text-slate-300'}">${park.split(' ')[0]}</span>
+          </button>`;
+        }).join('')}
+      </div>
+    </div>
+
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl p-5">
+      <h2 class="font-black text-sm mb-3 flex items-center gap-2"><span>👨‍👩‍👧‍👦</span> The Crew (${S.people.length})</h2>
+      <div class="flex flex-wrap gap-1.5">
+        ${S.people.map((p,i)=>`
+          <div class="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-700/60 rounded-full px-2.5 py-1 border border-slate-100 dark:border-slate-600">
+            <span class="text-base">${p.emoji||'👤'}</span>
+            <span class="text-xs font-semibold">${p.name.split(' ')[0]}</span>
+            <span class="text-xs text-slate-400">·${p.car}</span>
+          </div>
+        `).join('')}
+      </div>
+      <button onclick="navigate('group')" class="mt-3 text-xs font-bold hover:underline" style="color:var(--orange)">Manage group & cars →</button>
+    </div>
+  </div>
+
+  <!-- ACTIVE POLLS -->
+  ${S.polls.filter(p=>!p.closed).length>0?`
+  <div class="card bg-white dark:bg-slate-800 rounded-2xl p-5 mb-5">
+    <h2 class="font-black text-sm mb-3 flex items-center gap-2"><span>🗳️</span> Active Polls</h2>
+    ${S.polls.filter(p=>!p.closed).map(p=>{
+      const tv=Object.values(p.votes).length;
+      return `<div class="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-700/60 rounded-xl mb-2">
+        <div>
+          <p class="text-sm font-semibold">${p.question}</p>
+          <p class="text-xs text-slate-400 mt-0.5">${tv} vote${tv!==1?'s':''} cast</p>
+        </div>
+        <button onclick="navigate('polls')" class="btn-primary text-xs px-4 py-2 flex-shrink-0">Vote →</button>
+      </div>`;
+    }).join('')}
+  </div>`:''}
+
+  <!-- TIPS -->
+  <div class="rounded-2xl p-5 mb-2" style="background:linear-gradient(135deg,rgba(255,107,53,.08),rgba(6,214,160,.08));border:1.5px solid rgba(255,107,53,.15)">
+    <h2 class="font-black text-sm mb-3 flex items-center gap-2"><span>⚡</span> Quick Tips</h2>
+    <div class="grid md:grid-cols-2 gap-2">
+      ${[
+        ['🏃','Rope drop is key – arrive 45 min before park opens'],
+        ['📱','Use My Disney Experience app for Lightning Lane & mobile ordering'],
+        ['💧','Free ice water at most Disney quick-service locations'],
+        ['🌧️','Florida rains briefly most afternoons – pack ponchos!'],
+        ['🐊','Gatorland is only 15 min away – great half-day option!'],
+        ['🐬','Discovery Cove must be BOOKED IN ADVANCE – only 1,000 guests/day'],
+      ].map(([e,t])=>`<div class="flex items-start gap-2.5 p-2.5 bg-white/60 dark:bg-slate-800/60 rounded-xl">
+        <span class="text-base flex-shrink-0">${e}</span>
+        <span class="text-xs text-slate-600 dark:text-slate-300 font-medium leading-relaxed">${t}</span>
+      </div>`).join('')}
+    </div>
+  </div>`;
+}
+
+function statCard(icon,label,val,sub,gradient='from-orange-400 to-red-500') {
+  return `<div class="stat-card bg-gradient-to-br ${gradient} text-white p-4 shadow-lg">
+    <div class="text-2xl mb-2">${icon}</div>
+    <div class="text-2xl font-black leading-none">${val}</div>
+    <div class="text-xs font-bold opacity-90 mt-1">${label}</div>
+    <div class="text-xs opacity-70">${sub}</div>
+  </div>`;
+}
+
+// ============================================================
+// ITINERARY
+// ============================================================
+function renderItinerary() {
+  const td=currentTripDay();
+  return `
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-black">📅 Itinerary</h1>
+    <button onclick="openAddActivity()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-sm transition">➕ Add Activity</button>
+  </div>
+
+  <div class="overflow-x-auto pb-2 mb-6">
+    <div class="flex gap-2 min-w-max">
+      ${Array.from({length:10},(_,i)=>{
+        const day=S.itinerary[i]; const park=day?.park||'TBD';
+        const isToday=td===i;
+        return `<button onclick="openDayModal(${i})"
+          class="flex-shrink-0 flex flex-col items-center p-3 rounded-xl w-24 transition border-2 ${isToday?'border-orange-400 bg-orange-50 dark:bg-orange-900/20':'border-transparent bg-white dark:bg-slate-800 hover:border-orange-200'}">
+          <span class="text-xs font-bold text-slate-500">${dayLabel(i)}</span>
+          <span class="text-2xl my-1">${PARK_EMOJIS[park]||'📅'}</span>
+          <span class="text-xs font-bold text-center leading-tight">${park}</span>
+          <span class="text-xs text-slate-400 mt-1">${(day?.activities||[]).length} acts</span>
+          ${isToday?'<span class="badge bg-orange-400 text-white mt-1">TODAY</span>':''}
+        </button>`;
+      }).join('')}
+    </div>
+  </div>
+
+  ${Array.from({length:10},(_,i)=>{
+    const day=S.itinerary[i]||{park:'TBD',activities:[]};
+    const acts=day.activities||[];
+    const isToday=td===i;
+    return `
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl shadow mb-4 overflow-hidden">
+      <div class="flex items-center justify-between p-4 cursor-pointer" onclick="toggleDayExpand(${i})">
+        <div class="flex items-center gap-3">
+          <span class="text-2xl">${PARK_EMOJIS[day.park]||'📅'}</span>
+          <div>
+            <p class="font-bold text-sm">Day ${i+1} – ${dayLabel(i)}</p>
+            <p class="text-orange-500 font-bold">${day.park}</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2">
+          ${isToday?'<span class="badge bg-orange-400 text-white">TODAY</span>':''}
+          <span class="text-slate-400" id="chevron-${i}">▼</span>
+        </div>
+      </div>
+      <div id="dayBody-${i}" class="${i===0||isToday?'':'hidden'}">
+        <div class="px-4 pb-2 flex flex-wrap items-center gap-3">
+          <div class="flex items-center gap-1">
+            <label class="text-xs font-bold text-slate-500">Park:</label>
+            <select onchange="updateDayPark(${i},this.value)" class="ml-1 text-sm border border-slate-200 dark:border-slate-600 rounded-lg px-2 py-1 bg-white dark:bg-slate-700">
+              ${PARKS.map(p=>`<option ${day.park===p?'selected':''}>${p}</option>`).join('')}
+            </select>
+          </div>
+          ${TRAVEL_TIMES[day.park] ? `
+          <div class="flex items-center gap-2 bg-green-50 dark:bg-slate-700 rounded-lg px-3 py-1">
+            <span class="text-xs">🚗</span>
+            <span class="text-xs font-bold text-green-700 dark:text-green-400">${TRAVEL_TIMES[day.park].drive}</span>
+            <span class="text-xs text-slate-400">from hotel</span>
+            <button onclick="showParkInfo('${day.park.replace(/'/g,"\\'")}');event.stopPropagation()" class="text-xs text-sky-500 font-bold hover:underline ml-1">Park info →</button>
+          </div>` : ''}
+        </div>
+        <div class="relative pl-8 pr-4 pb-4">
+          <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-slate-200 dark:bg-slate-600"></div>
+          ${acts.map((a,ai)=>`
+            <div class="relative mb-3 group">
+              <div class="timeline-dot absolute -left-5 ${a.status==='done'?'bg-green-400':a.status==='must'?'bg-red-400':'bg-sky-400'}"></div>
+              <div class="bg-slate-50 dark:bg-slate-700 rounded-xl p-3">
+                <div class="flex items-start justify-between gap-2">
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <span class="text-xs font-bold text-orange-500">${a.time}</span>
+                      <span class="text-sm font-semibold">${a.name}</span>
+                      <span class="badge ${a.status==='must'?'bg-red-100 text-red-700':a.status==='done'?'bg-green-100 text-green-700':'bg-blue-100 text-blue-700'}">${a.status}</span>
+                    </div>
+                    ${a.duration?`<p class="text-xs text-slate-400 mt-0.5">⏱️ ${a.duration} min</p>`:''}
+                    ${a.notes?`<p class="text-xs text-slate-500 mt-0.5">💬 ${a.notes}</p>`:''}
+                  </div>
+                  <div class="flex gap-1 flex-shrink-0">
+                    <button onclick="toggleActivityStatus(${i},${ai})" class="text-xs p-1 hover:bg-slate-200 dark:hover:bg-slate-600 rounded" title="Toggle status">${a.status==='done'?'↩️':'✅'}</button>
+                    <button onclick="editActivity(${i},${ai})" class="text-xs p-1 hover:bg-slate-200 dark:hover:bg-slate-600 rounded">✏️</button>
+                    <button onclick="deleteActivity(${i},${ai})" class="text-xs p-1 hover:bg-red-100 rounded text-red-500">🗑️</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          `).join('')}
+          <button onclick="openAddActivityForDay(${i})" class="w-full mt-2 border-2 border-dashed border-slate-200 dark:border-slate-600 hover:border-orange-300 rounded-xl py-2 text-sm text-slate-400 hover:text-orange-500 transition">➕ Add activity to Day ${i+1}</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('')}
+  `;
+}
+function toggleDayExpand(i) {
+  const body=$('dayBody-'+i), chev=$('chevron-'+i);
+  body.classList.toggle('hidden');
+  if(chev) chev.textContent=body.classList.contains('hidden')?'▼':'▲';
+}
+function updateDayPark(i,val) { S.itinerary[i].park=val; saveState(); }
+function toggleActivityStatus(day,ai) {
+  const a=S.itinerary[day].activities[ai];
+  const cycle=['flexible','must','done'];
+  a.status=cycle[(cycle.indexOf(a.status)+1)%cycle.length];
+  saveState(); renderSection();
+}
+function deleteActivity(day,ai) {
+  if(confirm('Delete this activity?')) { S.itinerary[day].activities.splice(ai,1); saveState(); renderSection(); }
+}
+function openDayModal(dayIdx) {
+  const day=S.itinerary[dayIdx]||{park:'TBD',activities:[]};
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">Day ${dayIdx+1} – ${dayLabel(dayIdx)}</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <p class="text-orange-500 font-bold text-lg mb-4">${PARK_EMOJIS[day.park]||''} ${day.park}</p>
+    ${(day.activities||[]).map(a=>`
+      <div class="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-700 rounded-xl mb-2">
+        <span class="text-xs font-bold text-orange-500 w-10 flex-shrink-0">${a.time}</span>
+        <div>
+          <p class="text-sm font-bold">${a.name}</p>
+          ${a.notes?`<p class="text-xs text-slate-500">${a.notes}</p>`:''}
+        </div>
+        <span class="ml-auto badge ${a.status==='must'?'bg-red-100 text-red-700':a.status==='done'?'bg-green-100 text-green-700':'bg-blue-100 text-blue-700'}">${a.status}</span>
+      </div>
+    `).join('')||'<p class="text-sm text-slate-400">No activities yet.</p>'}
+    <button onclick="closeModal();openAddActivityForDay(${dayIdx})" class="mt-4 w-full bg-orange-400 text-white font-bold py-2 rounded-xl">➕ Add Activity</button>
+  `);
+}
+function openAddActivity() { openAddActivityForDay(currentTripDay()>=0?currentTripDay():0); }
+function openAddActivityForDay(dayIdx) {
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">➕ Add Activity</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500">Day</label>
+        <select id="aDay" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+          ${Array.from({length:10},(_,i)=>`<option value="${i}" ${i===dayIdx?'selected':''}>Day ${i+1} – ${dayLabel(i)} (${S.itinerary[i]?.park||'TBD'})</option>`).join('')}
+        </select></div>
+      <div><label class="text-xs font-bold text-slate-500">Activity Name</label>
+        <input id="aName" placeholder="e.g. Space Mountain" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div class="flex gap-2">
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Time</label>
+          <input id="aTime" type="time" value="10:00" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Duration (min)</label>
+          <input id="aDur" type="number" placeholder="45" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      </div>
+      <div><label class="text-xs font-bold text-slate-500">Priority</label>
+        <select id="aStatus" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+          <option value="must">Must-do 🔴</option>
+          <option value="flexible" selected>Flexible 🔵</option>
+        </select></div>
+      <div><label class="text-xs font-bold text-slate-500">Notes</label>
+        <textarea id="aNotes" placeholder="Tips, booking refs, etc." class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" rows="2"></textarea></div>
+      <button onclick="saveNewActivity()" class="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Save Activity ✅</button>
+    </div>
+  `);
+}
+function saveNewActivity() {
+  const day=parseInt($('aDay').value);
+  const name=$('aName').value.trim();
+  if(!name) return alert('Please enter an activity name');
+  if(!S.itinerary[day]) S.itinerary[day]={park:PARKS[day]||'TBD',activities:[]};
+  S.itinerary[day].activities.push({
+    id:genId(), time:$('aTime').value, name, duration:parseInt($('aDur').value)||45,
+    status:$('aStatus').value, notes:$('aNotes').value.trim()
+  });
+  S.itinerary[day].activities.sort((a,b)=>a.time.localeCompare(b.time));
+  saveState(); closeModal(); renderSection();
+}
+function editActivity(dayIdx,ai) {
+  const a=S.itinerary[dayIdx].activities[ai];
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">✏️ Edit Activity</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500">Activity Name</label>
+        <input id="eaName" value="${a.name}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div class="flex gap-2">
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Time</label>
+          <input id="eaTime" type="time" value="${a.time}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Duration (min)</label>
+          <input id="eaDur" type="number" value="${a.duration}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      </div>
+      <div><label class="text-xs font-bold text-slate-500">Priority</label>
+        <select id="eaStatus" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+          <option value="must" ${a.status==='must'?'selected':''}>Must-do 🔴</option>
+          <option value="flexible" ${a.status==='flexible'?'selected':''}>Flexible 🔵</option>
+          <option value="done" ${a.status==='done'?'selected':''}>Done ✅</option>
+        </select></div>
+      <div><label class="text-xs font-bold text-slate-500">Notes</label>
+        <textarea id="eaNotes" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" rows="2">${a.notes||''}</textarea></div>
+      <button onclick="saveEditActivity(${dayIdx},${ai})" class="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Save Changes ✅</button>
+    </div>
+  `);
+}
+function saveEditActivity(dayIdx,ai) {
+  const a=S.itinerary[dayIdx].activities[ai];
+  a.name=$('eaName').value.trim()||a.name;
+  a.time=$('eaTime').value;
+  a.duration=parseInt($('eaDur').value)||a.duration;
+  a.status=$('eaStatus').value;
+  a.notes=$('eaNotes').value.trim();
+  S.itinerary[dayIdx].activities.sort((x,y)=>x.time.localeCompare(y.time));
+  saveState(); closeModal(); renderSection();
+}
+
+// ============================================================
+// PARK GUIDE
+// ============================================================
+function renderParkGuide() {
+  const parks = Object.keys(PARK_INFO);
+  return `
+  <div class="mb-5">
+    <h1 class="text-2xl font-black mb-1">🗺️ Park Guide</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400">Tap any park for full details, must-do rides, insider tips and travel times from Storey Lake Resort.</p>
+  </div>
+
+  <div class="bg-gradient-to-r from-sky-50 to-orange-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-4 mb-5 flex gap-4 items-start">
+    <span class="text-3xl">🏨</span>
+    <div>
+      <p class="font-black text-base">${HOTEL.name}</p>
+      <p class="text-xs text-slate-500 dark:text-slate-400">${HOTEL.address}</p>
+      <p class="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Check-in ${HOTEL.checkIn} · Check-out ${HOTEL.checkOut}</p>
+      <p class="text-xs text-slate-600 dark:text-slate-300 mt-1">${HOTEL.about}</p>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-3">
+    ${parks.map(name => {
+      const p = PARK_INFO[name];
+      const t = TRAVEL_TIMES[name];
+      return `
+      <div class="park-card bg-white dark:bg-slate-800 shadow cursor-pointer" onclick="showParkInfo('${name.replace(/'/g,"\\'")}')">
+        <div class="p-4">
+          <div class="flex items-start gap-3">
+            <span class="text-4xl">${p.emoji}</span>
+            <div class="flex-1 min-w-0">
+              <h3 class="font-black text-base leading-tight">${name}</h3>
+              <p class="text-xs text-orange-500 font-semibold italic mb-1">${p.tagline}</p>
+              <p class="text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed">${p.description.slice(0,120)}…</p>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-2 mt-3">
+            <span class="badge bg-sky-100 text-sky-700">🕐 ${t ? t.drive : 'N/A'}</span>
+            <span class="badge bg-green-100 text-green-700">${p.ageRating}</span>
+            <span class="badge bg-orange-100 text-orange-700">${p.cost}</span>
+          </div>
+          <div class="mt-3 text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1">
+            <span>🏅 Top picks:</span>
+            <span class="font-semibold text-slate-600 dark:text-slate-300">${p.mustDo.slice(0,2).join(', ')}</span>
+          </div>
+        </div>
+        <div class="px-4 pb-3">
+          <button class="w-full btn-primary py-2.5 text-sm">
+            Full Guide & Travel Info →
+          </button>
+        </div>
+      </div>`;
+    }).join('')}
+  </div>`;
+}
+
+function showParkInfo(name) {
+  const p = PARK_INFO[name];
+  const t = TRAVEL_TIMES[name];
+  if(!p) return;
+  openModal(`
+    <div class="flex items-center justify-between mb-1">
+      <div class="flex items-center gap-2">
+        <span class="text-3xl">${p.emoji}</span>
+        <div>
+          <h2 class="font-black text-xl leading-tight">${name}</h2>
+          <p class="text-xs text-orange-500 font-semibold italic">${p.tagline}</p>
+        </div>
+      </div>
+      <button onclick="closeModal()" class="text-2xl text-slate-400 hover:text-slate-600">×</button>
+    </div>
+
+    <div class="flex flex-wrap gap-2 my-3">
+      <span class="badge bg-sky-100 text-sky-700 text-xs">${p.ageRating}</span>
+      <span class="badge bg-orange-100 text-orange-700 text-xs">${p.cost}</span>
+      <span class="badge bg-purple-100 text-purple-700 text-xs">⏱️ ${p.duration}</span>
+      <span class="badge bg-green-100 text-green-700 text-xs">📅 ${p.bestTime}</span>
+    </div>
+
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">${p.description}</p>
+
+    <div class="bg-orange-50 dark:bg-slate-700 rounded-xl p-3 mb-3">
+      <p class="text-xs font-black text-orange-500 uppercase tracking-wide mb-2">🏅 Must-Do List</p>
+      ${p.mustDo.map(r=>`<div class="flex items-start gap-2 mb-1.5">
+        <span class="text-orange-400 mt-0.5 flex-shrink-0">★</span>
+        <span class="text-sm font-semibold text-slate-700 dark:text-slate-200">${r}</span>
+      </div>`).join('')}
+    </div>
+
+    <div class="bg-sky-50 dark:bg-slate-700 rounded-xl p-3 mb-3">
+      <p class="text-xs font-black text-sky-500 uppercase tracking-wide mb-2">💡 Insider Tips</p>
+      ${p.tips.map(tip=>`<div class="flex items-start gap-2 mb-1.5">
+        <span class="text-sky-400 mt-0.5 flex-shrink-0">→</span>
+        <span class="text-sm text-slate-600 dark:text-slate-300">${tip}</span>
+      </div>`).join('')}
+    </div>
+
+    ${t ? `<div class="bg-green-50 dark:bg-slate-700 rounded-xl p-3 mb-3">
+      <p class="text-xs font-black text-green-600 uppercase tracking-wide mb-2">🚗 From Storey Lake Resort</p>
+      <div class="grid grid-cols-2 gap-2 text-sm mb-2">
+        <div><span class="text-slate-400 text-xs">Drive time</span><p class="font-bold">${t.drive}</p></div>
+        <div><span class="text-slate-400 text-xs">Distance</span><p class="font-bold">${t.miles}</p></div>
+        <div class="col-span-2"><span class="text-slate-400 text-xs">Best route</span><p class="font-semibold">${t.route}</p></div>
+        <div class="col-span-2"><span class="text-slate-400 text-xs">Parking</span><p class="text-slate-600 dark:text-slate-300">${t.parking}</p></div>
+      </div>
+      <div class="bg-yellow-100 dark:bg-yellow-900/30 rounded-lg px-3 py-2 flex items-start gap-2">
+        <span class="text-yellow-500 flex-shrink-0">⚠️</span>
+        <span class="text-xs text-yellow-800 dark:text-yellow-300">${t.trafficTip}</span>
+      </div>
+    </div>` : ''}
+
+    <div class="bg-slate-50 dark:bg-slate-700 rounded-xl p-3 mb-4">
+      <p class="text-xs font-black text-slate-500 uppercase tracking-wide mb-1">📍 Address</p>
+      <p class="text-sm text-slate-600 dark:text-slate-300">${p.address}</p>
+      ${p.website ? `<a href="${p.website}" target="_blank" class="text-xs text-sky-500 hover:underline mt-1 block">🌐 Official website →</a>` : ''}
+    </div>
+
+    <div class="flex gap-2">
+      <button onclick="closeModal()" class="flex-1 bg-slate-100 dark:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold py-2.5 rounded-xl text-sm">Close</button>
+      <button onclick="closeModal();navigate('itinerary')" class="flex-1 bg-gradient-to-r from-orange-400 to-sky-400 text-white font-bold py-2.5 rounded-xl text-sm">View in Itinerary →</button>
+    </div>
+  `);
+}
+
+// ============================================================
+// GROUP & CARS
+// ============================================================
+function renderGroup() {
+  const car1=S.people.filter(p=>p.car===1);
+  const car2=S.people.filter(p=>p.car===2);
+  return `
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-black">👨‍👩‍👧‍👦 Group & Cars</h1>
+    <div class="flex gap-2">
+      <button onclick="balanceCars()" class="bg-sky-500 hover:bg-sky-600 text-white text-sm font-bold px-3 py-2 rounded-xl transition">⚖️ Balance</button>
+      <button onclick="openAddPerson()" class="bg-orange-400 hover:bg-orange-500 text-white text-sm font-bold px-3 py-2 rounded-xl transition">➕ Add</button>
+    </div>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-6">
+    ${renderCarCard(1,car1)}
+    ${renderCarCard(2,car2)}
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">🚗 Daily Driver Assignments</h2>
+    <p class="text-xs text-slate-400 mb-3">Set who drives each day so the work is spread fairly.</p>
+    <div class="space-y-2">
+      ${Array.from({length:10},(_,i)=>{
+        const assign=S.carAssignments[i]||{};
+        return `<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-700 rounded-xl">
+          <span class="text-sm font-bold w-16 flex-shrink-0">Day ${i+1}</span>
+          <span class="text-xs text-slate-500 flex-1">${dayLabel(i)} · ${S.itinerary[i]?.park||'TBD'}</span>
+          <div class="flex gap-2">
+            <div>
+              <label class="text-xs text-slate-400">🚗1 Driver</label>
+              <select onchange="setDriver(${i},1,parseInt(this.value))" class="block text-xs border border-slate-200 dark:border-slate-600 rounded-lg px-2 py-1 bg-white dark:bg-slate-800">
+                <option value="">–</option>
+                ${car1.map(p=>`<option value="${p.id}" ${assign.car1Driver===p.id?'selected':''}>${p.name}</option>`).join('')}
+              </select>
+            </div>
+            <div>
+              <label class="text-xs text-slate-400">🚗2 Driver</label>
+              <select onchange="setDriver(${i},2,parseInt(this.value))" class="block text-xs border border-slate-200 dark:border-slate-600 rounded-lg px-2 py-1 bg-white dark:bg-slate-800">
+                <option value="">–</option>
+                ${car2.map(p=>`<option value="${p.id}" ${assign.car2Driver===p.id?'selected':''}>${p.name}</option>`).join('')}
+              </select>
+            </div>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
+  `;
+}
+function renderCarCard(num, people) {
+  return `
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5">
+    <div class="flex items-center gap-2 mb-4">
+      <span class="text-2xl">🚗</span>
+      <h2 class="font-black text-lg">Car ${num}</h2>
+      <span class="badge ${num===1?'bg-sky-100 text-sky-700':'bg-orange-100 text-orange-700'} ml-auto">${people.length} people</span>
+    </div>
+    <div class="space-y-2">
+      ${people.map((p,i)=>`
+        <div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-700 rounded-xl">
+          <span class="avatar ${avatarBg(S.people.indexOf(p))} text-white text-sm">${p.emoji||initials(p.name)}</span>
+          <div class="flex-1">
+            <input value="${p.name}" onchange="updatePersonName(${p.id},this.value)"
+              class="text-sm font-semibold bg-transparent border-b border-transparent hover:border-slate-300 focus:border-orange-400 outline-none w-full"/>
+          </div>
+          <div class="flex gap-1">
+            <button onclick="switchCar(${p.id})" class="text-xs px-2 py-1 bg-slate-200 dark:bg-slate-600 rounded-lg hover:bg-orange-100 transition" title="Switch car">↔️</button>
+            <button onclick="changeEmoji(${p.id})" class="text-xs px-2 py-1 bg-slate-200 dark:bg-slate-600 rounded-lg hover:bg-orange-100 transition">${p.emoji||'👤'}</button>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  </div>`;
+}
+function setDriver(day,carNum,personId) {
+  if(!S.carAssignments[day]) S.carAssignments[day]={};
+  if(carNum===1) S.carAssignments[day].car1Driver=personId;
+  else S.carAssignments[day].car2Driver=personId;
+  saveState();
+}
+function switchCar(id) {
+  const p=S.people.find(x=>x.id===id);
+  if(p) { p.car=p.car===1?2:1; saveState(); renderSection(); }
+}
+function updatePersonName(id,val) {
+  const p=S.people.find(x=>x.id===id);
+  if(p) { p.name=val; saveState(); }
+}
+function balanceCars() {
+  const n=S.people.length;
+  S.people.forEach((p,i)=>{ p.car=i<Math.ceil(n/2)?1:2; });
+  saveState(); renderSection();
+  alert('✅ Cars balanced! '+Math.ceil(n/2)+' in Car 1, '+Math.floor(n/2)+' in Car 2.');
+}
+function openAddPerson() {
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">➕ Add Person</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500">Name</label>
+        <input id="pName" placeholder="Full name" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div><label class="text-xs font-bold text-slate-500">Emoji Avatar</label>
+        <input id="pEmoji" placeholder="🧒" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div><label class="text-xs font-bold text-slate-500">Car</label>
+        <select id="pCar" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+          <option value="1">Car 1</option><option value="2">Car 2</option>
+        </select></div>
+      <button onclick="savePerson()" class="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Add Person ✅</button>
+    </div>
+  `);
+}
+function savePerson() {
+  const name=$('pName').value.trim();
+  if(!name) return alert('Enter a name');
+  const newId=Math.max(0,...S.people.map(p=>p.id))+1;
+  S.people.push({id:newId,name,emoji:$('pEmoji').value||'👤',car:parseInt($('pCar').value)});
+  saveState(); closeModal(); renderSection();
+}
+function changeEmoji(id) {
+  const emojis=['😎','👩','👴','👵','🧒','👦','👧','🧔','👨','👩‍🦱','👩‍🦳','🧑','👱','🤓'];
+  const p=S.people.find(x=>x.id===id);
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">Choose Avatar</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="grid grid-cols-7 gap-2">
+      ${emojis.map(e=>`<button onclick="setEmoji(${id},'${e}')" class="text-3xl p-2 hover:bg-orange-50 rounded-xl transition">${e}</button>`).join('')}
+    </div>
+  `);
+}
+function setEmoji(id,emoji) {
+  const p=S.people.find(x=>x.id===id);
+  if(p) { p.emoji=emoji; saveState(); closeModal(); renderSection(); }
+}
+
+// ============================================================
+// POLLS
+// ============================================================
+
+// Helper: get winner text and count for a poll
+function pollLeader(poll) {
+  const counts = {};
+  poll.options.forEach(o => counts[o] = 0);
+  Object.values(poll.votes).forEach(v => { if(counts[v] !== undefined) counts[v]++; });
+  const max = Math.max(0, ...Object.values(counts));
+  if(max === 0) return null;
+  const winners = poll.options.filter(o => counts[o] === max);
+  return { opt: winners[0], count: max, tied: winners.length > 1 };
+}
+
+function renderPolls() {
+  const dayPolls = S.polls.filter(p => p.isDay);
+  const customPolls = S.polls.filter(p => !p.isDay);
+  const totalPeople = S.people.length;
+
+  // Build scoreboard rows
+  const scoreboard = dayPolls.map(poll => {
+    const leader = pollLeader(poll);
+    const totalVotes = Object.keys(poll.votes).length;
+    const pct = totalPeople > 0 ? Math.round(totalVotes / totalPeople * 100) : 0;
+    return { poll, leader, totalVotes, pct };
+  });
+
+  // Count most-wanted parks across all day polls
+  const parkTally = {};
+  dayPolls.forEach(poll => {
+    Object.values(poll.votes).forEach(v => { parkTally[v] = (parkTally[v]||0)+1; });
+  });
+  const topParks = Object.entries(parkTally).sort((a,b)=>b[1]-a[1]).slice(0,5);
+
+  return `
+  <!-- HEADER -->
+  <div class="flex items-center justify-between mb-5">
+    <div>
+      <h1 class="text-2xl font-black">🗳️ Polls &amp; Voting</h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Everyone picks their park for each day. The family decides together!</p>
+    </div>
+    <button onclick="openAddPoll()" class="btn-primary px-4 py-2 text-sm">➕ Custom Poll</button>
+  </div>
+
+  <!-- SCOREBOARD SUMMARY -->
+  <div class="rounded-3xl overflow-hidden shadow-xl mb-6" style="background:linear-gradient(135deg,#073B4C,#118AB2,#06D6A0)">
+    <div class="p-4 pb-2">
+      <div class="flex items-center justify-between">
+        <p class="text-white font-black text-base flex items-center gap-2">📊 Live Scoreboard</p>
+        <div class="text-right">
+          <p class="text-white/60 text-xs">${dayPolls.reduce((a,p)=>a+Object.keys(p.votes).length,0)} total votes cast</p>
+          <p class="text-white/60 text-xs">${totalPeople} voters in group</p>
+        </div>
+      </div>
+    </div>
+    <div class="px-4 pb-4">
+      <div class="grid grid-cols-5 md:grid-cols-10 gap-1.5 mb-3">
+        ${scoreboard.map(({poll,leader,totalVotes,pct},i)=>`
+          <button onclick="document.getElementById('daypoll-${i}').scrollIntoView({behavior:'smooth'})"
+            class="flex flex-col items-center p-2 rounded-xl transition hover:scale-105"
+            style="background:rgba(255,255,255,${leader?'.18':'.08'})">
+            <span class="text-xs font-black text-white/70">D${i+1}</span>
+            <span class="text-xl my-0.5">${leader ? leader.opt.split(' ')[0] : '❓'}</span>
+            <span class="text-xs font-bold text-white leading-tight text-center" style="font-size:.55rem">${leader ? leader.opt.replace(/^[^\s]+\s/,'').split(' ').slice(0,1).join('') : 'No votes'}</span>
+            <div class="w-full mt-1.5 rounded-full overflow-hidden" style="height:3px;background:rgba(255,255,255,.2)">
+              <div class="h-full rounded-full" style="width:${pct}%;background:${pct===100?'#FFD166':'rgba(255,255,255,.7)'}"></div>
+            </div>
+            <span class="text-white/60 mt-0.5" style="font-size:.55rem">${totalVotes}/${totalPeople}</span>
+          </button>
+        `).join('')}
+      </div>
+      ${topParks.length>0?`
+      <div class="border-t border-white/20 pt-3">
+        <p class="text-white/60 text-xs font-bold uppercase tracking-widest mb-2">🏆 Most Wanted Parks Overall</p>
+        <div class="flex flex-wrap gap-2">
+          ${topParks.map(([park,count],i)=>`
+            <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full" style="background:rgba(255,255,255,.15)">
+              <span>${i===0?'🥇':i===1?'🥈':'🥉'}</span>
+              <span class="text-white text-xs font-bold">${park.replace(/^[^\s]+\s/,'')}</span>
+              <span class="text-white/60 text-xs">${count} vote${count!==1?'s':''}</span>
+            </div>
+          `).join('')}
+        </div>
+      </div>`:''}
+    </div>
+  </div>
+
+  <!-- DAY POLLS -->
+  <p class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3">🗓️ Vote for each day</p>
+  ${dayPolls.map((poll, pi)=>{
+    const realIdx = S.polls.indexOf(poll);
+    const counts = {};
+    poll.options.forEach(o => counts[o] = 0);
+    Object.values(poll.votes).forEach(v => { if(counts[v]!==undefined) counts[v]++; });
+    const totalVotes = Object.keys(poll.votes).length;
+    const maxCount = Math.max(1, ...Object.values(counts));
+    const leader = pollLeader(poll);
+
+    return `
+    <div id="daypoll-${pi}" class="card bg-white dark:bg-slate-800 rounded-2xl p-5 mb-4">
+      <!-- Poll header -->
+      <div class="flex items-start justify-between gap-2 mb-3">
+        <div>
+          <p class="text-xs font-black uppercase tracking-wide mb-0.5" style="color:var(--orange)">Day ${pi+1}</p>
+          <h3 class="font-black text-base leading-tight">${poll.question.replace(/^Day \d+ — /,'')}</h3>
+        </div>
+        <div class="flex items-center gap-1.5 flex-shrink-0">
+          ${leader?`<span class="badge bg-yellow-100 text-yellow-700">${leader.tied?'🤝 Tied':'🏆 '+leader.opt.split(' ')[0]}</span>`:''}
+          ${!poll.closed?`<button onclick="closePoll(${realIdx})" class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-red-50 text-slate-500 transition">Lock</button>`:'<span class="badge bg-slate-100 text-slate-500">Locked 🔒</span>'}
+        </div>
+      </div>
+
+      <!-- Vote progress -->
+      <div class="flex items-center gap-2 mb-4">
+        <div class="flex-1 progress-track">
+          <div class="progress-bar h-full rounded-full" style="width:${totalPeople>0?Math.round(totalVotes/totalPeople*100):0}%;background:linear-gradient(90deg,#FF6B35,#06D6A0)"></div>
+        </div>
+        <span class="text-xs font-bold text-slate-500 flex-shrink-0">${totalVotes}/${totalPeople} voted</span>
+      </div>
+
+      <!-- Who voted selector -->
+      ${!poll.closed?`
+      <div class="flex items-center gap-2 mb-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-700/60">
+        <span class="text-sm">🙋</span>
+        <span class="text-xs font-bold text-slate-500">I am:</span>
+        <select id="voter-day-${pi}" class="flex-1 text-sm border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-1.5 bg-white dark:bg-slate-800 font-semibold">
+          ${S.people.map(p=>`<option value="${p.id}">${p.emoji} ${p.name}</option>`).join('')}
+        </select>
+        ${poll.votes[S.people[0]?.id]?`<span class="text-xs text-green-600 font-bold">✓ Voted</span>`:''}
+      </div>
+      `:''}
+
+      <!-- Options list -->
+      <div class="space-y-2">
+        ${poll.options.map(opt => {
+          const count = counts[opt]||0;
+          const pct = totalVotes > 0 ? Math.round(count/totalVotes*100) : 0;
+          const isLeading = count > 0 && count === maxCount;
+          const voters = Object.entries(poll.votes)
+            .filter(([,v])=>v===opt)
+            .map(([pid])=>S.people.find(p=>p.id==pid)?.emoji||'?')
+            .join('');
+          const safeOpt = opt.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+          return `
+          <div class="rounded-xl overflow-hidden border ${isLeading?'border-orange-200 dark:border-orange-800':'border-slate-100 dark:border-slate-700'}">
+            <div class="flex items-center gap-3 px-3 py-2.5 ${isLeading?'bg-orange-50 dark:bg-orange-900/20':'bg-white dark:bg-slate-800'}">
+              <span class="text-lg flex-shrink-0">${opt.split(' ')[0]}</span>
+              <span class="text-sm font-semibold flex-1">${opt.replace(/^[^\s]+\s/,'')}</span>
+              <div class="flex items-center gap-2 flex-shrink-0">
+                ${voters?`<span class="text-base leading-none" title="Voted">${voters}</span>`:''}
+                <span class="text-xs font-bold ${isLeading?'text-orange-600':'text-slate-400'} w-8 text-right">${count>0?count+'v':''}</span>
+                ${!poll.closed?`
+                  <button onclick="castVote(${realIdx},'${safeOpt}',document.getElementById('voter-day-${pi}').value)"
+                    class="text-xs px-3 py-1.5 rounded-lg font-bold transition flex-shrink-0
+                    ${isLeading?'text-white shadow-sm':'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-orange-100 hover:text-orange-700'}"
+                    style="${isLeading?'background:linear-gradient(135deg,#FF6B35,#FF8C61)':''}">
+                    ${count>0?'Change':'Vote'}
+                  </button>`:''}
+              </div>
+            </div>
+            ${count>0?`
+            <div class="progress-track mx-3 mb-2.5" style="height:4px">
+              <div class="progress-bar h-full rounded-full" style="width:${pct}%;background:${isLeading?'linear-gradient(90deg,#FF6B35,#FFD166)':'rgba(156,163,175,.5)'}"></div>
+            </div>`:''}
+          </div>`;
+        }).join('')}
+      </div>
+    </div>`;
+  }).join('')}
+
+  <!-- CUSTOM POLLS -->
+  ${customPolls.length>0?`
+  <p class="text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-3 mt-6">💬 Other Polls</p>
+  ${customPolls.map((poll)=>{
+    const realIdx = S.polls.indexOf(poll);
+    const counts = {};
+    poll.options.forEach(o => counts[o] = 0);
+    Object.values(poll.votes).forEach(v => { if(counts[v]!==undefined) counts[v]++; });
+    const totalVotes = Object.keys(poll.votes).length;
+    return `
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl p-5 mb-4">
+      <div class="flex items-start justify-between gap-2 mb-3">
+        <h3 class="font-bold">${poll.question}</h3>
+        <div class="flex gap-1 flex-shrink-0">
+          ${!poll.closed?`<button onclick="closePoll(${realIdx})" class="text-xs px-2 py-1 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-red-50 transition">Close</button>`:'<span class="badge bg-slate-100 text-slate-500">Closed</span>'}
+          <button onclick="deletePoll(${realIdx})" class="text-xs p-1.5 text-red-400 hover:text-red-600">🗑️</button>
+        </div>
+      </div>
+      ${!poll.closed?`
+      <div class="flex items-center gap-2 mb-3">
+        <select id="voter-c-${realIdx}" class="text-sm border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-1.5 bg-white dark:bg-slate-800">
+          ${S.people.map(p=>`<option value="${p.id}">${p.emoji} ${p.name}</option>`).join('')}
+        </select>
+      </div>`:''}
+      ${poll.options.map(opt=>{
+        const count=counts[opt]||0;
+        const pct=totalVotes>0?Math.round(count/totalVotes*100):0;
+        const voters=Object.entries(poll.votes).filter(([,v])=>v===opt).map(([pid])=>S.people.find(p=>p.id==pid)?.emoji||'?').join('');
+        const safeOpt=opt.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+        return `<div class="mb-3">
+          <div class="flex items-center justify-between mb-1.5">
+            <span class="text-sm font-semibold">${opt}</span>
+            <div class="flex items-center gap-2">
+              ${voters?`<span>${voters}</span>`:''}
+              <span class="text-xs text-slate-400">${count} vote${count!==1?'s':''}</span>
+              ${!poll.closed?`<button onclick="castVote(${realIdx},'${safeOpt}',document.getElementById('voter-c-${realIdx}').value)"
+                class="text-xs px-3 py-1.5 rounded-lg font-bold btn-primary">Vote</button>`:''}
+            </div>
+          </div>
+          <div class="progress-track"><div class="progress-bar h-full rounded-full" style="width:${pct}%;background:linear-gradient(90deg,#FF6B35,#06D6A0)"></div></div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }).join('')}`:''}
+  `;
+}
+
+function openAddPoll() {
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">💬 New Custom Poll</h2>
+      <button onclick="closeModal()" class="text-2xl text-slate-400">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wide">Question</label>
+        <input id="pqQ" placeholder="e.g. Which restaurant for Saturday dinner?" class="w-full mt-1.5 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2.5 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div><label class="text-xs font-bold text-slate-500 uppercase tracking-wide">Options <span class="normal-case font-normal">(one per line)</span></label>
+        <textarea id="pqOpts" placeholder="Option A&#10;Option B&#10;Option C" class="w-full mt-1.5 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2.5 bg-white dark:bg-slate-700 text-sm" rows="5"></textarea></div>
+      <button onclick="savePoll()" class="w-full btn-primary py-3 text-sm">Create Poll ✅</button>
+    </div>
+  `);
+}
+function savePoll() {
+  const q=$('pqQ').value.trim();
+  const opts=$('pqOpts').value.split('\n').map(x=>x.trim()).filter(Boolean);
+  if(!q||opts.length<2) return alert('Enter a question and at least 2 options');
+  S.polls.push({id:genId(),isDay:false,question:q,options:opts,votes:{},closed:false,created:Date.now()});
+  saveState(); closeModal(); renderSection();
+}
+function castVote(pi,opt,personId) {
+  if(S.polls[pi].closed) return;
+  S.polls[pi].votes[personId]=opt;
+  saveState(); renderSection();
+}
+function closePoll(pi) { S.polls[pi].closed=!S.polls[pi].closed; saveState(); renderSection(); }
+function deletePoll(pi) {
+  if(S.polls[pi].isDay) return alert("Day polls can't be deleted – use the Lock button to close voting.");
+  if(confirm('Delete this poll?')) { S.polls.splice(pi,1); saveState(); renderSection(); }
+}
+
+// ============================================================
+// BUDGET
+// ============================================================
+function renderBudget() {
+  const total=S.expenses.reduce((a,e)=>a+parseFloat(e.amount||0),0);
+  const byPerson={};
+  S.people.forEach(p=>{ byPerson[p.id]={paid:0,owes:0}; });
+  S.expenses.forEach(exp=>{
+    const amt=parseFloat(exp.amount||0);
+    if(byPerson[exp.paidBy]) byPerson[exp.paidBy].paid+=amt;
+    const forWhom=exp.forAll?S.people.map(p=>p.id):exp.forPeople||[];
+    if(forWhom.length>0) {
+      const share=amt/forWhom.length;
+      forWhom.forEach(pid=>{ if(byPerson[pid]) byPerson[pid].owes+=share; });
+    }
+  });
+  return `
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-black">💰 Budget & Expenses</h1>
+    <button onclick="openAddExpense()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-sm transition">➕ Add Expense</button>
+  </div>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-3 mb-6">
+    ${statCard('💵','Total Spent','$'+total.toFixed(2),'group total')}
+    ${statCard('👤','Per Person (avg)','$'+(total/S.people.length).toFixed(2),'if split evenly')}
+    ${statCard('🧾','Receipts',S.expenses.length,'expenses logged')}
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">💳 Quick Log</h2>
+    <div class="flex flex-wrap gap-2">
+      ${[['Parking','🅿️',15],['Fuel','⛽',50],['Snacks','🍿',20],['Sunscreen','🧴',15],['Souvenirs','🧸',30]].map(([l,e,a])=>`
+        <button onclick="quickExpense('${l} ${e}',${a})" class="bg-slate-100 dark:bg-slate-700 hover:bg-orange-50 hover:text-orange-600 text-sm px-3 py-2 rounded-xl font-semibold transition">${e} ${l} ($${a})</button>
+      `).join('')}
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">📊 Balances</h2>
+    <div class="space-y-2">
+      ${S.people.map((p,i)=>{
+        const bp=byPerson[p.id]||{paid:0,owes:0};
+        const net=bp.paid-bp.owes;
+        return `<div class="flex items-center gap-3 p-2 bg-slate-50 dark:bg-slate-700 rounded-xl">
+          <span class="avatar ${avatarBg(i)} text-white text-sm">${p.emoji||initials(p.name)}</span>
+          <span class="flex-1 text-sm font-semibold">${p.name}</span>
+          <span class="text-xs text-slate-400">paid $${bp.paid.toFixed(0)}</span>
+          <span class="text-xs font-bold px-2 py-0.5 rounded-full ${net>0.5?'bg-green-100 text-green-700':net<-0.5?'bg-red-100 text-red-700':'bg-slate-100 text-slate-500'}">
+            ${net>0.5?'gets back':'owes'} $${Math.abs(net).toFixed(2)}
+          </span>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5">
+    <h2 class="font-bold mb-3">🧾 All Expenses</h2>
+    ${S.expenses.length===0?'<p class="text-sm text-slate-400">No expenses yet.</p>':
+      [...S.expenses].reverse().map((exp,i)=>{
+        const ri=S.expenses.length-1-i;
+        const payer=S.people.find(p=>p.id===exp.paidBy);
+        return `<div class="flex items-center gap-3 p-3 border-b border-slate-100 dark:border-slate-700 last:border-0">
+          <span class="text-xl">${exp.category||'💸'}</span>
+          <div class="flex-1">
+            <p class="text-sm font-semibold">${exp.name}</p>
+            <p class="text-xs text-slate-400">${payer?payer.name:'Unknown'} paid · ${exp.forAll?'Split all':((exp.forPeople||[]).length+' people')}</p>
+          </div>
+          <span class="text-sm font-bold text-green-600">$${parseFloat(exp.amount).toFixed(2)}</span>
+          <button onclick="deleteExpense(${ri})" class="text-red-400 hover:text-red-600 text-xs">🗑️</button>
+        </div>`;
+      }).join('')}
+  </div>
+  `;
+}
+function openAddExpense() {
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">💰 Add Expense</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500">Description</label>
+        <input id="exName" placeholder="e.g. Parking at Magic Kingdom" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div class="flex gap-2">
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Amount ($)</label>
+          <input id="exAmt" type="number" placeholder="0.00" step="0.01" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Category</label>
+          <select id="exCat" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+            <option value="🍽️">🍽️ Food</option><option value="🎢">🎢 Parks/Tickets</option>
+            <option value="🅿️">🅿️ Parking</option><option value="⛽">⛽ Fuel</option>
+            <option value="🛍️">🛍️ Shopping</option><option value="🏨">🏨 Hotel</option><option value="💸">💸 Other</option>
+          </select></div>
+      </div>
+      <div><label class="text-xs font-bold text-slate-500">Paid by</label>
+        <select id="exPaidBy" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+          ${S.people.map(p=>`<option value="${p.id}">${p.emoji} ${p.name}</option>`).join('')}
+        </select></div>
+      <div>
+        <label class="flex items-center gap-2 text-sm font-semibold mb-2">
+          <input type="checkbox" id="exForAll" checked onchange="toggleForAll(this.checked)"/> Split evenly among everyone
+        </label>
+        <div id="exPeopleDiv" class="hidden flex-wrap gap-1 mt-2">
+          ${S.people.map(p=>`<label class="flex items-center gap-1 bg-slate-50 dark:bg-slate-700 rounded-full px-3 py-1 text-xs cursor-pointer">
+            <input type="checkbox" value="${p.id}" class="exPerson"/> ${p.emoji} ${p.name}</label>`).join('')}
+        </div>
+      </div>
+      <button onclick="saveExpense()" class="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Save Expense ✅</button>
+    </div>
+  `);
+}
+function toggleForAll(checked) {
+  const div=$('exPeopleDiv');
+  if(div) div.classList.toggle('hidden',checked);
+}
+function saveExpense() {
+  const name=$('exName').value.trim();
+  const amount=$('exAmt').value;
+  if(!name||!amount) return alert('Enter description and amount');
+  const forAll=$('exForAll').checked;
+  let forPeople=[];
+  if(!forAll) {
+    document.querySelectorAll('.exPerson:checked').forEach(cb=>forPeople.push(parseInt(cb.value)));
+    if(forPeople.length===0) forPeople=S.people.map(p=>p.id);
+  }
+  S.expenses.push({id:genId(),name,amount:parseFloat(amount),category:$('exCat').value,
+    paidBy:parseInt($('exPaidBy').value),forAll,forPeople,date:Date.now()});
+  saveState(); closeModal(); renderSection();
+}
+function quickExpense(name,amount) {
+  S.expenses.push({id:genId(),name,amount,category:'💸',paidBy:S.people[0].id,forAll:true,forPeople:[],date:Date.now()});
+  saveState(); renderSection();
+}
+function deleteExpense(i) { if(confirm('Delete this expense?')) { S.expenses.splice(i,1); saveState(); renderSection(); } }
+
+// ============================================================
+// ATTRACTIONS
+// ============================================================
+function renderAttractions() {
+  const parks=Object.keys(S.checklist.rides);
+  const total=parks.reduce((a,p)=>a+S.checklist.rides[p].length,0);
+  const done=parks.reduce((a,p)=>a+S.checklist.rides[p].filter(r=>r.done).length,0);
+  return `
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-black">🎢 Attractions</h1>
+    <span class="badge bg-orange-100 text-orange-700 text-sm">${done}/${total} done</span>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-bold">🎒 Packing List</h2>
+      <span class="text-xs text-slate-400">${S.checklist.packing.filter(x=>x.done).length}/${S.checklist.packing.length}</span>
+    </div>
+    <div class="bg-slate-100 dark:bg-slate-700 rounded-full h-2 mb-3">
+      <div class="bg-green-400 h-2 rounded-full progress-bar" style="width:${Math.round(S.checklist.packing.filter(x=>x.done).length/S.checklist.packing.length*100)}%"></div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-1">
+      ${S.checklist.packing.map((item,i)=>`
+        <label class="checklist-item flex items-center gap-2 p-2 rounded-lg cursor-pointer">
+          <input type="checkbox" ${item.done?'checked':''} onchange="togglePack(${i})" class="accent-orange-400 w-4 h-4"/>
+          <span class="text-sm ${item.done?'line-through text-slate-400':''}">${item.text}</span>
+        </label>
+      `).join('')}
+    </div>
+    <button onclick="openAddPackItem()" class="mt-3 text-xs text-orange-500 font-bold hover:underline">➕ Add item</button>
+  </div>
+
+  ${parks.map(park=>{
+    const rides=S.checklist.rides[park];
+    const doneCount=rides.filter(r=>r.done).length;
+    return `
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-bold">${PARK_EMOJIS[park]||'🎢'} ${park}</h2>
+        <span class="badge bg-sky-100 text-sky-700">${doneCount}/${rides.length}</span>
+      </div>
+      ${rides.map((ride,i)=>`
+        <label class="checklist-item flex items-center gap-3 p-2 rounded-xl cursor-pointer mb-1">
+          <input type="checkbox" ${ride.done?'checked':''} onchange="toggleRide('${park}',${i})" class="accent-orange-400 w-4 h-4"/>
+          <span class="flex-1 text-sm ${ride.done?'line-through text-slate-400':''}">${ride.name}</span>
+          <span class="badge ${ride.tier==='Lightning Lane'?'bg-yellow-100 text-yellow-700':ride.tier==='Express Pass'?'bg-purple-100 text-purple-700':'bg-slate-100 text-slate-500'}">${ride.tier}</span>
+        </label>
+      `).join('')}
+    </div>`;
+  }).join('')}
+  `;
+}
+function togglePack(i) { S.checklist.packing[i].done=!S.checklist.packing[i].done; saveState(); renderSection(); }
+function toggleRide(park,i) { S.checklist.rides[park][i].done=!S.checklist.rides[park][i].done; saveState(); renderSection(); }
+function openAddPackItem() {
+  const item=prompt('New packing list item:');
+  if(item) { S.checklist.packing.push({id:genId(),text:item,done:false}); saveState(); renderSection(); }
+}
+
+// ============================================================
+// MEALS
+// ============================================================
+function renderMeals() {
+  return `
+  <div class="mb-4">
+    <h1 class="text-2xl font-black mb-1">🍽️ Meals & Reservations</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400">Click any meal to edit. Remember to book dining 60 days in advance for Disney restaurants!</p>
+  </div>
+  ${Array.from({length:10},(_,i)=>{
+    const m=S.meals[i]||{breakfast:'',lunch:'',dinner:''};
+    return `
+    <div class="card bg-white dark:bg-slate-800 rounded-2xl shadow mb-3 p-4">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="text-xl">${PARK_EMOJIS[S.itinerary[i]?.park]||'🍽️'}</span>
+        <div>
+          <p class="font-bold text-sm">Day ${i+1} – ${dayLabel(i)}</p>
+          <p class="text-xs text-orange-500 font-semibold">${S.itinerary[i]?.park||'TBD'}</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-3 gap-2">
+        ${['breakfast','lunch','dinner'].map(meal=>`
+          <div class="bg-slate-50 dark:bg-slate-700 rounded-xl p-3 cursor-pointer hover:bg-orange-50 dark:hover:bg-slate-600 transition" onclick="editMeal(${i},'${meal}')">
+            <p class="text-xs font-bold text-slate-400 uppercase mb-1">${meal==='breakfast'?'🌅 Breakfast':meal==='lunch'?'☀️ Lunch':'🌙 Dinner'}</p>
+            <p class="text-sm font-semibold">${m[meal]||'<span class="text-slate-400 italic">Tap to add</span>'}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>`;
+  }).join('')}
+  `;
+}
+function editMeal(dayIdx,meal) {
+  const current=S.meals[dayIdx]?.[meal]||'';
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">✏️ Edit ${meal.charAt(0).toUpperCase()+meal.slice(1)}</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <p class="text-xs text-slate-400 mb-3">Day ${dayIdx+1} – ${dayLabel(dayIdx)}</p>
+    <textarea id="mealText" class="w-full border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" rows="3">${current}</textarea>
+    <button onclick="saveMeal(${dayIdx},'${meal}')" class="mt-3 w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Save ✅</button>
+  `);
+}
+function saveMeal(dayIdx,meal) {
+  if(!S.meals[dayIdx]) S.meals[dayIdx]={breakfast:'',lunch:'',dinner:''};
+  S.meals[dayIdx][meal]=$('mealText').value.trim();
+  saveState(); closeModal(); renderSection();
+}
+
+// ============================================================
+// NOTES & LINKS
+// ============================================================
+function renderNotes() {
+  return `
+  <div class="mb-4">
+    <h1 class="text-2xl font-black">📝 Notes & Links</h1>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">📋 Shared Notes</h2>
+    <textarea id="notesArea" class="w-full border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-3 bg-slate-50 dark:bg-slate-700 text-sm font-mono" rows="12" placeholder="Add notes here..."
+      oninput="S.notes=this.value;saveState()">${S.notes}</textarea>
+    <p class="text-xs text-slate-400 mt-2">Auto-saved as you type. Supports plain text + markdown headings (# ## ###)</p>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5">
+    <div class="flex items-center justify-between mb-3">
+      <h2 class="font-bold">🔗 Important Links</h2>
+      <button onclick="openAddLink()" class="text-xs bg-orange-400 text-white font-bold px-3 py-1.5 rounded-xl">➕ Add</button>
+    </div>
+    ${S.links.length===0?'<p class="text-sm text-slate-400">No links saved yet.</p>':
+      S.links.map((link,i)=>`
+        <div class="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-700 rounded-xl mb-2">
+          <span class="text-xl">🔗</span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold">${link.title}</p>
+            <a href="${link.url}" target="_blank" class="text-xs text-sky-500 hover:underline truncate block">${link.url}</a>
+          </div>
+          <a href="${link.url}" target="_blank" class="text-xs bg-sky-400 text-white px-3 py-1 rounded-full font-bold hover:bg-sky-500 transition">Open</a>
+          <button onclick="deleteLink(${i})" class="text-red-400 hover:text-red-600 text-xs ml-1">🗑️</button>
+        </div>
+      `).join('')}
+  </div>
+  `;
+}
+function openAddLink() {
+  openModal(`
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="font-black text-lg">🔗 Add Link</h2>
+      <button onclick="closeModal()" class="text-2xl">×</button>
+    </div>
+    <div class="space-y-3">
+      <div><label class="text-xs font-bold text-slate-500">Title</label>
+        <input id="lTitle" placeholder="e.g. Hotel Booking" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <div><label class="text-xs font-bold text-slate-500">URL</label>
+        <input id="lUrl" placeholder="https://..." class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm"/></div>
+      <button onclick="saveLink()" class="w-full bg-orange-400 hover:bg-orange-500 text-white font-bold py-3 rounded-xl transition">Save Link ✅</button>
+    </div>
+  `);
+}
+function saveLink() {
+  const title=$('lTitle').value.trim(), url=$('lUrl').value.trim();
+  if(!title||!url) return alert('Enter title and URL');
+  S.links.push({id:genId(),title,url});
+  saveState(); closeModal(); renderSection();
+}
+function deleteLink(i) { S.links.splice(i,1); saveState(); renderSection(); }
+
+// ============================================================
+// EXTRAS
+// ============================================================
+function renderExtras() {
+  return `
+  <div class="mb-4">
+    <h1 class="text-2xl font-black">⭐ Extras</h1>
+  </div>
+
+  <div class="bg-gradient-to-r from-sky-500 to-purple-500 rounded-2xl p-5 mb-4 text-white">
+    <div class="flex items-start gap-3">
+      <span class="text-4xl">🏨</span>
+      <div>
+        <p class="font-black text-lg">${HOTEL.name}</p>
+        <p class="text-white/80 text-sm">${HOTEL.address}</p>
+        <div class="flex gap-4 mt-2 text-xs">
+          <span>✅ Check-in: ${HOTEL.checkIn}</span>
+          <span>🏁 Check-out: ${HOTEL.checkOut}</span>
+          <span>📞 <a href="tel:${HOTEL.phone}" class="underline">${HOTEL.phone}</a></span>
+        </div>
+        <p class="text-white/70 text-xs mt-2">${HOTEL.about}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">🚗 Drive Times from ${HOTEL.name}</h2>
+    <div class="grid md:grid-cols-2 gap-2">
+      ${Object.entries(TRAVEL_TIMES).map(([park,t])=>`
+        <div class="flex items-center gap-3 p-2.5 bg-slate-50 dark:bg-slate-700 rounded-xl cursor-pointer hover:bg-orange-50 dark:hover:bg-slate-600 transition" onclick="${PARK_INFO[park]?`showParkInfo('${park.replace(/'/g,"\\'")}')`:''}" >
+          <span class="text-xl">${PARK_EMOJIS[park]||'📍'}</span>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-bold truncate">${park}</p>
+            <p class="text-xs text-slate-400 truncate">${t.route}</p>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <p class="text-sm font-bold text-green-600">${t.drive}</p>
+            <p class="text-xs text-slate-400">${t.miles}</p>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <p class="text-xs text-slate-400 mt-3">⚠️ Times are estimates without traffic. Florida I-4 can add 15–20 min during peak hours. Always leave a buffer!</p>
+  </div>
+
+  <div class="grid md:grid-cols-2 gap-4 mb-4">
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5">
+      <h2 class="font-bold mb-3">🚑 Emergency Contacts</h2>
+      <div class="space-y-2 text-sm">
+        ${[
+          ['🚨 Emergency','911'],
+          ['🏥 AdventHealth Celebration','(407) 303-4000'],
+          ['🏥 Orlando Health','(321) 841-5111'],
+          ['🏰 Disney Lost & Found','(407) 824-4245'],
+          ['🎥 Universal Lost & Found','(407) 224-4233'],
+          ['🚗 AAA Roadside','1-800-222-4357'],
+          ['💳 Chase Card Emergency','1-800-432-3117'],
+          ['🏨 Hotel Front Desk','[Add your number]'],
+        ].map(([l,n])=>`
+          <div class="flex justify-between items-center p-2 bg-slate-50 dark:bg-slate-700 rounded-lg">
+            <span>${l}</span>
+            <a href="tel:${n.replace(/[^0-9+]/g,'')}" class="font-bold text-orange-500 hover:underline">${n}</a>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5">
+      <h2 class="font-bold mb-3">🌤️ Park Hours & Info</h2>
+      <p class="text-xs text-slate-400 mb-3">Typical hours – always check the official app day-of!</p>
+      ${[
+        ['🏰 Magic Kingdom','9am–10pm (fireworks ~9pm)'],
+        ['🌍 EPCOT','9am–9pm (fireworks ~9pm)'],
+        ['🎬 Hollywood Studios','9am–9pm'],
+        ['🦁 Animal Kingdom','8am–7pm'],
+        ['🎥 Universal + IoA','9am–9pm'],
+        ['🌊 Volcano Bay','9am–6pm'],
+        ['🐬 SeaWorld','9am–7pm'],
+      ].map(([p,h])=>`
+        <div class="flex justify-between text-sm py-1.5 border-b border-slate-100 dark:border-slate-700 last:border-0">
+          <span>${p}</span><span class="text-slate-500 text-xs">${h}</span>
+        </div>
+      `).join('')}
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">📱 Family Message Board</h2>
+    <div id="msgBoard" class="space-y-2 max-h-48 overflow-y-auto mb-3">
+      ${S.messages.length===0?'<p class="text-sm text-slate-400 text-center py-4">No messages yet. Say hi! 👋</p>':
+        S.messages.map((m,i)=>{
+          const p=S.people.find(x=>x.id===m.pid)||{name:'?',emoji:'👤'};
+          return `<div class="flex items-start gap-2">
+            <span class="text-lg flex-shrink-0">${p.emoji}</span>
+            <div class="bg-slate-50 dark:bg-slate-700 rounded-xl px-3 py-2 flex-1">
+              <p class="text-xs font-bold text-orange-500">${p.name}</p>
+              <p class="text-sm">${m.text}</p>
+            </div>
+            <button onclick="deleteMsg(${i})" class="text-red-300 hover:text-red-500 text-xs mt-1">×</button>
+          </div>`;
+        }).join('')}
+    </div>
+    <div class="flex gap-2">
+      <select id="msgPerson" class="border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm">
+        ${S.people.map(p=>`<option value="${p.id}">${p.emoji} ${p.name.split(' ')[0]}</option>`).join('')}
+      </select>
+      <input id="msgText" placeholder="Send a message..." class="flex-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" onkeydown="if(event.key==='Enter')sendMsg()"/>
+      <button onclick="sendMsg()" class="bg-orange-400 hover:bg-orange-500 text-white font-bold px-4 rounded-xl transition">Send</button>
+    </div>
+  </div>
+
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
+    <h2 class="font-bold mb-3">🖨️ Print & Share</h2>
+    <div class="flex flex-wrap gap-3">
+      <button onclick="printItinerary()" class="bg-sky-500 hover:bg-sky-600 text-white font-bold px-4 py-2 rounded-xl text-sm transition no-print">🖨️ Print Daily Itinerary</button>
+      <button onclick="generateQR()" class="bg-purple-500 hover:bg-purple-600 text-white font-bold px-4 py-2 rounded-xl text-sm transition no-print">📱 Generate QR Code</button>
+      <button onclick="exportJSON()" class="bg-green-500 hover:bg-green-600 text-white font-bold px-4 py-2 rounded-xl text-sm transition no-print">📤 Export Trip Data</button>
+    </div>
+    <div id="qrSection" class="hidden mt-4 text-center">
+      <canvas id="qr-canvas" width="200" height="200" class="border rounded-xl mx-auto"></canvas>
+      <p class="text-xs text-slate-400 mt-2">Share this URL with the family</p>
+      <p id="qrUrl" class="text-xs font-mono text-sky-500 mt-1 break-all"></p>
+    </div>
+  </div>
+
+  <div class="bg-gradient-to-r from-orange-50 to-sky-50 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-5">
+    <h2 class="font-bold mb-2">🎉 Trip Settings</h2>
+    <div class="space-y-3">
+      <div class="flex gap-3">
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Trip Name</label>
+          <input id="setName" value="${S.tripName}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" oninput="S.tripName=this.value;saveState()"/></div>
+      </div>
+      <div class="flex gap-3">
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">Start Date</label>
+          <input type="date" value="${S.tripStart}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" oninput="S.tripStart=this.value;saveState();updateHeader()"/></div>
+        <div class="flex-1"><label class="text-xs font-bold text-slate-500">End Date</label>
+          <input type="date" value="${S.tripEnd}" class="w-full mt-1 border border-slate-200 dark:border-slate-600 rounded-xl px-3 py-2 bg-white dark:bg-slate-700 text-sm" oninput="S.tripEnd=this.value;saveState();updateHeader()"/></div>
+      </div>
+      <button onclick="if(confirm('Reset ALL data to defaults?'))resetData()" class="text-xs text-red-400 hover:text-red-600 font-bold">⚠️ Reset all data to defaults</button>
+    </div>
+  </div>
+  `;
+}
+function sendMsg() {
+  const text=$('msgText').value.trim();
+  const pid=parseInt($('msgPerson').value);
+  if(!text) return;
+  S.messages.push({id:genId(),pid,text,time:Date.now()});
+  $('msgText').value='';
+  saveState(); renderSection();
+}
+function deleteMsg(i) { S.messages.splice(i,1); saveState(); renderSection(); }
+function printItinerary() {
+  const w=window.open('','_blank');
+  w.document.write(`<html><head><title>Florida 2026 Itinerary</title>
+  <style>body{font-family:sans-serif;max-width:800px;margin:0 auto;padding:20px}h1{color:#F97316}h2{color:#0EA5E9;margin-top:20px;border-bottom:2px solid #eee;padding-bottom:5px}.activity{padding:5px 0;border-bottom:1px solid #f0f0f0}.time{color:#F97316;font-weight:bold;display:inline-block;width:60px}</style>
+  </head><body>
+  <h1>🎢 ${S.tripName}</h1>
+  <p>${fmtDate(S.tripStart)} to ${fmtDate(S.tripEnd)} · ${S.people.length} people · 2 cars</p>
+  ${Array.from({length:10},(_,i)=>{
+    const day=S.itinerary[i]||{park:'TBD',activities:[]};
+    return `<h2>Day ${i+1} – ${dayLabel(i)}: ${day.park}</h2>
+    ${(day.activities||[]).map(a=>`<div class="activity"><span class="time">${a.time}</span> <strong>${a.name}</strong> ${a.notes?'– '+a.notes:''}</div>`).join('')}`;
+  }).join('')}
+  <p style="margin-top:30px;color:#888;font-size:12px">Printed from Florida Family Trip Planner 🌴</p>
+  </body></html>`);
+  w.document.close(); w.print();
+}
+function generateQR() {
+  const sec=$('qrSection');
+  sec.classList.toggle('hidden');
+  if(!sec.classList.contains('hidden')) {
+    const url=window.location.href;
+    $('qrUrl').textContent=url;
+    // Simple QR using a public API drawn to canvas via image
+    const img=new Image();
+    img.crossOrigin='anonymous';
+    img.src=`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(url)}`;
+    img.onload=()=>{ const cv=$('qr-canvas'); const ctx=cv.getContext('2d'); ctx.drawImage(img,0,0,200,200); };
+  }
+}
+function resetData() {
+  S=JSON.parse(JSON.stringify(DEFAULT_STATE));
+  saveState(); applyDark(); buildNav(); renderSection(); updateHeader();
+}
+
+// ============================================================
+// BIND EVENTS (called after each render)
+// ============================================================
+function bindSectionEvents() {
+  // sidebar toggle
+  const st=$('sidebarToggle');
+  if(st) st.onclick=()=>{
+    $('sidebar').classList.toggle('-translate-x-full');
+    $('sidebarOverlay').classList.toggle('hidden');
+  };
+}
+
+// ============================================================
+// INIT
+// ============================================================
+function migrateSavedState() {
+  // Always enforce the correct trip dates regardless of what localStorage has saved
+  S.flyDate   = '2026-03-30';
+  S.tripStart = '2026-04-01';
+  S.tripEnd   = '2026-04-10';
+  S.tripName  = "Loz & Paul's Family Mega Hol Treat";
+
+  // Ensure the 10 day-polls exist (add any missing ones)
+  const dayPollIds = ['day-0','day-1','day-2','day-3','day-4','day-5','day-6','day-7','day-8','day-9'];
+  const dayLabels  = ['Wed 1 Apr','Thu 2 Apr','Fri 3 Apr','Sat 4 Apr','Sun 5 Apr',
+                      'Mon 6 Apr','Tue 7 Apr','Wed 8 Apr','Thu 9 Apr','Fri 10 Apr'];
+  const parkOpts   = ['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom',
+                      '🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland',
+                      '🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando',
+                      '🛍️ Disney Springs','😴 Hotel Pool / Rest Day'];
+
+  dayPollIds.forEach((id, i) => {
+    const exists = S.polls.find(p => p.id === id);
+    if (!exists) {
+      // Insert at position i (before any custom polls)
+      S.polls.splice(i, 0, {
+        id, isDay:true, dayIndex:i,
+        question:`Day ${i+1} — ${dayLabels[i]}: Where do we go?`,
+        options: parkOpts, votes:{}, closed:false, created:Date.now()
+      });
+    } else {
+      // Fix question text and options in case they're stale
+      exists.isDay    = true;
+      exists.dayIndex = i;
+      exists.question = `Day ${i+1} — ${dayLabels[i]}: Where do we go?`;
+      exists.options  = parkOpts;
+    }
+  });
+  saveState();
+}
+
+function init() {
+  loadState();
+  migrateSavedState();
+  applyDark();
+
+  $('darkToggle').onclick=()=>{
+    S.darkMode=!S.darkMode;
+    saveState(); applyDark();
+  };
+
+  $('sidebarToggle').onclick=()=>{
+    $('sidebar').classList.toggle('-translate-x-full');
+    $('sidebarOverlay').classList.toggle('hidden');
+  };
+
+  buildNav();
+  updateHeader();
+  renderSection();
+
+  // Auto-save & header update every minute
+  setInterval(updateHeader, 60000);
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
