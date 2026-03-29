@@ -526,6 +526,183 @@ const TRAVEL_TIMES = {
   'SeaWorld Orlando': {drive:'20–25 min',miles:'12 mi',route:'FL-417 N → Sea Harbor Dr',parking:'$30/day (or free with Discovery Cove ticket).',trafficTip:'Easy drive. Moderate traffic.'},
   'Disney Springs':   {drive:'20 min',miles:'11 mi',route:'US-192 W → Hotel Plaza Blvd',parking:'Free in Disney Springs garages.',trafficTip:'Easy evening drive. Parking is free and plentiful.'},
 };
+// ============================================================
+// RESTAURANT GUIDE
+// ============================================================
+const RESTAURANT_GUIDE = {
+  'Magic Kingdom': [
+    { name:'Be Our Guest', service:'Table Service', cuisine:'French-American', price:'$$$', stars:5,
+      summary:'Inside the Beast\'s enchanted castle — the most atmospheric restaurant at Disney. Huge banquet halls, a glowing enchanted rose, and a French-inspired menu. Dinner is the best experience; lunch is quick service.',
+      tip:'Book exactly 60 days ahead — it sells out fast. Ask for the West Wing room.' },
+    { name:"Cinderella's Royal Table", service:'Table Service', cuisine:'American', price:'$$$$', stars:4,
+      summary:'You eat *inside* Cinderella\'s Castle with character meet-and-greets. The food is good but the experience is the reason to go — kids absolutely lose their minds. One of the most magical meals on earth.',
+      tip:'The hardest booking at WDW. Set an alarm for exactly 60 days before your visit.' },
+    { name:'Columbia Harbour House', service:'Quick Service', cuisine:'American / Seafood', price:'$$', stars:5,
+      summary:'Arguably the best quick service in Magic Kingdom. Lobster roll, clam chowder, fish & chips, and a hearty New England-style menu. The upstairs seating area is quieter and cooler.',
+      tip:'No booking needed. Go at 11am or after 2pm to avoid the main rush.' },
+    { name:'Pecos Bill Tall Tale Inn', service:'Quick Service', cuisine:'Tex-Mex', price:'$$', stars:3,
+      summary:'Burgers, nachos, and Mexican rice bowls in Frontierland. Big portions at reasonable prices — reliable and good for a quick, filling lunch. Nothing remarkable but rarely disappoints.',
+      tip:'The nacho fries are a hidden gem. Avoid the 12–1pm rush.' },
+    { name:'The Plaza Restaurant', service:'Table Service', cuisine:'American Diner', price:'$$$', stars:3,
+      summary:'Classic American diner on Main Street. Clubs sandwiches, burgers, and legendary ice cream sundaes. Best for a relaxed sit-down that doesn\'t require a 60-day advance booking.',
+      tip:'Walk-up reservations often available here when other places are full.' },
+  ],
+  'EPCOT': [
+    { name:'Le Cellier Steakhouse', service:'Table Service', cuisine:'Canadian Steakhouse', price:'$$$$', stars:5,
+      summary:'The most coveted table at EPCOT and one of the best meals at Walt Disney World. The Canadian cheddar cheese soup is legendary, and the steaks are flawless. Set in the Canada pavilion with a cosy hunting-lodge feel.',
+      tip:'Books out weeks in advance. Set your alarm for exactly 60 days before your date — 6am sharp.' },
+    { name:'Teppan Edo', service:'Table Service', cuisine:'Japanese Teppanyaki', price:'$$$', stars:5,
+      summary:'A chef cooks your food at the table with flips, flames, and showmanship. Brilliant fun for all ages — the group will love it. Excellent fresh hibachi meats and vegetables. Japan pavilion.',
+      tip:'Perfect for a big group — you\'re seated communally with other guests. Book 30–45 days ahead.' },
+    { name:'Space 220', service:'Table Service', cuisine:'Modern American', price:'$$$$', stars:4,
+      summary:'A "space elevator" takes you 220 miles above Earth — all simulated with stunning floor-to-ceiling screens showing Earth from orbit. The food is genuinely very good. One of EPCOT\'s most talked-about new experiences.',
+      tip:'Walk-up lounge seats sometimes available without a reservation — worth a try.' },
+    { name:'Boulangerie Patisserie', service:'Quick Service', cuisine:'French Bakery', price:'$', stars:5,
+      summary:'The best quick bite at EPCOT. Incredible croissants, quiche lorraine, croque monsieur, and fruit tarts. Tiny but exceptional quality. France pavilion — the queue moves fast.',
+      tip:'Open from 9am. Go first thing for fresh pastries before the crowds arrive.' },
+    { name:'Katsura Grill', service:'Quick Service', cuisine:'Japanese', price:'$$', stars:4,
+      summary:'Solid sushi rolls, udon noodles, and teriyaki chicken in the Japan pavilion. Beautiful garden seating. Genuinely good quality for quick service, and far less crowded than the table service options.',
+      tip:'The outdoor garden seating is lovely — a peaceful escape from the crowds.' },
+  ],
+  'Hollywood Studios': [
+    { name:'Sci-Fi Dine-In Theater', service:'Table Service', cuisine:'American', price:'$$$', stars:5,
+      summary:'You eat inside replica 1950s convertible cars at a working drive-in cinema, watching sci-fi B-movie clips on a big screen. Burgers, milkshakes, and hot dogs. One of the most unique dining experiences at Walt Disney World.',
+      tip:'Book as far ahead as possible — this is one of the most popular restaurants at WDW.' },
+    { name:"50s Prime Time Café", service:'Table Service', cuisine:'American Comfort Food', price:'$$$', stars:4,
+      summary:'A 1950s family kitchen where servers stay in character as your aunt or mum, nagging you to eat your vegetables and keep your elbows off the table. Meatloaf, fried chicken, pot roast. Funny and delicious.',
+      tip:'Get into the spirit — play along with the servers for the best experience.' },
+    { name:"Woody's Lunch Box", service:'Quick Service', cuisine:'American', price:'$$', stars:5,
+      summary:'Toy Story Land\'s standout eatery and a genuine WDW highlight. Famous toasted sandwiches, incredible tater tots with dipping sauces, and "Grown-Up\'s Lunch Box" cocktails. Always has a queue — always worth it.',
+      tip:'Mobile order ahead on the My Disney Experience app to skip the queue.' },
+    { name:'Docking Bay 7', service:'Quick Service', cuisine:'Star Wars-themed', price:'$$', stars:3,
+      summary:'A galactic canteen in Star Wars: Galaxy\'s Edge with alien-inspired dishes and imaginative names. The food is decent, the theming is excellent. If you\'re a Star Wars fan it\'s an essential stop.',
+      tip:'Try the Ronto Wrap from Ronto Roasters next door — hands-down the best snack in the park.' },
+  ],
+  'Animal Kingdom': [
+    { name:'Tiffins', service:'Table Service', cuisine:'International / Explorer', price:'$$$$', stars:5,
+      summary:'WDW\'s most underrated restaurant and possibly its best. Explorer-themed with stunning hand-painted artwork, serving dishes inspired by Africa, Asia, and South America. Genuinely world-class food in a theme park setting.',
+      tip:'Less busy than EPCOT table service — often easier to book. Perfect for a special dinner.' },
+    { name:'Flame Tree Barbecue', service:'Quick Service', cuisine:'American BBQ', price:'$$', stars:5,
+      summary:'Consistently rated the best quick service restaurant at all of Walt Disney World. Brilliant slow-smoked ribs, pulled pork, and chicken. Beautiful outdoor waterfront seating with views of Expedition Everest. An absolute must.',
+      tip:'Arrive before noon — it gets extremely busy. The combo platter is outstanding value.' },
+    { name:"Satu'li Canteen", service:'Quick Service', cuisine:'Pandora-inspired Bowls', price:'$$', stars:5,
+      summary:'Avatar-themed canteen in Pandora with build-your-own grain bowls topped with proteins and housemade sauces. Beautifully presented, healthy, and genuinely delicious. One of the best quick service meals at Disney.',
+      tip:'The cheeseburger steamed pods are a kid favourite. Mobile order recommended.' },
+    { name:'Yak & Yeti', service:'Table Service', cuisine:'Asian Fusion', price:'$$$', stars:4,
+      summary:'Nepal and Tibet-inspired restaurant with a Japanese-Chinese fusion menu. Honey chicken, noodle soups, pot stickers, and egg rolls. Good food, great decor with Himalayan artefacts. More relaxed booking situation than other Disney restaurants.',
+      tip:'The Yak & Yeti Local Food Cafes nearby serve the honey chicken as a quick service option too.' },
+  ],
+  'Universal Studios': [
+    { name:'The Leaky Cauldron', service:'Quick Service', cuisine:'British Pub Food', price:'$$', stars:5,
+      summary:'Harry Potter\'s iconic London pub in Diagon Alley. You walk through a brick wall to enter. Incredible fish & chips, shepherd\'s pie, pasties, and pumpkin juice. An essential Harry Potter experience.',
+      tip:'Get a Butterbeer — both the original and frozen versions. The Butterbeer ice cream is unmissable.' },
+    { name:"Finnegan's Bar & Grill", service:'Table Service', cuisine:'Irish-American', price:'$$$', stars:4,
+      summary:'A lively New York Irish pub with live entertainment. Good fish & chips, bangers & mash, and Guinness on tap. Great atmosphere in the evenings — one of the best adult dining spots in the resort.',
+      tip:'Perfect spot for the adults to unwind in the evening while the kids still have energy.' },
+    { name:"Richter's Burger Co", service:'Quick Service', cuisine:'American', price:'$$', stars:3,
+      summary:'Earthquake-themed burger restaurant with solid burgers, fries, and milkshakes at reasonable prices. Nothing spectacular but a reliable, filling option in the heart of the park.',
+      tip:'The Earthquake-themed décor is fun. Good spot if you can\'t get into Finnegan\'s.' },
+  ],
+  'Islands of Adventure': [
+    { name:'Mythos Restaurant', service:'Table Service', cuisine:'Mediterranean / American', price:'$$$', stars:5,
+      summary:'Voted the world\'s best theme park restaurant multiple times. Set inside a dramatic cave carved into a rock formation with a waterfall cascading past the windows. Mediterranean-inspired menu with genuinely exceptional food. A special experience.',
+      tip:'Book ahead — this is the most sought-after table at Universal. The risotto is extraordinary.' },
+    { name:'Three Broomsticks', service:'Quick Service', cuisine:'British / American', price:'$$', stars:5,
+      summary:'Inspired by the Great Hall of Hogwarts. An impressive hall with house banners and roaring fires. Great Feast plates (chicken, corn, potatoes, cornbread) at brilliant value. Have a Butterbeer and soak up the atmosphere.',
+      tip:'The Great Feast is incredible value for a hungry group. Quieter in early afternoon.' },
+    { name:'Confisco Grille', service:'Table Service', cuisine:'International', price:'$$$', stars:3,
+      summary:'A Port of Entry restaurant with an international menu — Italian, Mexican, and American dishes. Reliable and reasonably good quality. The best option if you want a proper sit-down without advance booking.',
+      tip:'Walk-up reservations usually available. Good fallback if Mythos is fully booked.' },
+  ],
+  'Gatorland': [
+    { name:"Pearl's Smokehouse", service:'Quick Service', cuisine:'American BBQ', price:'$$', stars:4,
+      summary:'Proper American BBQ — smoked meats, pulled pork sandwiches, and BBQ chicken. Honest, hearty food that hits the spot after a morning watching alligators. Good portions at fair prices.',
+      tip:'The BBQ combo plate is excellent value. Grab a table under the shaded area.' },
+    { name:'Gator Nuggets & Snack Stands', service:'Snack Stand', cuisine:'Novelty / American', price:'$', stars:3,
+      summary:'You HAVE to try the alligator nuggets — they taste somewhere between chicken and fish, with a crispy batter. Multiple snack stands around the park. A genuine Florida experience and a great talking point.',
+      tip:'Genuinely tasty — don\'t be put off by the novelty. Pair with a cold lemonade.' },
+  ],
+  'Discovery Cove': [
+    { name:'All-Day Dining (Included)', service:'All-Inclusive', cuisine:'International / Caribbean', price:'Included', stars:4,
+      summary:'Your Discovery Cove ticket includes unlimited food and drinks all day — a genuine highlight. Fresh grilled meats, salads, wraps, pasta, burgers, and tropical cocktails. Quality is surprisingly good for an all-inclusive.',
+      tip:'Take full advantage — the drinks are included too. Try the Caribbean jerk chicken.' },
+    { name:'Serenity Bay Café', service:'Quick Service', cuisine:'Caribbean / American', price:'Included', stars:4,
+      summary:'Beachside open-air restaurant serving fresh, light Caribbean-inspired dishes. Perfect after your dolphin swim — grilled fish, salads, and tropical fruit. Relaxed atmosphere with ocean sounds.',
+      tip:'Great spot for a leisurely lunch after the dolphin experience. The mango smoothie is brilliant.' },
+  ],
+  'Volcano Bay': [
+    { name:'Bambu', service:'Quick Service', cuisine:'Hawaiian / Asian', price:'$$', stars:4,
+      summary:'The standout dining option at Volcano Bay. Hawaiian-inspired chicken bowls, noodle dishes, and Asian-style salads. Fresh and light — perfect fuel between water slides.',
+      tip:'Mobile order on the Universal app to avoid queuing in wet swimwear.' },
+    { name:'The Feasting Frog', service:'Quick Service', cuisine:'Mexican / American', price:'$$', stars:3,
+      summary:'Tacos, nachos, and quesadillas served from a tropical frog-themed stand. Fun, tasty, and quick. The loaded nachos are a crowd-pleaser for the kids.',
+      tip:'Good quick snack spot — perfect between Krakatau and the Tot Tiki Reef.' },
+    { name:'Whakawaiwai Eats', service:'Quick Service', cuisine:'American', price:'$$', stars:3,
+      summary:'Standard park food — burgers, hot dogs, and chips. Reliable and kid-friendly. Nothing remarkable but perfectly fine for a quick, filling meal without any fuss.',
+      tip:'Least busy of the food options — good backup if Bambu has a long queue.' },
+  ],
+  'SeaWorld Orlando': [
+    { name:'Sharks Underwater Grill', service:'Table Service', cuisine:'Seafood / American', price:'$$$', stars:5,
+      summary:'Tables are positioned directly beside a 750,000-gallon shark tank — sharks, rays, and fish glide past as you eat. The seafood is genuinely excellent. One of the most unforgettable dining experiences in Orlando.',
+      tip:'Book in advance — this fills up. Sit as close to the tank as possible. Worth every penny.' },
+    { name:'Voyager Smokehouse', service:'Quick Service', cuisine:'American BBQ', price:'$$', stars:4,
+      summary:'The best quick service at SeaWorld. Proper slow-smoked BBQ ribs, chicken, and pulled pork. Generous portions at fair prices. A reliable, filling option in the heart of the park.',
+      tip:'The combo platter with two meats is outstanding value for a hungry family.' },
+    { name:'Lakeside Smokehouse', service:'Quick Service', cuisine:'American', price:'$$', stars:3,
+      summary:'Burgers, hot dogs, and basic park food by the lake. Decent views and reliable food. Good for a no-fuss quick stop, especially if you\'re near the Mako roller coaster area.',
+      tip:'Pick a lakeside table for the nicest setting — peaceful compared to the busier areas.' },
+  ],
+  'Disney Springs': [
+    { name:'The BOATHOUSE', service:'Table Service', cuisine:'Seafood / American', price:'$$$$', stars:5,
+      summary:'The standout restaurant at Disney Springs and one of the best in all of Orlando. Exceptional fresh seafood, prime steaks, and an incredible wine list. Stunning waterfront setting with antique wooden boats. A proper special-occasion restaurant.',
+      tip:'Book well ahead. The amphicar tours (half-car, half-boat) leave from outside — brilliant fun before dinner.' },
+    { name:'Raglan Road Irish Pub', service:'Table Service', cuisine:'Irish', price:'$$$', stars:5,
+      summary:'An authentic Irish pub with live traditional music and step dancers performing throughout the evening. The fish & chips are among the best outside Ireland. Shipped over piece-by-piece from County Galway. Brilliant for a family evening.',
+      tip:'Come for dinner and stay for the live entertainment. The atmosphere in the evening is electric.' },
+    { name:'The Edison', service:'Table Service', cuisine:'American', price:'$$$', stars:4,
+      summary:'Industrial-gothic steampunk restaurant and bar with incredible decor. Great sharing plates, burgers, and cocktails. The atmosphere transforms in the evening with live entertainment. One of Disney Springs\' most visually dramatic spaces.',
+      tip:'Better in the evening when the atmosphere comes alive. Good for adults.' },
+    { name:'T-REX Café', service:'Table Service', cuisine:'American', price:'$$$', stars:3,
+      summary:'Life-size animatronic dinosaurs that roar and move during periodic meteor shower events. Kids absolutely love it. The food is standard American — burgers, ribs, pasta — but the experience is the reason to go.',
+      tip:'The kids will remember this forever. Book ahead — very popular with families.' },
+    { name:'Splitsville Luxury Lanes', service:'Table Service', cuisine:'American / Japanese', price:'$$$', stars:4,
+      summary:'A seriously fun combination — upscale bowling lanes with a surprisingly excellent menu. Sushi rolls, flatbreads, burgers, and cocktails. You can eat in a bowling lane. Perfect for an energetic group evening.',
+      tip:'No booking needed for dining (only for bowling lanes). Great for a fun group night out.' },
+  ],
+  'Near the Hotel': [
+    { name:'Kobe Japanese Steakhouse', service:'Table Service', cuisine:'Japanese Teppanyaki / Sushi', price:'$$$', stars:5,
+      summary:'A brilliant teppanyaki restaurant right on US-192, just minutes from Storey Lake. Chefs cook at your table with fire, flips, and banter — huge fun for the whole group. One of the most entertaining meals in the Kissimmee area and a real crowd-pleaser with kids.',
+      tip:'Brilliant for a big group — you sit around a shared grill together. Book ahead, especially for evenings. ~5 min drive.' },
+    { name:'Texas de Brazil', service:'Table Service', cuisine:'Brazilian Churrascaria', price:'$$$$', stars:5,
+      summary:'All-you-can-eat Brazilian BBQ where gauchos bring endless skewers of slow-roasted meats to your table — picanha, lamb, chicken, sausages, and more. A legendary feast. One of the best meals you can have near Disney. Includes a brilliant salad bar.',
+      tip:'Come hungry and pace yourself on the salad bar. The picanha (top sirloin) is the star. ~10 min drive on 192.' },
+    { name:'Giordano\'s', service:'Table Service', cuisine:'Chicago Deep Dish Pizza', price:'$$', stars:4,
+      summary:'Famous Chicago-style deep dish pizza with a buttery, thick crust piled high with toppings. A proper slice of American excess — brilliant after a long park day. Also does thin crust and pasta. Very popular with families staying nearby.',
+      tip:'Deep dish takes 45 minutes to cook, so order as soon as you sit. Worth the wait. ~5 min drive.' },
+    { name:'Azteca D\'Oro', service:'Table Service', cuisine:'Mexican', price:'$$', stars:4,
+      summary:'A well-loved local Mexican restaurant on 192 with enormous portions, strong margaritas, and great fajitas. Far better quality than a chain — locals and resort guests alike rate it highly. Lively atmosphere and very family-friendly.',
+      tip:'The fajitas for two could feed three. The margaritas are excellent and very generous. ~5 min drive.' },
+    { name:'LongHorn Steakhouse', service:'Table Service', cuisine:'American Steakhouse', price:'$$$', stars:4,
+      summary:'A reliable American steakhouse with well-cooked, properly seasoned steaks at sensible prices. More casual than Texas de Brazil but consistently good. Great burgers and ribs too. A solid go-to when the group wants a proper sit-down steak dinner without spending a fortune.',
+      tip:'The Outlaw Ribeye is their signature. Good wine list. No booking needed usually — a 10-min wait at most. ~8 min drive.' },
+    { name:'The Knife Argentine Steakhouse', service:'Table Service', cuisine:'Argentine', price:'$$$', stars:4,
+      summary:'All-you-can-eat Argentine grill — endless cuts of beef, chicken, and lamb brought to the table. Excellent quality and great value compared to similar concepts. A fantastic option for a big, hungry group who want serious meat without the Texas de Brazil price tag.',
+      tip:'Wash it down with an Argentine Malbec. Great value for a group. ~10 min drive on 192.' },
+    { name:'Olive Garden', service:'Table Service', cuisine:'Italian-American', price:'$$', stars:3,
+      summary:'The reliable family fallback — unlimited breadsticks and salad, big pasta portions, and a menu everyone can agree on. Not exactly authentic Italian but always consistent, always welcoming, and great for a group with picky eaters. Comforting and easy.',
+      tip:'The Never Ending Pasta Bowl deal is brilliant value if running. ~5 min drive.' },
+    { name:'IHOP', service:'Quick Service', cuisine:'American Breakfast / Brunch', price:'$', stars:3,
+      summary:'Open 24 hours — perfect for a big group breakfast before heading to the parks. Enormous pancakes, omelettes, bacon stacks, and American breakfast classics. Cheap, cheerful, and filling. No frills but gets the job done.',
+      tip:'Get there by 8am before the queues build. The stuffed French toast is a must. ~5 min drive.' },
+    { name:'Waffle House', service:'Quick Service', cuisine:'American Breakfast', price:'$', stars:4,
+      summary:'An American institution — simple, no-frills breakfast cooked in front of you at the counter. Waffles, hash browns cooked "scattered, smothered, and covered," bacon, and eggs. Cheap, fast, and surprisingly brilliant. A quintessential American experience.',
+      tip:'Order hash browns "scattered, smothered, covered, and chunked" — you won\'t regret it. ~5 min drive. Cash-friendly.' },
+    { name:'McDonald\'s / Burger King / Wendy\'s', service:'Quick Service', cuisine:'Fast Food', price:'$', stars:2,
+      summary:'Multiple fast food options within a 2-minute drive of Storey Lake for when you need something quick, cheap, and universally agreed on. Useful for grabbing breakfast before early park mornings or refuelling after late nights.',
+      tip:'Use the apps for deals — both McDonald\'s and Burger King have good app-only offers in the US. Immediate vicinity.' },
+  ],
+};
+
 const COLORS = ['bg-sky-400','bg-orange-400','bg-green-400','bg-yellow-400','bg-purple-400','bg-pink-400','bg-teal-400','bg-red-400','bg-indigo-400','bg-lime-400','bg-amber-400','bg-cyan-400'];
 const NAV_ITEMS = [
   {id:'dashboard',icon:'🏠',label:'Dashboard'},
@@ -2053,12 +2230,78 @@ function openAddPackItem() {
 // ============================================================
 // MEALS
 // ============================================================
+function renderStars(n) {
+  return '★'.repeat(n) + '☆'.repeat(5-n);
+}
+function renderPriceTag(p) {
+  const map = {'$':'text-green-600','$$':'text-yellow-600','$$$':'text-orange-500','$$$$':'text-red-500','Included':'text-blue-600'};
+  return `<span class="font-black text-xs ${map[p]||'text-slate-500'}">${p}</span>`;
+}
+function renderServiceBadge(s) {
+  const map = {'Table Service':'bg-purple-100 text-purple-700','Quick Service':'bg-blue-100 text-blue-700','Snack Stand':'bg-green-100 text-green-700','All-Inclusive':'bg-teal-100 text-teal-700'};
+  return `<span class="text-xs font-semibold px-2 py-0.5 rounded-full ${map[s]||'bg-slate-100 text-slate-600'}">${s}</span>`;
+}
+function renderDiningGuide() {
+  const allKeys = Object.keys(RESTAURANT_GUIDE);
+  // Show "Near the Hotel" first, then park names
+  const hotelKey = 'Near the Hotel';
+  const parkNames = [hotelKey, ...allKeys.filter(k => k !== hotelKey)];
+  const sel = window._diningPark || hotelKey;
+  const rests = RESTAURANT_GUIDE[sel] || [];
+  const isHotel = sel === hotelKey;
+  return `
+  <div class="rounded-3xl overflow-hidden shadow-xl mb-6" style="background:${isHotel ? 'linear-gradient(135deg,#0EA5E9,#6366F1,#8B5CF6)' : 'linear-gradient(135deg,#7C3AED,#EC4899,#F97316)'}">
+    <div class="p-4 pb-3">
+      <p class="text-white font-black text-base mb-1">🍴 Dining Guide</p>
+      <p class="text-white/70 text-xs mb-3">Select a location to see the best restaurants, ratings and tips.</p>
+      <div class="flex flex-wrap gap-1.5">
+        ${parkNames.map(p => {
+          const label = p === hotelKey ? '🏨 Near Hotel' :
+            `${PARK_EMOJIS[p]||'🍽️'} ${p.replace('Magic Kingdom','MK').replace('Hollywood Studios','HS').replace('Animal Kingdom','AK').replace('Islands of Adventure','IoA').replace('Universal Studios','USF').replace('Discovery Cove','Disc Cove').replace('Volcano Bay','Vol Bay').replace('SeaWorld Orlando','SeaWorld').replace('Disney Springs','D.Springs')}`;
+          const active = p===sel ? (isHotel ? 'bg-white text-indigo-700' : 'bg-white text-purple-700') : 'bg-white/20 text-white hover:bg-white/30';
+          return `<button onclick="window._diningPark='${p.replace(/'/g,"\\'")}';renderSection()"
+            class="text-xs font-bold px-3 py-1.5 rounded-full transition ${active}">${label}</button>`;
+        }).join('')}
+      </div>
+    </div>
+  </div>
+  ${isHotel ? `<div class="bg-blue-50 dark:bg-slate-800 border border-blue-200 dark:border-slate-600 rounded-2xl px-4 py-3 mb-4 flex items-start gap-2">
+    <span>📍</span>
+    <p class="text-xs text-blue-800 dark:text-blue-300 leading-relaxed"><strong>Storey Lake Resort, Kissimmee</strong> — All restaurants below are on or near the US-192 corridor, within a 5–10 minute drive of the hotel.</p>
+  </div>` : ''}
+  <div class="space-y-3 mb-6">
+    ${rests.map(r => `
+      <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-4">
+        <div class="flex items-start justify-between gap-3 mb-2">
+          <div class="flex-1">
+            <p class="font-black text-base leading-tight">${r.name}</p>
+            <div class="flex flex-wrap items-center gap-1.5 mt-1">
+              ${renderServiceBadge(r.service)}
+              <span class="text-xs text-slate-500 dark:text-slate-400">${r.cuisine}</span>
+            </div>
+          </div>
+          <div class="text-right flex-shrink-0">
+            <p class="text-yellow-500 text-sm font-black leading-none">${renderStars(r.stars)}</p>
+            <p class="mt-0.5">${renderPriceTag(r.price)}</p>
+          </div>
+        </div>
+        <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2">${r.summary}</p>
+        ${r.tip ? `<div class="flex items-start gap-1.5 bg-amber-50 dark:bg-amber-900/20 rounded-xl px-3 py-2">
+          <span class="text-xs">💡</span>
+          <p class="text-xs text-amber-800 dark:text-amber-300 font-medium leading-snug">${r.tip}</p>
+        </div>` : ''}
+      </div>`).join('')}
+  </div>
+  `;
+}
 function renderMeals() {
   return `
   <div class="mb-4">
-    <h1 class="text-2xl font-black mb-1">🍽️ Meals & Reservations</h1>
-    <p class="text-sm text-slate-500 dark:text-slate-400">Click any meal to edit. Remember to book dining 60 days in advance for Disney restaurants!</p>
+    <h1 class="text-2xl font-black mb-1">🍽️ Meals & Dining</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400">Restaurant guide for every park, plus your day-by-day meal planner. Book Disney dining 60 days ahead!</p>
   </div>
+  ${renderDiningGuide()}
+  <h2 class="text-lg font-black mb-3">📅 Meal Planner</h2>
   ${Array.from({length:10},(_,i)=>{
     const m=S.meals[i]||{breakfast:'',lunch:'',dinner:''};
     return `
