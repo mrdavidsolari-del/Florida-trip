@@ -361,8 +361,8 @@ tailwind.config = {
 // ============================================================
 // DATA & STATE
 // ============================================================
-const PARKS = ['Magic Kingdom','EPCOT','Hollywood Studios','Animal Kingdom','Universal Studios','Islands of Adventure','Gatorland','Discovery Cove','Volcano Bay','SeaWorld Orlando','Disney Springs','Rest Day'];
-const PARK_EMOJIS = {'Magic Kingdom':'🏰','EPCOT':'🌍','Hollywood Studios':'🎬','Animal Kingdom':'🦁','Universal Studios':'🎥','Islands of Adventure':'⚡','Gatorland':'🐊','Discovery Cove':'🐬','Volcano Bay':'🌊','SeaWorld Orlando':'🦈','Disney Springs':'🛍️','Rest Day':'😴'};
+const PARKS = ['Magic Kingdom','EPCOT','Hollywood Studios','Animal Kingdom','Universal Studios','Islands of Adventure','Epic Universe','Gatorland','Discovery Cove','Volcano Bay','SeaWorld Orlando','Disney Springs','Rest Day'];
+const PARK_EMOJIS = {'Magic Kingdom':'🏰','EPCOT':'🌍','Hollywood Studios':'🎬','Animal Kingdom':'🦁','Universal Studios':'🎥','Islands of Adventure':'⚡','Epic Universe':'🌌','Gatorland':'🐊','Discovery Cove':'🐬','Volcano Bay':'🌊','SeaWorld Orlando':'🦈','Disney Springs':'🛍️','Rest Day':'😴'};
 
 // ============================================================
 // PARK INFO DATABASE
@@ -439,6 +439,18 @@ const PARK_INFO = {
     address:'6000 Universal Blvd, Orlando, FL 32819',
     driveFromHotel:'25–30 min (16 miles)',parking:'$30/day (shared with Universal)',
     website:'https://www.universalorlando.com/web/en/us/theme-parks/islands-of-adventure'
+  },
+  'Epic Universe': {
+    emoji:'🌌', tagline:"Universal's Most Ambitious Park Ever",
+    description:"Universal's brand-new park opened May 2025 and is already being called the most impressive theme park ever built. Five extraordinary worlds under one roof: The Wizarding World of Harry Potter – Ministry of Magic (1920s Paris), Super Nintendo World, How to Train Your Dragon – Isle of Berk, Monsters, and the central Celestial Park hub. A must-visit.",
+    bestFor:'Everyone – Harry Potter fans, Nintendo lovers, families, thrill seekers',
+    mustDo:['Harry Potter and the Battle at the Ministry (epic dark ride)','Bowser\'s Challenge – Mario Kart ride (Super Nintendo World)','The Dragon Racer\'s Rally (IoB coaster)','Ministry of Magic – explore 1920s Wizarding Paris','Starfall Racers (twin-launch coaster in Celestial Park)'],
+    tips:['This is brand new – buy tickets well in advance, it will be extremely popular','Arrive at rope drop – the park is huge and queues build fast','A Universal Express Pass is highly recommended for this park','The Ministry of Magic section rivals Hogsmeade for Harry Potter atmosphere','Allow a full day minimum – you will want two days if possible'],
+    duration:'Full day – allow 9am to 9pm+ (it\'s massive)',bestTime:'Weekday; avoid school holidays',
+    ageRating:'⭐ All ages – something for everyone',cost:'$$$ (separate ticket from other Universal parks)',
+    address:'Universal Blvd, Orlando, FL 32819',
+    driveFromHotel:'25–30 min (16 miles via FL-417 N)',parking:'$30–$50/day on-site. Arrive early.',
+    website:'https://www.universalorlando.com/web/en/us/theme-parks/epic-universe'
   },
   'Gatorland': {
     emoji:'🐊', tagline:'The Alligator Capital of the World',
@@ -520,6 +532,7 @@ const TRAVEL_TIMES = {
   'Animal Kingdom':   {drive:'20–25 min',miles:'12 mi',route:'US-192 W → Osceola Pkwy',parking:'$30/day. Large lot, easy to navigate.',trafficTip:'Leave by 7:30am to hit rope drop at 8am.'},
   'Universal Studios':{drive:'25–30 min',miles:'16 mi',route:'US-192 E → FL-417 N → Universal Blvd',parking:'$30/day (on-site garage).',trafficTip:'FL-417 is a toll road (~$3). Fastest route. I-4 can be very congested.'},
   'Islands of Adventure':{drive:'25–30 min',miles:'16 mi',route:'FL-417 N → Universal Blvd',parking:'Shared with Universal Studios, $30/day.',trafficTip:'Same as Universal. FL-417 toll road recommended.'},
+  'Epic Universe':    {drive:'25–30 min',miles:'16 mi',route:'FL-417 N → Universal Blvd (new entrance)',parking:'$30–$50/day. New dedicated parking complex on-site.',trafficTip:'FL-417 toll (~$3). Brand new park – expect high demand. Leave 30 min earlier than usual.'},
   'Gatorland':        {drive:'15–20 min',miles:'8 mi',route:'US-441 S (Orange Blossom Trail)',parking:'Free on-site.',trafficTip:'CLOSEST attraction! Easy drive. Light traffic most times. No tolls.'},
   'Discovery Cove':   {drive:'20–25 min',miles:'13 mi',route:'FL-417 N → Sea Harbor Dr',parking:'Free included with ticket.',trafficTip:'FL-417 toll (~$3). Arrive at 8am – gates open then and it sets the tone!'},
   'Volcano Bay':      {drive:'25–30 min',miles:'16 mi',route:'FL-417 N → Universal Blvd',parking:'$30/day.',trafficTip:'Same route as Universal. Go early before crowds.'},
@@ -613,6 +626,26 @@ const RESTAURANT_GUIDE = {
     { name:'Confisco Grille', service:'Table Service', cuisine:'International', price:'$$$', stars:3,
       summary:'A Port of Entry restaurant with an international menu — Italian, Mexican, and American dishes. Reliable and reasonably good quality. The best option if you want a proper sit-down without advance booking.',
       tip:'Walk-up reservations usually available. Good fallback if Mythos is fully booked.' },
+  ],
+  'Epic Universe': [
+    { name:'The Steakhouse at Celestial Park', service:'Table Service', cuisine:'American Steakhouse', price:'$$$$', stars:5,
+      summary:'The flagship fine-dining restaurant at Epic Universe, set in the stunning Celestial Park hub. Premium steaks, seafood, and an exceptional wine list with views across the park\'s central cosmos-themed gardens. Already drawing rave reviews as one of the best restaurants in any theme park.',
+      tip:'Book as far ahead as possible — this will be the hardest table to get at Universal. Worth it for a special night out.' },
+    { name:'Café Koffski (Ministry of Magic)', service:'Quick Service', cuisine:'French / Wizarding World', price:'$$', stars:5,
+      summary:'A 1920s Parisian café inside the Ministry of Magic Wizarding World section. Crêpes, croissants, French pastries, and themed Wizarding beverages. Gorgeous setting that feels like stepping into 1920s Paris. One of the most atmospheric quick service spots in any theme park.',
+      tip:'Try the themed Wizarding drinks and the themed pastries — unique to this park. Queue early as it gets very busy.' },
+    { name:'Minette Haberdashery & Tea Room', service:'Table Service', cuisine:'French / British', price:'$$$', stars:4,
+      summary:'An elegant table service restaurant in the Wizarding World – Ministry of Magic area. French-British fusion menu inspired by 1920s Europe, with immersive décor that rivals anything at Diagon Alley. A fantastic experience for Harry Potter fans who want a proper sit-down meal.',
+      tip:'Book as soon as your visit is confirmed — this will be extremely popular with Potter fans.' },
+    { name:'Overlook Restaurant (Monsters)', service:'Table Service', cuisine:'American / Gothic', price:'$$$', stars:4,
+      summary:'Set in the classic Universal Monsters world, this atmospheric restaurant leans into Gothic horror with dramatic décor, candlelight, and a menu inspired by the classic monsters. Think hearty American comfort food with a darkly theatrical twist.',
+      tip:'Perfect for an evening meal — the atmosphere really comes alive after dark.' },
+    { name:'Super Nintendo World Dining', service:'Quick Service', cuisine:'Japanese / American', price:'$$', stars:4,
+      summary:'Several quick service spots throughout Super Nintendo World serving Nintendo-themed dishes — mushroom-topped burgers, Yoshi-shaped items, Japanese curry, and themed drinks. More creative and higher quality than typical theme park food.',
+      tip:'The Mario-themed lunch boxes are a huge hit with kids and adults alike. Mobile order recommended.' },
+    { name:'Isle of Berk Food Stalls', service:'Quick Service', cuisine:'Viking / American', price:'$$', stars:3,
+      summary:'A collection of rustic Viking-themed food stalls throughout How to Train Your Dragon – Isle of Berk. Roasted meats, hearty stews, and dragon-themed snacks. Fun theming and decent quality, though more about the atmosphere than the food.',
+      tip:'The smoked meats are the standout. Good for a quick refuel between the Dragon coasters.' },
   ],
   'Gatorland': [
     { name:"Pearl's Smokehouse", service:'Quick Service', cuisine:'American BBQ', price:'$$', stars:4,
@@ -753,16 +786,16 @@ const DEFAULT_STATE = {
   },
   carAssignments: {}, // {dayIndex: {car1Driver: personId, car2Driver: personId}}
   polls: [
-    {id:'day-0',isDay:true,dayIndex:0,question:'Day 1 — Wed 1 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-1',isDay:true,dayIndex:1,question:'Day 2 — Thu 2 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-2',isDay:true,dayIndex:2,question:'Day 3 — Fri 3 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-3',isDay:true,dayIndex:3,question:'Day 4 — Sat 4 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-4',isDay:true,dayIndex:4,question:'Day 5 — Sun 5 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-5',isDay:true,dayIndex:5,question:'Day 6 — Mon 6 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-6',isDay:true,dayIndex:6,question:'Day 7 — Tue 7 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-7',isDay:true,dayIndex:7,question:'Day 8 — Wed 8 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-8',isDay:true,dayIndex:8,question:'Day 9 — Thu 9 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
-    {id:'day-9',isDay:true,dayIndex:9,question:'Day 10 — Fri 10 Apr: Where do we go?',   options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-0',isDay:true,dayIndex:0,question:'Day 1 — Wed 1 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-1',isDay:true,dayIndex:1,question:'Day 2 — Thu 2 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-2',isDay:true,dayIndex:2,question:'Day 3 — Fri 3 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-3',isDay:true,dayIndex:3,question:'Day 4 — Sat 4 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-4',isDay:true,dayIndex:4,question:'Day 5 — Sun 5 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-5',isDay:true,dayIndex:5,question:'Day 6 — Mon 6 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-6',isDay:true,dayIndex:6,question:'Day 7 — Tue 7 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-7',isDay:true,dayIndex:7,question:'Day 8 — Wed 8 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-8',isDay:true,dayIndex:8,question:'Day 9 — Thu 9 Apr: Where do we go?',     options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
+    {id:'day-9',isDay:true,dayIndex:9,question:'Day 10 — Fri 10 Apr: Where do we go?',   options:['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom','🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe','🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando','🛍️ Disney Springs','😴 Hotel Pool / Rest Day'],votes:{},closed:false,created:Date.now()},
     {id:'p-dinner',isDay:false,question:'Preferred dinner time?',options:['6:00 PM','6:30 PM','7:00 PM','7:30 PM'],votes:{},closed:false,created:Date.now()},
   ],
   expenses: [],
@@ -2634,8 +2667,8 @@ function migrateSavedState() {
   const dayLabels  = ['Wed 1 Apr','Thu 2 Apr','Fri 3 Apr','Sat 4 Apr','Sun 5 Apr',
                       'Mon 6 Apr','Tue 7 Apr','Wed 8 Apr','Thu 9 Apr','Fri 10 Apr'];
   const parkOpts   = ['🏰 Magic Kingdom','🌍 EPCOT','🎬 Hollywood Studios','🦁 Animal Kingdom',
-                      '🎥 Universal Studios','⚡ Islands of Adventure','🐊 Gatorland',
-                      '🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando',
+                      '🎥 Universal Studios','⚡ Islands of Adventure','🌌 Epic Universe',
+                      '🐊 Gatorland','🐬 Discovery Cove','🌊 Volcano Bay','🦈 SeaWorld Orlando',
                       '🛍️ Disney Springs','😴 Hotel Pool / Rest Day'];
 
   dayPollIds.forEach((id, i) => {
