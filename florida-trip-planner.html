@@ -736,6 +736,252 @@ const RESTAURANT_GUIDE = {
   ],
 };
 
+// ============================================================
+// RIDE & SHOW GUIDE
+// ============================================================
+const QUEUE_PARK_IDS = {
+  'Magic Kingdom':6,'EPCOT':5,'Hollywood Studios':7,'Animal Kingdom':8,
+  'Universal Studios':28,'Islands of Adventure':29,'Epic Universe':65,
+  'SeaWorld Orlando':34,'Volcano Bay':83,
+};
+const RIDE_GUIDE = {
+  'Magic Kingdom':[
+    {name:'TRON Lightcycle Run',type:'Coaster',thrill:4,height:48,duration:2,ll:true,
+     summary:'The newest, fastest ride at Magic Kingdom. An indoor/outdoor motorcycle coaster through a neon Tron world. One of Disney\'s best.',
+     tip:'Book Lightning Lane Individual at exactly 7am — sells out in minutes.'},
+    {name:'Seven Dwarfs Mine Train',type:'Coaster',thrill:3,height:38,duration:3,ll:true,
+     summary:'A family mine cart coaster through the dwarfs\' diamond mine with swinging carriages. Hugely popular with all ages.',
+     tip:'LL essential — walk-up queue often 90+ min. Also book at 7am sharp.'},
+    {name:'Space Mountain',type:'Coaster',thrill:3,height:44,duration:3,ll:true,
+     summary:'Classic indoor coaster through the dark cosmos. Darkness makes it feel faster than it is. A Magic Kingdom icon since 1975.',
+     tip:'Smoother at the front. Avoid if you have back problems — it\'s bumpy.'},
+    {name:'Big Thunder Mountain Railroad',type:'Coaster',thrill:3,height:40,duration:4,ll:false,
+     summary:'The "Wildest Ride in the Wilderness" — a mine train coaster through haunted canyons. Perfect family thrill with brilliant theming.',
+     tip:'Ride at opening or just before close for the shortest queues. Usually 30-45 min wait.'},
+    {name:'Haunted Mansion',type:'Dark Ride',thrill:1,height:null,duration:9,ll:true,
+     summary:'A gently paced tour through a ghost-filled estate with 999 happy haunts. Iconic, clever, darkly funny — a must-do every visit.',
+     tip:'Queue during parades when crowds thin. The stretching room intro is brilliantly done.'},
+    {name:'Pirates of the Caribbean',type:'Dark Ride',thrill:1,height:null,duration:9,ll:false,
+     summary:'An epic boat ride through swashbuckling pirate scenes. One of Disney\'s greatest dark rides with spectacular sets and rousing music.',
+     tip:'Go during the afternoon lull. Small drop at the start surprises little ones.'},
+    {name:"Tiana's Bayou Adventure",type:'Water Ride',thrill:2,height:40,duration:10,ll:true,
+     summary:'The brand-new replacement for Splash Mountain. A musical journey through the Louisiana bayou with Princess Tiana, ending with a big splash drop.',
+     tip:'Bring a poncho — you WILL get soaked on the big drop.'},
+    {name:"Buzz Lightyear's Space Ranger Spin",type:'Dark Ride',thrill:1,height:null,duration:5,ll:false,
+     summary:'An interactive shooter where you blast alien targets with a laser gun to earn points. Competitive family fun — great for repeat rides.',
+     tip:'Aim for diamond-shaped targets for 100k points. Use the joystick to spin your vehicle.'},
+    {name:"It's a Small World",type:'Dark Ride',thrill:1,height:null,duration:10,ll:false,
+     summary:'A gentle boat ride through colourful dioramas of children from every country. The song will be stuck in your head for days. An institution.',
+     tip:'Perfect on a hot afternoon — air-conditioned and almost always a short queue.'},
+    {name:'Festival of Fantasy Parade',type:'Show',thrill:1,height:null,duration:15,ll:false,
+     summary:'A spectacular daytime parade with elaborate floats, dancers, and all the classic Disney characters. Incredible production values.',
+     tip:'Find a Main Street spot 20-25 min early. Check the My Disney Experience app for times.'},
+    {name:'Happily Ever After Fireworks',type:'Show',thrill:1,height:null,duration:18,ll:false,
+     summary:'Nightly fireworks and projection show on Cinderella\'s Castle. One of the best fireworks displays anywhere on earth. Unmissable.',
+     tip:'Stake a spot in the Plaza Hub 45 min early. The castle projections alone are extraordinary.'},
+  ],
+  'EPCOT':[
+    {name:'Guardians of the Galaxy: Cosmic Rewind',type:'Coaster',thrill:4,height:42,duration:5,ll:true,
+     summary:'A reverse-launch indoor coaster that rotates to face the screen as you fly through space to an 80s soundtrack. Innovative, thrilling, incredibly fun.',
+     tip:'Book Individual LL at exactly 7am — sells out in under a minute. One of WDW\'s best.'},
+    {name:"Soarin' Around the World",type:'Simulator',thrill:2,height:40,duration:5,ll:true,
+     summary:'A breathtaking hang glider simulation over world landmarks. Gentle, beautiful, and emotional. A true classic beloved by all ages.',
+     tip:'Sit in the top row — no legs dangling above you. Book LL to avoid 60+ min queues.'},
+    {name:'Test Track',type:'Simulator',thrill:2,height:40,duration:5,ll:true,
+     summary:'Design a concept car then test it to the limits — extreme weather, durability, and a 65mph blast around an outdoor track.',
+     tip:'Design your car in the virtual studio before you ride. Good fun for car enthusiasts.'},
+    {name:'Frozen Ever After',type:'Dark Ride',thrill:2,height:null,duration:5,ll:true,
+     summary:'A boat ride through the world of Frozen with extraordinary Elsa and Anna animatronics. Sing-along fun for all ages. Norway Pavilion.',
+     tip:'The Elsa animatronic is one of the most impressive Disney has ever built.'},
+    {name:"Remy's Ratatouille Adventure",type:'Dark Ride',thrill:1,height:null,duration:5,ll:true,
+     summary:'Shrink to the size of a rat and scurry through Gusteau\'s restaurant in this charming family ride. France Pavilion. Kids absolutely love it.',
+     tip:'Book LL — very popular. The queue area is packed with brilliant hidden details.'},
+    {name:'Mission: SPACE (Orange)',type:'Simulator',thrill:4,height:44,duration:5,ll:false,
+     summary:'Simulated Mars launch with genuine G-force centrifuge technology. The most intense simulator at Disney World — not for the nervous.',
+     tip:'NOT for those prone to motion sickness. The Green Mission (gentler) is a good alternative.'},
+    {name:'EPCOT Forever Fireworks',type:'Show',thrill:1,height:null,duration:12,ll:false,
+     summary:'Nightly fireworks over World Showcase Lagoon with kite performers, music, and pyrotechnics celebrating EPCOT\'s history.',
+     tip:'Any spot around the lagoon is great. The rose garden area near France is a hidden gem.'},
+  ],
+  'Hollywood Studios':[
+    {name:'Star Wars: Rise of the Resistance',type:'Dark Ride',thrill:3,height:40,duration:18,ll:true,
+     summary:'The most immersive theme park ride ever created. You are captured by the First Order and must escape. Multiple ride systems, enormous sets, jaw-dropping moments. An 18-minute masterpiece.',
+     tip:'Book Individual LL at 7am. This is a genuinely life-changing 18 minutes.'},
+    {name:"Rock 'n' Roller Coaster",type:'Coaster',thrill:5,height:48,duration:2,ll:true,
+     summary:'Launches 0-60mph in 2.8 seconds with Aerosmith blasting. Corkscrews, inversions, and neon-lit tunnels. An absolute banger — the most intense ride at HS.',
+     tip:'Keep your head back against the headrest on launch. The G-force is a genuine shock.'},
+    {name:'Tower of Terror',type:'Drop Tower',thrill:4,height:40,duration:5,ll:true,
+     summary:'A haunted hotel lift that drops you 13 stories in darkness. The drop sequence is randomised every ride. Terrifying, brilliant, iconic.',
+     tip:'Sit in the back row for the most intense drops. The randomised sequence means it\'s never the same twice.'},
+    {name:'Slinky Dog Dash',type:'Coaster',thrill:2,height:38,duration:3,ll:true,
+     summary:'A fun family coaster stretching through Toy Story Land. Good speed, great theming, accessible for most ages. Very popular.',
+     tip:'Mobile order LL or ride at park opening — consistently one of WDW\'s busiest.'},
+    {name:'Millennium Falcon: Smugglers Run',type:'Simulator',thrill:2,height:38,duration:5,ll:true,
+     summary:'Pilot the actual Millennium Falcon. You take the role of pilot, gunner, or engineer. Your performance affects the outcome of the mission.',
+     tip:'Fight for the pilot seats — engineers just press buttons. The cockpit is perfectly sized.'},
+    {name:"Mickey & Minnie's Runaway Railway",type:'Dark Ride',thrill:1,height:null,duration:5,ll:true,
+     summary:'A trackless dark ride inside a Mickey cartoon that goes hilariously wrong. Clever 2D-to-3D effects and loveable characters.',
+     tip:'The pre-show cartoon is brilliant — don\'t miss it. Wonderful for all ages.'},
+    {name:'Indiana Jones Epic Stunt Spectacular',type:'Show',thrill:1,height:null,duration:30,ll:false,
+     summary:'Live stunt show revealing how Raiders of the Lost Ark sequences were filmed. Real explosions, car chases, genuine stuntwork.',
+     tip:'Audience volunteers selected before showtime — put your hand up enthusiastically. Get there 15 min early.'},
+    {name:'Fantasmic!',type:'Show',thrill:1,height:null,duration:30,ll:false,
+     summary:'Spectacular nighttime amphitheatre show with water screens, projections, fireworks, and Disney villains battling Mickey. One of the greatest theme park shows ever made.',
+     tip:'Arrive 30-45 min early for a good seat. One of the best shows at any Disney park worldwide.'},
+  ],
+  'Animal Kingdom':[
+    {name:'Avatar: Flight of Passage',type:'Simulator',thrill:3,height:44,duration:5,ll:true,
+     summary:'You\'re mind-linked to a banshee and fly over Pandora at breathtaking speed. Physical sensation, smell, wind, and astonishing visuals. The best simulator ride on earth.',
+     tip:'Individual LL a must — queues hit 3 hours. Nothing else comes close to the realism.'},
+    {name:'Expedition Everest',type:'Coaster',thrill:4,height:44,duration:3,ll:true,
+     summary:'A thrilling mountain coaster with a terrifying backwards section in complete darkness past the Yeti. Fast, smooth, brilliantly themed.',
+     tip:'Sit at the back for maximum intensity. The backwards dark section surprises everyone.'},
+    {name:"Na'vi River Journey",type:'Dark Ride',thrill:1,height:null,duration:5,ll:true,
+     summary:'A gentle boat ride through bioluminescent Pandora rainforest at night. Stunning visuals and the most lifelike Disney animatronic ever built at the end.',
+     tip:'The Shaman animatronic at the end is extraordinary — it looks genuinely alive. Beautiful for all ages.'},
+    {name:'Kilimanjaro Safaris',type:'Safari Tour',thrill:1,height:null,duration:20,ll:true,
+     summary:'An open-top vehicle through 110 acres of African savanna with real animals — lions, elephants, giraffes, rhinos, hippos. Never the same twice.',
+     tip:'Go at opening or late afternoon when animals are most active. They are REAL animals!'},
+    {name:'DINOSAUR',type:'Dark Ride',thrill:3,height:40,duration:4,ll:false,
+     summary:'A time-travel mission to rescue a dinosaur. Sudden lurches, darkness, and jump-scare dinosaurs. Terrifying for young children — assess before riding.',
+     tip:'One of the less-crowded rides. Good afternoon option when other queues are long.'},
+    {name:'Kali River Rapids',type:'Water Ride',thrill:2,height:38,duration:5,ll:false,
+     summary:'A circular raft ride through a rainforest. You WILL get soaked. Brilliant on a hot day, a disaster if you\'re heading somewhere after.',
+     tip:'Buy a poncho at the gift shop beforehand. Go when you\'re already sweaty and happy to get drenched.'},
+    {name:"Finding Nemo: The Big Blue...",type:'Show',thrill:1,height:null,duration:25,ll:false,
+     summary:'Live musical show combining innovative puppetry, dancers, and acrobatics to retell Finding Nemo. Unexpectedly moving and brilliantly designed.',
+     tip:'Great air-conditioned afternoon break. Theatre of the Sea — genuinely one of Disney\'s best live shows.'},
+  ],
+  'Universal Studios':[
+    {name:'Harry Potter and the Escape from Gringotts',type:'Dark Ride',thrill:3,height:42,duration:8,ll:true,
+     summary:'Multi-system dark ride through Gringotts vaults with Harry, Ron and Hermione. Fire, water, a Hungarian Horntail, and Voldemort. One of the best rides at Universal.',
+     tip:'Walk through Diagon Alley before riding — the environment is extraordinary. Don\'t rush it.'},
+    {name:'Hollywood Rip Ride Rockit',type:'Coaster',thrill:5,height:51,duration:2,ll:true,
+     summary:'A high-speed coaster up the front of a building with a non-inversion loop, and a personalised soundtrack you pick before you ride. Loud, intense, unmissable skyline feature.',
+     tip:'Choose your music on the on-ride screen. The non-inversion loop is a completely unique experience.'},
+    {name:'Revenge of the Mummy',type:'Coaster',thrill:4,height:48,duration:3,ll:true,
+     summary:'A classic indoor launch coaster with fire, bugs, and unexpected psychological twists in total darkness. A Universal icon. Genuinely scary.',
+     tip:'The fake ending fools everyone the first time — don\'t get up! The real ending follows.'},
+    {name:'Transformers: The Ride',type:'Simulator',thrill:3,height:40,duration:5,ll:true,
+     summary:'Join NEST forces against the Decepticons in an ultra-immersive multi-screen simulator with physical effects. High-energy and technically brilliant.',
+     tip:'Less popular than some headliners — shorter queues in the afternoon. Good value for the experience.'},
+    {name:'Despicable Me Minion Mayhem',type:'Simulator',thrill:2,height:40,duration:5,ll:true,
+     summary:'Gru turns you into a minion in this fun family simulator. Good pre-show and a dance party finale. Great for younger kids.',
+     tip:'Queue in the morning. The post-ride dance party is genuinely fun for kids — let them enjoy it.'},
+    {name:'MEN IN BLACK Alien Attack',type:'Dark Ride',thrill:2,height:42,duration:5,ll:false,
+     summary:'An interactive shooter blasting aliens invading New York alongside Will Smith. Competitive scoring makes it endlessly replayable.',
+     tip:'Shoot spinning alien targets for bonus points. Try to hit aliens in the eyes for maximum score.'},
+  ],
+  'Islands of Adventure':[
+    {name:"Hagrid's Magical Creatures Motorbike Adventure",type:'Coaster',thrill:3,height:48,duration:6,ll:false,
+     summary:'THE best theme park ride in the world. A groundbreaking motorbike coaster through the Forbidden Forest with Hagrid, Fluffy, Blast-Ended Skrewts, and the most innovative ride system ever built. Absolutely extraordinary.',
+     tip:'NO Lightning Lane — queue only. Be at rope drop and run. Worth every minute of a 2-hour queue.'},
+    {name:'VelociCoaster',type:'Coaster',thrill:5,height:51,duration:2,ll:true,
+     summary:'Florida\'s fastest, most intense coaster. Two launches, a 155ft top hat, a heartline roll over the lagoon, and four inversions. Terrifyingly brilliant.',
+     tip:'Front row is the ultimate experience. The over-water heartline roll is unlike anything else.'},
+    {name:'Incredible Hulk Coaster',type:'Coaster',thrill:4,height:54,duration:2,ll:true,
+     summary:'A launch coaster that catapults you through seven inversions. The roar as it launches is audible across the whole park. One of the great steel coasters.',
+     tip:'Lockers are free for 90 min. The launch roar announces you to the entire park — embrace it.'},
+    {name:'Harry Potter and the Forbidden Journey',type:'Dark Ride',thrill:3,height:48,duration:5,ll:true,
+     summary:'KUKA robotic arm ride flying through Hogwarts — Whomping Willow, Dementors, and Quidditch. Revolutionary when it opened, still extraordinary now.',
+     tip:'Explore the castle queue fully — moving portraits, Sorting Hat, Defence Against the Dark Arts classroom.'},
+    {name:'Jurassic World Ride',type:'Water Ride',thrill:3,height:42,duration:6,ll:false,
+     summary:'A river rapids ride through a dinosaur facility that goes spectacularly wrong. T-Rex, Raptors, and a massive 85-foot drop finale. You will be completely soaked.',
+     tip:'Full poncho essential. The drop is colossal — nothing is staying dry. Go when you don\'t care.'},
+    {name:'The Amazing Adventures of Spider-Man',type:'Simulator',thrill:3,height:40,duration:5,ll:true,
+     summary:'4D simulator battling the Sinister Syndicate through New York with Spider-Man. Still a benchmark for theme park simulation.',
+     tip:'Still one of the most impressive rides at Universal. Front rows give the best experience.'},
+  ],
+  'Epic Universe':[
+    {name:'Harry Potter and the Battle at the Ministry',type:'Dark Ride',thrill:3,height:40,duration:8,ll:true,
+     summary:'The centrepiece of the Ministry of Magic world. An epic battle between Aurors and Death Eaters in 1920s Wizarding Paris. Already reported to rival Rise of the Resistance.',
+     tip:'Expected to be the most popular ride in the park. Book Individual LL the instant the park opens.'},
+    {name:'Starfall Racers',type:'Coaster',thrill:5,height:48,duration:3,ll:true,
+     summary:'A twin-track launch coaster in Celestial Park where two trains race side by side at high speed. Multiple launches, inversions, and stunning park views.',
+     tip:'Try to grab the left train for the best near-miss interaction with the racing train.'},
+    {name:"The Dragon Racer's Rally",type:'Coaster',thrill:3,height:40,duration:3,ll:true,
+     summary:'Race alongside Hiccup and Toothless through the Viking island. Thrilling enough for teens, accessible enough for younger riders. Great Dragon animatronics.',
+     tip:'Good option when HP and Starfall have long queues. IoB world is often less crowded.'},
+    {name:"Hiccup's Wing Gliders",type:'Coaster',thrill:2,height:36,duration:3,ll:false,
+     summary:'A suspended wing coaster over the Isle of Berk with beautiful views of the land. Smooth and gentle — perfect for nervous riders or as a first coaster.',
+     tip:'Shorter queues expected. Great for family members who want to experience the world without intensity.'},
+    {name:"Bowser's Challenge (Mario Kart)",type:'Simulator',thrill:2,height:40,duration:5,ll:true,
+     summary:'AR-enhanced Mario Kart with augmented reality goggles competing against Bowser\'s team. Completely unique technology and irresistibly fun.',
+     tip:'Download the Nintendo app before your visit to level up. The AR goggles are genuinely impressive tech.'},
+    {name:"Yoshi's Adventure",type:'Dark Ride',thrill:1,height:null,duration:5,ll:false,
+     summary:'A gentle egg-hunt ride on Yoshi through Super Nintendo World. Designed for younger children to experience the world at a relaxed pace.',
+     tip:'Perfect for younger kids. Great way to see Super Nintendo World without any intensity.'},
+    {name:'The Curse of the Werewolf',type:'Coaster',thrill:4,height:48,duration:2,ll:true,
+     summary:'An intense coaster through the Monsters world with gothic European village theming, dramatic drops, and classic Universal monster film elements.',
+     tip:'Monsters world is often less busy than HP and Nintendo sections — a good afternoon choice.'},
+  ],
+  'SeaWorld Orlando':[
+    {name:'Pipeline: The Surf Coaster',type:'Coaster',thrill:4,height:54,duration:2,ll:true,
+     summary:'The world\'s first surf coaster — you stand on surfboard-style seats that swing freely through each element. Intense, smooth, and completely unlike any other coaster.',
+     tip:'Brand new and already one of the best coasters in Florida. Shorter queues than Disney/Universal.'},
+    {name:'Mako',type:'Coaster',thrill:4,height:54,duration:2,ll:true,
+     summary:'200-foot drop, 73mph, Florida\'s longest coaster. Smooth as silk, pure speed and airtime. Named after the mako shark. A genuine world-class coaster.',
+     tip:'Front row gives the ultimate experience. No inversions — just relentless speed and brilliant airtime.'},
+    {name:'Manta',type:'Coaster',thrill:4,height:54,duration:2,ll:true,
+     summary:'A flying coaster that puts you horizontal so you "fly" face-down like a manta ray through four inversions and a pass through the ray enclosure.',
+     tip:'The pre-ride fly-through of the real ray and fish tank is beautiful — slow down and enjoy it.'},
+    {name:'Ice Breaker',type:'Coaster',thrill:4,height:48,duration:2,ll:true,
+     summary:'Four launches including a backwards vertical spike up 93 degrees. Punchy, intense, and packs more into 2 minutes than most coasters manage in five.',
+     tip:'The backwards vertical spike is terrifyingly good. Short ride but absolutely packs a punch.'},
+    {name:'Antarctica: Empire of the Penguin',type:'Dark Ride',thrill:1,height:null,duration:5,ll:false,
+     summary:'A trackless ride through an Antarctic penguin habitat with penguins appearing from nowhere. Gentle and educational with real live penguins at the end.',
+     tip:'Spend time in the live penguin area — genuinely fascinating. Kids could watch for 20 minutes.'},
+    {name:'Orca Encounter',type:'Show',thrill:1,height:null,duration:25,ll:false,
+     summary:'An educational show with live killer whales focused on animal behaviour and conservation. Spectacular and emotional — a SeaWorld signature.',
+     tip:'First few rows get VERY wet — bring waterproofs or embrace being soaked. The splash zone is absolutely real.'},
+  ],
+  'Volcano Bay':[
+    {name:'Krakatau Aqua Coaster',type:'Water Ride',thrill:4,height:42,duration:2,ll:false,
+     summary:'A water coaster that propels you uphill using linear induction technology. Through the volcano itself with waterfalls, dark tunnels, and tropical theming. The park\'s crown jewel.',
+     tip:'Must-do at Volcano Bay. Tap your TapuTapu wristband early — queue goes 90+ min by mid-morning.'},
+    {name:"Ko'okiri Body Plunge",type:'Water Ride',thrill:5,height:48,duration:1,ll:false,
+     summary:'A near-vertical 125-foot drop through a trapdoor floor. Pure terror from the moment you step on the panel. Not for the faint-hearted. At all.',
+     tip:'The trapdoor drop is genuinely one of the most terrifying experiences in any Orlando park. You\'ve been warned.'},
+    {name:'TeAwa The Fearless River',type:'Water Ride',thrill:2,height:42,duration:15,ll:false,
+     summary:'A rapid river — unlike a lazy river, this has real currents, rapids, and jets. Hang on to your tube. Great for teens and adults.',
+     tip:'Use the complimentary life vests. The current is genuinely strong — this is NOT a lazy river.'},
+    {name:'Honu ika Moana Slides',type:'Water Ride',thrill:3,height:48,duration:1,ll:false,
+     summary:'Two multi-passenger slides — a massive 5-person raft (Honu) with banked curves, and a 4-person body slide with sudden drops.',
+     tip:'Best for groups — you ride together on Honu. Great family multi-rider experience.'},
+    {name:'Puka Uli Lagoon',type:'Pool',thrill:1,height:null,duration:0,ll:false,
+     summary:'A beautiful surf pool with gentle waves and sandy beach. One of the most relaxing spots in any Orlando park. Perfect for families with young children.',
+     tip:'Book sunbeds early using TapuTapu. Wonderful place to decompress between slides.'},
+  ],
+  'Gatorland':[
+    {name:"Screamin' Gator Zip Line",type:'Zip Line',thrill:3,height:null,duration:30,ll:false,
+     summary:'Zip over pools containing hundreds of live alligators and crocodiles. Five lines at different heights. A uniquely Florida experience you won\'t find anywhere else.',
+     tip:'Extra cost ~$35 on top of park admission. Worth every penny — genuinely thrilling and unforgettable.'},
+    {name:"Stompin' Gator Off-Road Adventure",type:'Jeep Tour',thrill:1,height:null,duration:25,ll:false,
+     summary:'An off-road buggy ride through wetlands with alligators, birds, and Florida wildlife. Educational commentary and genuinely close animal encounters.',
+     tip:'Book at the entrance when you arrive — slots fill up by mid-morning.'},
+    {name:"Gator Wrestlin' Show",type:'Show',thrill:1,height:null,duration:20,ll:false,
+     summary:'A trained handler wrestles a live alligator in the main stadium with demonstrations of feeding and behaviour. Impressive despite the showbiz element.',
+     tip:'Check the show schedule at park entrance. The handler\'s commentary is genuinely fascinating.'},
+    {name:'Alligator Feeding',type:'Show',thrill:1,height:null,duration:10,ll:false,
+     summary:'Hand-feed alligators from a raised boardwalk using a marshmallow on a stick. The gators jump — terrifyingly close and absolutely brilliant. Kids love it.',
+     tip:'Buy the feeding stick at a nearby kiosk. The gators leap for marshmallows — kids go absolutely wild.'},
+  ],
+  'Discovery Cove':[
+    {name:'Dolphin Swim',type:'Animal Encounter',thrill:2,height:null,duration:30,ll:false,
+     summary:'The centrepiece of Discovery Cove. Atlantic bottlenose dolphins interact, swim, and perform with you in a lagoon. One of the most magical wildlife experiences in the world.',
+     tip:'Your time slot is assigned at check-in. Engage actively — the better you interact, the better the dolphins respond.'},
+    {name:'Grand Reef Snorkel',type:'Swim',thrill:1,height:null,duration:0,ll:false,
+     summary:'Snorkel through a massive reef with thousands of tropical fish, rays, and small sharks. All gear provided and included in admission. Genuinely world-class snorkelling.',
+     tip:'The rays glide right past you and are completely harmless. One of the best snorkel experiences in Florida.'},
+    {name:'Freshwater Oasis',type:'Swim',thrill:1,height:null,duration:0,ll:false,
+     summary:'Snorkel among freshwater fish, otters, and marmosets in a beautiful river environment. Included in admission. Beautiful and peaceful.',
+     tip:'The otters often swim directly at you. Go early morning for the best animal activity.'},
+    {name:'Aviary Walk-Through',type:'Animal Encounter',thrill:1,height:null,duration:15,ll:false,
+     summary:'Walk through a free-flight tropical bird aviary where hundreds of exotic birds land on your arms and eat from your hands.',
+     tip:'Buy the bird feed cups at the entrance ($3) — birds are MUCH more likely to interact with you.'},
+  ],
+};
+
 const COLORS = ['bg-sky-400','bg-orange-400','bg-green-400','bg-yellow-400','bg-purple-400','bg-pink-400','bg-teal-400','bg-red-400','bg-indigo-400','bg-lime-400','bg-amber-400','bg-cyan-400'];
 const NAV_ITEMS = [
   {id:'dashboard',icon:'🏠',label:'Dashboard'},
@@ -2204,55 +2450,189 @@ function deleteExpense(i) { if(confirm('Delete this expense?')) { S.expenses.spl
 // ============================================================
 // ATTRACTIONS
 // ============================================================
-function renderAttractions() {
-  const parks=Object.keys(S.checklist.rides);
-  const total=parks.reduce((a,p)=>a+S.checklist.rides[p].length,0);
-  const done=parks.reduce((a,p)=>a+S.checklist.rides[p].filter(r=>r.done).length,0);
-  return `
-  <div class="flex items-center justify-between mb-4">
-    <h1 class="text-2xl font-black">🎢 Attractions</h1>
-    <span class="badge bg-orange-100 text-orange-700 text-sm">${done}/${total} done</span>
-  </div>
+// Thrill level helpers
+function thrillLabel(n){return['','🟢 Easy','🔵 Mild','🟡 Moderate','🟠 Thrilling','🔴 Extreme'][n]||''}
+function thrillBg(n){return['','bg-green-100 text-green-700','bg-blue-100 text-blue-700','bg-yellow-100 text-yellow-700','bg-orange-100 text-orange-700','bg-red-100 text-red-700'][n]||'bg-slate-100 text-slate-600'}
+function typeIcon(t){const m={'Coaster':'🎢','Dark Ride':'🎭','Water Ride':'💦','Show':'🎬','Simulator':'🕹️','Drop Tower':'⬇️','Safari Tour':'🦁','Jeep Tour':'🚙','Zip Line':'🪂','Animal Encounter':'🐬','Swim':'🏊','Pool':'🏖️'};return m[t]||'⭐'}
+function waitColor(m){if(m===0)return'bg-gray-100 text-gray-500';if(m<20)return'bg-green-100 text-green-700';if(m<45)return'bg-yellow-100 text-yellow-700';if(m<75)return'bg-orange-100 text-orange-700';return'bg-red-100 text-red-700';}
 
+function renderAttractions() {
+  const tab = window._attractTab || 'guide';
+  const selPark = window._ridesPark || 'Magic Kingdom';
+  const selFilter = window._ridesFilter || 'All';
+  const rideParks = Object.keys(RIDE_GUIDE);
+  const filterTypes = ['All','Coaster','Dark Ride','Simulator','Water Ride','Show','Animal Encounter','Zip Line'];
+  const allRides = RIDE_GUIDE[selPark] || [];
+  const rides = selFilter==='All' ? allRides : allRides.filter(r=>r.type===selFilter||r.type.includes(selFilter));
+  const qId = QUEUE_PARK_IDS[selPark];
+  const wt = window._waitTimesData;
+  const wtLoading = window._waitTimesLoading;
+  const wtError = window._waitTimesError;
+  const wtTs = window._waitTimesTs;
+
+  // ── PARK PICKER (shared across Guide + Wait Times tabs)
+  const parkPicker = `
+  <div class="flex flex-wrap gap-1.5 mb-4">
+    ${rideParks.map(p=>`
+      <button onclick="window._ridesPark='${p}';window._waitTimesData=null;renderSection()"
+        class="text-xs font-bold px-2.5 py-1 rounded-full transition ${p===selPark?'bg-orange-400 text-white':'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-orange-100'}">
+        ${PARK_EMOJIS[p]||'🎢'} ${p.replace('Magic Kingdom','MK').replace('Hollywood Studios','HS').replace('Animal Kingdom','AK').replace('Islands of Adventure','IoA').replace('Universal Studios','USF').replace('Discovery Cove','Disc Cove').replace('Volcano Bay','Vol Bay').replace('SeaWorld Orlando','SeaWorld')}
+      </button>`).join('')}
+  </div>`;
+
+  // ── GUIDE TAB
+  const guideTab = `
+  ${parkPicker}
+  <!-- Filter strip -->
+  <div class="flex flex-wrap gap-1 mb-4">
+    ${filterTypes.map(f=>`
+      <button onclick="window._ridesFilter='${f}';renderSection()"
+        class="text-xs font-semibold px-2.5 py-1 rounded-full transition ${f===selFilter?'bg-slate-700 dark:bg-white text-white dark:text-slate-800':'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'}">
+        ${typeIcon(f)} ${f}
+      </button>`).join('')}
+  </div>
+  ${rides.length===0?'<p class="text-slate-400 text-sm">No rides of that type at this park.</p>':rides.map(r=>`
+  <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-3 border border-slate-100 dark:border-slate-700">
+    <div class="flex items-start justify-between gap-3 mb-2">
+      <div class="flex-1">
+        <div class="flex items-center gap-2 flex-wrap mb-0.5">
+          <span class="text-base">${typeIcon(r.type)}</span>
+          <p class="font-black text-base leading-tight">${r.name}</p>
+          ${r.ll?'<span class="text-xs font-bold px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700">⚡ LL</span>':''}
+        </div>
+        <div class="flex flex-wrap gap-1 mt-1">
+          <span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">${r.type}</span>
+          <span class="text-xs px-2 py-0.5 rounded-full ${thrillBg(r.thrill)}">${thrillLabel(r.thrill)}</span>
+          ${r.height?`<span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">📏 ${r.height}" (${Math.round(r.height*2.54)}cm)</span>`:'<span class="text-xs px-2 py-0.5 rounded-full bg-green-50 text-green-600">Any height</span>'}
+          ${r.duration?`<span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-500">⏱ ${r.duration} min</span>`:''}
+        </div>
+      </div>
+    </div>
+    <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-2">${r.summary}</p>
+    <div class="flex items-start gap-1.5 bg-amber-50 dark:bg-amber-900/20 rounded-xl px-3 py-2">
+      <span class="text-xs">💡</span>
+      <p class="text-xs text-amber-800 dark:text-amber-300 font-medium leading-snug">${r.tip}</p>
+    </div>
+  </div>`).join('')}`;
+
+  // ── WAIT TIMES TAB
+  let wtContent = '';
+  if(!qId) {
+    wtContent = `<div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-5 text-center"><p class="text-slate-400 text-sm">Live wait times not available for ${selPark}.</p></div>`;
+  } else if(wtLoading) {
+    wtContent = `<div class="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow"><div class="text-3xl mb-2 animate-spin">⏳</div><p class="font-bold text-sm">Fetching live wait times…</p><p class="text-xs text-slate-400 mt-1">Connecting to queue-times.com</p></div>`;
+  } else if(wtError) {
+    wtContent = `<div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-5"><p class="font-bold text-red-700 dark:text-red-400 text-sm mb-1">⚠️ Could not load wait times</p><p class="text-xs text-slate-500">${wtError}</p><p class="text-xs text-slate-400 mt-2">queue-times.com may be temporarily unavailable. Try again in a moment.</p><button onclick="fetchWaitTimes(${qId})" class="mt-3 text-xs bg-orange-400 text-white font-bold px-4 py-2 rounded-xl">Retry</button></div>`;
+  } else if(wt) {
+    const lands = wt.lands||[];
+    const allOpen = lands.flatMap(l=>(l.rides||[]).filter(r=>r.is_open&&r.wait_time>0));
+    const allClosed = lands.flatMap(l=>(l.rides||[]).filter(r=>!r.is_open));
+    wtContent = `
+    <div class="flex items-center justify-between mb-3">
+      <p class="text-xs text-slate-500">Updated: ${wtTs?wtTs.toLocaleTimeString():'-'} · <a href="https://queue-times.com" target="_blank" class="text-sky-500 underline">queue-times.com</a></p>
+      <button onclick="fetchWaitTimes(${qId})" class="text-xs bg-orange-400 text-white font-bold px-3 py-1.5 rounded-xl">🔄 Refresh</button>
+    </div>
+    ${lands.map(land=>{
+      const openRides=(land.rides||[]).filter(r=>r.is_open);
+      const closedRides=(land.rides||[]).filter(r=>!r.is_open);
+      if(!land.rides||land.rides.length===0) return '';
+      return `<div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm p-4 mb-3 border border-slate-100 dark:border-slate-700">
+        <p class="font-bold text-sm mb-3 text-slate-600 dark:text-slate-400 uppercase tracking-wide text-xs">${land.name}</p>
+        ${openRides.map(r=>`
+          <div class="flex items-center gap-3 py-1.5 border-b border-slate-50 dark:border-slate-700 last:border-0">
+            <span class="flex-1 text-sm font-semibold">${r.name}</span>
+            <span class="text-xs font-black px-2.5 py-1 rounded-full ${waitColor(r.wait_time)}">${r.wait_time===0?'Walk On':r.wait_time+' min'}</span>
+          </div>`).join('')}
+        ${closedRides.length>0?`<div class="mt-2 pt-2 border-t border-slate-100 dark:border-slate-700">${closedRides.map(r=>`<div class="flex items-center gap-3 py-1"><span class="flex-1 text-xs text-slate-400">${r.name}</span><span class="text-xs px-2 py-0.5 rounded-full bg-slate-100 text-slate-400">Closed</span></div>`).join('')}</div>`:''}
+      </div>`;
+    }).join('')}
+    ${allOpen.length===0&&!wtError?'<p class="text-slate-400 text-sm text-center py-4">Park may be closed or no data available right now.</p>':''}`;
+  } else {
+    wtContent = `<div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-6 text-center">
+      <p class="text-3xl mb-2">⏱️</p>
+      <p class="font-black text-lg mb-1">Live Wait Times</p>
+      <p class="text-sm text-slate-500 mb-4">Real-time queue data for ${selPark} from queue-times.com</p>
+      <button onclick="fetchWaitTimes(${qId})" class="btn-primary px-6 py-2.5 text-sm font-bold">🔴 Load Live Times</button>
+    </div>`;
+  }
+  const waitTimesTab = `${parkPicker}${wtContent}`;
+
+  // ── CHECKLIST TAB (existing functionality)
+  const clParks=Object.keys(S.checklist.rides);
+  const clTotal=clParks.reduce((a,p)=>a+S.checklist.rides[p].length,0);
+  const clDone=clParks.reduce((a,p)=>a+S.checklist.rides[p].filter(r=>r.done).length,0);
+  const checklistTab = `
   <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
     <div class="flex items-center justify-between mb-3">
       <h2 class="font-bold">🎒 Packing List</h2>
       <span class="text-xs text-slate-400">${S.checklist.packing.filter(x=>x.done).length}/${S.checklist.packing.length}</span>
     </div>
     <div class="bg-slate-100 dark:bg-slate-700 rounded-full h-2 mb-3">
-      <div class="bg-green-400 h-2 rounded-full progress-bar" style="width:${Math.round(S.checklist.packing.filter(x=>x.done).length/S.checklist.packing.length*100)}%"></div>
+      <div class="bg-green-400 h-2 rounded-full" style="width:${Math.round(S.checklist.packing.filter(x=>x.done).length/S.checklist.packing.length*100)}%"></div>
     </div>
     <div class="grid md:grid-cols-2 gap-1">
       ${S.checklist.packing.map((item,i)=>`
-        <label class="checklist-item flex items-center gap-2 p-2 rounded-lg cursor-pointer">
+        <label class="flex items-center gap-2 p-2 rounded-lg cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700">
           <input type="checkbox" ${item.done?'checked':''} onchange="togglePack(${i})" class="accent-orange-400 w-4 h-4"/>
           <span class="text-sm ${item.done?'line-through text-slate-400':''}">${item.text}</span>
-        </label>
-      `).join('')}
+        </label>`).join('')}
     </div>
     <button onclick="openAddPackItem()" class="mt-3 text-xs text-orange-500 font-bold hover:underline">➕ Add item</button>
   </div>
-
-  ${parks.map(park=>{
+  <h2 class="font-black text-base mb-3">🎢 Ride Bucket List <span class="text-sm font-normal text-slate-400">${clDone}/${clTotal} done</span></h2>
+  ${clParks.map(park=>{
     const rides=S.checklist.rides[park];
     const doneCount=rides.filter(r=>r.done).length;
-    return `
-    <div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-5 mb-4">
-      <div class="flex items-center justify-between mb-3">
-        <h2 class="font-bold">${PARK_EMOJIS[park]||'🎢'} ${park}</h2>
-        <span class="badge bg-sky-100 text-sky-700">${doneCount}/${rides.length}</span>
+    return `<div class="bg-white dark:bg-slate-800 rounded-2xl shadow p-4 mb-3">
+      <div class="flex items-center justify-between mb-2">
+        <h3 class="font-bold text-sm">${PARK_EMOJIS[park]||'🎢'} ${park}</h3>
+        <span class="badge bg-sky-100 text-sky-700 text-xs">${doneCount}/${rides.length}</span>
       </div>
       ${rides.map((ride,i)=>`
-        <label class="checklist-item flex items-center gap-3 p-2 rounded-xl cursor-pointer mb-1">
+        <label class="flex items-center gap-3 p-2 rounded-xl cursor-pointer mb-1 hover:bg-slate-50 dark:hover:bg-slate-700">
           <input type="checkbox" ${ride.done?'checked':''} onchange="toggleRide('${park}',${i})" class="accent-orange-400 w-4 h-4"/>
           <span class="flex-1 text-sm ${ride.done?'line-through text-slate-400':''}">${ride.name}</span>
-          <span class="badge ${ride.tier==='Lightning Lane'?'bg-yellow-100 text-yellow-700':ride.tier==='Express Pass'?'bg-purple-100 text-purple-700':'bg-slate-100 text-slate-500'}">${ride.tier}</span>
-        </label>
-      `).join('')}
+          <span class="badge ${ride.tier==='Lightning Lane'?'bg-yellow-100 text-yellow-700':ride.tier==='Express Pass'?'bg-purple-100 text-purple-700':'bg-slate-100 text-slate-500'} text-xs">${ride.tier}</span>
+        </label>`).join('')}
     </div>`;
-  }).join('')}
+  }).join('')}`;
+
+  return `
+  <div class="mb-4">
+    <h1 class="text-2xl font-black">🎢 Rides &amp; Shows</h1>
+    <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Full guide, live wait times, and your ride bucket list.</p>
+  </div>
+  <!-- Tab Bar -->
+  <div class="flex gap-2 mb-5 bg-slate-100 dark:bg-slate-800 rounded-2xl p-1.5">
+    <button onclick="window._attractTab='guide';renderSection()" class="flex-1 text-xs font-bold py-2 rounded-xl transition ${tab==='guide'?'bg-white dark:bg-slate-600 text-orange-500 shadow':'text-slate-500 dark:text-slate-400 hover:text-slate-700'}">📖 Ride Guide</button>
+    <button onclick="window._attractTab='waittimes';if(!window._waitTimesData&&!window._waitTimesLoading&&window._ridesPark&&QUEUE_PARK_IDS[window._ridesPark||'Magic Kingdom']){fetchWaitTimes(QUEUE_PARK_IDS[window._ridesPark||'Magic Kingdom']);}renderSection()" class="flex-1 text-xs font-bold py-2 rounded-xl transition ${tab==='waittimes'?'bg-white dark:bg-slate-600 text-orange-500 shadow':'text-slate-500 dark:text-slate-400 hover:text-slate-700'}">⏱️ Wait Times</button>
+    <button onclick="window._attractTab='checklist';renderSection()" class="flex-1 text-xs font-bold py-2 rounded-xl transition ${tab==='checklist'?'bg-white dark:bg-slate-600 text-orange-500 shadow':'text-slate-500 dark:text-slate-400 hover:text-slate-700'}">✅ Checklist</button>
+  </div>
+  ${tab==='guide'?guideTab:tab==='waittimes'?waitTimesTab:checklistTab}
   `;
 }
+// ============================================================
+// LIVE WAIT TIMES  (queue-times.com public API)
+// ============================================================
+async function fetchWaitTimes(parkId) {
+  window._waitTimesLoading = true;
+  window._waitTimesData    = null;
+  window._waitTimesError   = null;
+  window._attractTab       = 'waittimes';
+  if(S.currentSection==='attractions') renderSection();
+  try {
+    const resp = await fetch(`https://queue-times.com/parks/${parkId}/queue_times.json`,{cache:'no-store'});
+    if(!resp.ok) throw new Error(`Server returned ${resp.status}`);
+    const data = await resp.json();
+    window._waitTimesData = data;
+    window._waitTimesTs   = new Date();
+  } catch(e) {
+    window._waitTimesError = e.message || 'Unknown error';
+  }
+  window._waitTimesLoading = false;
+  if(S.currentSection==='attractions') renderSection();
+}
+
 function togglePack(i) { S.checklist.packing[i].done=!S.checklist.packing[i].done; saveState(); renderSection(); }
 function toggleRide(park,i) { S.checklist.rides[park][i].done=!S.checklist.rides[park][i].done; saveState(); renderSection(); }
 function openAddPackItem() {
