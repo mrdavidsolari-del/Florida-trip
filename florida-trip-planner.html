@@ -1139,6 +1139,7 @@ const NAV_ITEMS = [
   {id:'polls',icon:'🗳️',label:'Polls & Voting'},
   {id:'budget',icon:'💰',label:'Budget'},
   {id:'attractions',icon:'🎢',label:'Attractions'},
+  {id:'maps',icon:'🗺️',label:'Maps & Routes'},
   {id:'meals',icon:'🍽️',label:'Meals'},
   {id:'notes',icon:'📝',label:'Notes & Links'},
   {id:'extras',icon:'⭐',label:'Extras'},
@@ -1554,6 +1555,7 @@ function renderSection() {
     case 'polls': c.innerHTML=renderPolls(); break;
     case 'budget': c.innerHTML=renderBudget(); break;
     case 'attractions': c.innerHTML=renderAttractions(); break;
+    case 'maps': c.innerHTML=renderMaps(); break;
     case 'meals': c.innerHTML=renderMeals(); break;
     case 'notes': c.innerHTML=renderNotes(); break;
     case 'extras': c.innerHTML=renderExtras(); break;
@@ -2602,6 +2604,152 @@ function deleteExpense(i) { if(confirm('Delete this expense?')) { S.expenses.spl
 function thrillLabel(n){return['','🟢 Easy','🔵 Mild','🟡 Moderate','🟠 Thrilling','🔴 Extreme'][n]||''}
 function thrillBg(n){return['','bg-green-100 text-green-700','bg-blue-100 text-blue-700','bg-yellow-100 text-yellow-700','bg-orange-100 text-orange-700','bg-red-100 text-red-700'][n]||'bg-slate-100 text-slate-600'}
 function typeIcon(t){const m={'Coaster':'🎢','Dark Ride':'🎭','Water Ride':'💦','Show':'🎬','Simulator':'🕹️','Drop Tower':'⬇️','Safari Tour':'🦁','Jeep Tour':'🚙','Zip Line':'🪂','Animal Encounter':'🐬','Swim':'🏊','Pool':'🏖️','Character Meet':'🤝'};return m[t]||'⭐'}
+
+// ============================================================
+// MAPS & ROUTES DATA
+// ============================================================
+const PARK_MAP_COORDS = {
+  'Magic Kingdom':        {bbox:'-81.596,28.411,-81.571,28.426',lat:28.4177,lon:-81.5812,gmaps:'https://maps.google.com/?q=Magic+Kingdom,+Walt+Disney+World,+Orlando'},
+  'EPCOT':                {bbox:'-81.558,28.366,-81.537,28.384',lat:28.3747,lon:-81.5494,gmaps:'https://maps.google.com/?q=EPCOT,+Walt+Disney+World,+Orlando'},
+  'Hollywood Studios':    {bbox:'-81.566,28.350,-81.548,28.365',lat:28.3575,lon:-81.5583,gmaps:'https://maps.google.com/?q=Hollywood+Studios,+Walt+Disney+World,+Orlando'},
+  'Animal Kingdom':       {bbox:'-81.600,28.347,-81.576,28.365',lat:28.3553,lon:-81.5901,gmaps:'https://maps.google.com/?q=Animal+Kingdom,+Walt+Disney+World,+Orlando'},
+  'Universal Studios':    {bbox:'-81.474,28.467,-81.457,28.481',lat:28.4749,lon:-81.4669,gmaps:'https://maps.google.com/?q=Universal+Studios+Florida,+Orlando'},
+  'Islands of Adventure': {bbox:'-81.474,28.467,-81.457,28.481',lat:28.4722,lon:-81.4679,gmaps:'https://maps.google.com/?q=Universal+Islands+of+Adventure,+Orlando'},
+  'Epic Universe':        {bbox:'-81.472,28.446,-81.455,28.461',lat:28.4537,lon:-81.4648,gmaps:'https://maps.google.com/?q=Universal+Epic+Universe,+Orlando'},
+  'SeaWorld Orlando':     {bbox:'-81.469,28.405,-81.453,28.420',lat:28.4119,lon:-81.4619,gmaps:'https://maps.google.com/?q=SeaWorld+Orlando,+Florida'},
+  'Volcano Bay':          {bbox:'-81.475,28.469,-81.466,28.477',lat:28.4723,lon:-81.4700,gmaps:'https://maps.google.com/?q=Universal+Volcano+Bay,+Orlando'},
+  'Gatorland':            {bbox:'-81.418,28.399,-81.403,28.414',lat:28.4062,lon:-81.4098,gmaps:'https://maps.google.com/?q=Gatorland,+Orlando,+Florida'},
+  'Discovery Cove':       {bbox:'-81.469,28.405,-81.453,28.419',lat:28.4112,lon:-81.4622,gmaps:'https://maps.google.com/?q=Discovery+Cove,+Orlando,+Florida'},
+};
+const PARK_LANDS = {
+  'Magic Kingdom':[
+    {name:'Tomorrowland',emoji:'🚀',note:'Top priority at rope drop',rides:['TRON Lightcycle Run','Space Mountain',"Buzz Lightyear's Space Ranger Spin"]},
+    {name:'Fantasyland',emoji:'🏰',note:'Most popular land',rides:['Seven Dwarfs Mine Train',"Peter Pan's Flight","It's a Small World",'Princess Fairytale Hall']},
+    {name:'Frontierland',emoji:'⛏️',note:'',rides:['Big Thunder Mountain Railroad',"Tiana's Bayou Adventure"]},
+    {name:'Liberty Square',emoji:'🗽',note:'',rides:['Haunted Mansion']},
+    {name:'Adventureland',emoji:'🌴',note:'',rides:['Pirates of the Caribbean','Jungle Cruise']},
+    {name:'Main Street U.S.A.',emoji:'🏰',note:'Parades & fireworks',rides:['Meet Mickey & Minnie','Move It! Shake It! MousekeDance It!','Festival of Fantasy Parade','Happily Ever After Fireworks']},
+  ],
+  'EPCOT':[
+    {name:'World Discovery',emoji:'🔬',note:'',rides:['Guardians of the Galaxy: Cosmic Rewind','Test Track','Mission: SPACE']},
+    {name:'World Nature',emoji:'🌿',note:'',rides:['Soarin Around the World','Living with the Land','The Seas with Nemo & Friends']},
+    {name:'World Showcase',emoji:'🌍',note:'Evening shows here',rides:["Frozen Ever After","Remy's Ratatouille Adventure",'Meet Anna & Elsa','Character Spot','Luminous: The Symphony of Us','EPCOT Forever Fireworks']},
+    {name:'World Celebration',emoji:'🎉',note:'',rides:[]},
+  ],
+  'Hollywood Studios':[
+    {name:"Galaxy's Edge",emoji:'⭐',note:'Most popular area',rides:["Millennium Falcon: Smugglers Run","Star Wars: Rise of the Resistance","Meet Rey & Star Wars Characters"]},
+    {name:'Sunset Boulevard',emoji:'🌅',note:'Thrill rides',rides:['Twilight Zone Tower of Terror',"Rock 'n' Roller Coaster Starring Aerosmith",'Fantasmic!']},
+    {name:'Toy Story Land',emoji:'🧸',note:'',rides:['Slinky Dog Dash','Toy Story Mania!','Alien Swirling Saucers']},
+    {name:'Echo Lake',emoji:'🏛️',note:'',rides:['Indiana Jones Epic Stunt Spectacular','Jedi Training: Trials of the Temple',"Lightning McQueen's Racing Academy"]},
+    {name:'Hollywood Blvd',emoji:'🎬',note:'',rides:['Beauty and the Beast Live on Stage','Star Wars: A Galaxy Far Far Away']},
+  ],
+  'Animal Kingdom':[
+    {name:'Pandora',emoji:'💙',note:'Book LL immediately',rides:['Avatar Flight of Passage',"Na'vi River Journey"]},
+    {name:'Africa',emoji:'🦁',note:'Largest area',rides:['Kilimanjaro Safaris','Festival of the Lion King','Gorilla Falls Exploration Trail']},
+    {name:'Asia',emoji:'🐯',note:'',rides:['Expedition Everest','Kali River Rapids','UP! A Great Bird Adventure','Feathered Friends in Flight']},
+    {name:'Discovery Island',emoji:'🌳',note:'Central hub',rides:["It's Tough to be a Bug!",'Meet Dug & Russell']},
+    {name:'DinoLand U.S.A.',emoji:'🦕',note:'',rides:['DINOSAUR',"Finding Nemo: The Big Blue..."]},
+  ],
+  'Universal Studios':[
+    {name:'Diagon Alley',emoji:'⚡',note:'Immersive world',rides:['Harry Potter and the Escape from Gringotts','The Bourne Stuntacular']},
+    {name:'New York',emoji:'🗽',note:'',rides:['Revenge of the Mummy','Transformers: The Ride']},
+    {name:'Hollywood',emoji:'🎬',note:'',rides:['Animal Actors on Location!']},
+    {name:'Despicable Me',emoji:'🍌',note:'',rides:['Despicable Me Minion Mayhem','Meet the Minions']},
+    {name:'Sci-Fi City',emoji:'🛸',note:'',rides:['Hollywood Rip Ride Rockit','MEN IN BLACK Alien Attack']},
+  ],
+  'Islands of Adventure':[
+    {name:'Wizarding World',emoji:'⚡',note:'Must-do land',rides:['Harry Potter and the Forbidden Journey',"Hagrid's Magical Creatures Motorbike Adventure",'Ollivanders Wand Experience','The Nighttime Lights at Hogsmeade']},
+    {name:'Marvel Super Hero Island',emoji:'🦸',note:'',rides:['VelociCoaster','Incredible Hulk Coaster','The Amazing Adventures of Spider-Man','Superheroes Meet & Greet']},
+    {name:'Jurassic World',emoji:'🦕',note:'',rides:['Jurassic World Ride']},
+    {name:'Toon Lagoon / Skull Island',emoji:'🐒',note:'',rides:[]},
+  ],
+  'Epic Universe':[
+    {name:'Celestial Park',emoji:'🌌',note:'Central hub',rides:['Starfall Racers','Celestial Park Live Entertainment']},
+    {name:'Ministry of Magic',emoji:'🪄',note:'Potter world',rides:['Harry Potter and the Battle at the Ministry','Ministry of Magic Wand Experience']},
+    {name:'Isle of Berk',emoji:'🐉',note:'DreamWorks world',rides:["The Dragon Racer's Rally","Hiccup's Wing Gliders",'Meet Hiccup & Toothless']},
+    {name:'Super Nintendo World',emoji:'🍄',note:'Nintendo world',rides:["Bowser's Challenge (Mario Kart)","Yoshi's Adventure",'Meet Mario & Nintendo Characters']},
+    {name:'Universal Monsters',emoji:'🧟',note:'Horror world',rides:['The Curse of the Werewolf']},
+  ],
+  'SeaWorld Orlando':[
+    {name:'Thrill Rides',emoji:'🎢',note:'',rides:['Pipeline: The Surf Coaster','Mako','Manta','Ice Breaker']},
+    {name:'Animal Experiences',emoji:'🐬',note:'',rides:['Antarctica: Empire of the Penguin','Penguin Up-Close Tour','Dolphin Encounter']},
+    {name:'Shows',emoji:'🎬',note:'Check schedule',rides:['Orca Encounter','Dolphin Days','Pets Ahoy!']},
+  ],
+  'Volcano Bay':[
+    {name:'Volcano',emoji:'🌋',note:'Most popular slides',rides:['Krakatau Aqua Coaster',"Ko'okiri Body Plunge"]},
+    {name:'River & Lagoon',emoji:'💧',note:'',rides:['TeAwa The Fearless River','Honu ika Moana Slides','Puka Uli Lagoon']},
+  ],
+  'Gatorland':[
+    {name:'Main Park',emoji:'🐊',note:'',rides:["Screamin' Gator Zip Line","Stompin' Gator Off-Road Adventure","Gator Wrestlin' Show",'Alligator Feeding']},
+  ],
+  'Discovery Cove':[
+    {name:'All-Inclusive Experiences',emoji:'🐬',note:'Book order at check-in',rides:['Dolphin Swim','Grand Reef Snorkel','Freshwater Oasis','Aviary Walk-Through']},
+  ],
+};
+const PARK_EXPERT_ROUTES = {
+  'Magic Kingdom':[
+    {phase:'🌅 Rope Drop (7-9am)',tip:'Book TRON LL Individual at 7am exactly — it sells out in 60 seconds. Walk straight to Seven Dwarfs Mine Train at park open.',rides:['TRON Lightcycle Run','Seven Dwarfs Mine Train']},
+    {phase:'🌤️ Morning (9-11am)',tip:'Cross to Frontierland before it fills. Big Thunder is walkable at this time. Get LL for Tiana\'s Bayou Adventure.',rides:['Big Thunder Mountain Railroad',"Tiana's Bayou Adventure",'Pirates of the Caribbean']},
+    {phase:'☀️ Midday (11am-2pm)',tip:'Best time for dark, air-conditioned rides. Queues for outdoor rides peak now.',rides:['Haunted Mansion','Space Mountain','Jungle Cruise']},
+    {phase:'🌇 Afternoon (2-5pm)',tip:'Character meets and gentle rides while outdoor queues are longest.',rides:['Princess Fairytale Hall',"Peter Pan's Flight","It's a Small World","Buzz Lightyear's Space Ranger Spin",'Meet Mickey & Minnie']},
+    {phase:'🌆 Evening (5pm+)',tip:'Grab your fireworks spot on Main Street 45 mins early. Watch the parade first from Frontierland side.',rides:['Festival of Fantasy Parade','Move It! Shake It! MousekeDance It!','Happily Ever After Fireworks']},
+  ],
+  'EPCOT':[
+    {phase:'🌅 Rope Drop',tip:'Run to Guardians of the Galaxy first — then Remy if you have time. Book Frozen LL.',rides:['Guardians of the Galaxy: Cosmic Rewind',"Remy's Ratatouille Adventure"]},
+    {phase:'🌤️ Morning',tip:'Get Soarin and Test Track done before 11am when queues spike.',rides:['Soarin Around the World','Test Track','Mission: SPACE','Living with the Land']},
+    {phase:'☀️ Midday',tip:'Walk World Showcase clockwise. Start with frozen meet, then Frozen Ever After.',rides:['Meet Anna & Elsa',"Frozen Ever After",'The Seas with Nemo & Friends']},
+    {phase:'🌆 Evening',tip:'Stake out your World Showcase lagoon spot for Luminous — 45 mins early for a good view.',rides:['Character Spot','Luminous: The Symphony of Us']},
+  ],
+  'Hollywood Studios':[
+    {phase:'🌅 Rope Drop',tip:'Book Rise of the Resistance LL the instant the app allows (7am). Sprint to Slinky Dog if LL is unavailable.',rides:["Star Wars: Rise of the Resistance","Millennium Falcon: Smugglers Run"]},
+    {phase:'🌤️ Morning',tip:'Sunset Boulevard while the heat is manageable. Both thrill rides have big queues — LL if possible.',rides:["Rock 'n' Roller Coaster Starring Aerosmith",'Twilight Zone Tower of Terror','Slinky Dog Dash']},
+    {phase:'☀️ Midday',tip:'Sign up for Jedi Training at park OPEN — it fills in minutes. Indiana Jones is a great midday show.',rides:['Jedi Training: Trials of the Temple','Indiana Jones Epic Stunt Spectacular','Toy Story Mania!']},
+    {phase:'🌇 Afternoon',tip:'Galaxy\'s Edge atmosphere is best explored slowly in the afternoon.',rides:["Meet Rey & Star Wars Characters","Lightning McQueen's Racing Academy",'Beauty and the Beast Live on Stage','Alien Swirling Saucers']},
+    {phase:'🌆 Evening',tip:'Fantasmic! is unmissable — book a Fantasmic! dining package for guaranteed seats, or arrive 45 mins early.',rides:['Star Wars: A Galaxy Far Far Away','Fantasmic!']},
+  ],
+  'Animal Kingdom':[
+    {phase:'🌅 Rope Drop',tip:'Book Avatar Flight of Passage LL the instant the park app opens. Sprint to it otherwise — 2hr+ queues by 9am.',rides:['Avatar Flight of Passage',"Na'vi River Journey"]},
+    {phase:'🌤️ Morning',tip:'Hit Expedition Everest and Kali River Rapids while it\'s cooler. Safaris are best in early morning for active animals.',rides:['Expedition Everest','Kilimanjaro Safaris','Kali River Rapids']},
+    {phase:'☀️ Midday',tip:'Check show times and plan around Festival of the Lion King — it is the single best live show in any Disney park.',rides:['Festival of the Lion King','UP! A Great Bird Adventure',"It's Tough to be a Bug!"]},
+    {phase:'🌇 Afternoon',tip:'Explore trails and gentler experiences in the afternoon heat.',rides:['Gorilla Falls Exploration Trail','Feathered Friends in Flight','Meet Dug & Russell','DINOSAUR',"Finding Nemo: The Big Blue..."]},
+  ],
+  'Universal Studios':[
+    {phase:'🌅 Rope Drop',tip:'Head straight to Diagon Alley — Escape from Gringotts has the longest queues. Explore the whole alley before queues hit.',rides:['Harry Potter and the Escape from Gringotts']},
+    {phase:'🌤️ Morning',tip:'Revenge of the Mummy and Rip Ride Rockit are best before midday.',rides:['Hollywood Rip Ride Rockit','Revenge of the Mummy','Transformers: The Ride']},
+    {phase:'☀️ Midday',tip:'Bourne Stuntacular is a great midday show — air conditioned and spectacular.',rides:['The Bourne Stuntacular','Despicable Me Minion Mayhem','MEN IN BLACK Alien Attack']},
+    {phase:'🌇 Afternoon',tip:'MIB and Minions have shorter queues in the afternoon.',rides:['Meet the Minions','Animal Actors on Location!']},
+  ],
+  'Islands of Adventure':[
+    {phase:'🌅 Rope Drop',tip:"Hagrid's has NO Lightning Lane — queue only. Be at rope drop and RUN. It's worth every second of a 2-hour wait.",rides:["Hagrid's Magical Creatures Motorbike Adventure"]},
+    {phase:'🌤️ Morning',tip:'VelociCoaster and Hulk are best early before the heat. Both have LL.',rides:['VelociCoaster','Incredible Hulk Coaster','Harry Potter and the Forbidden Journey']},
+    {phase:'☀️ Midday',tip:'Jurassic World Ride is perfect for midday — you\'ll want the soaking! Spider-Man has shorter midday queues.',rides:['Jurassic World Ride','The Amazing Adventures of Spider-Man','Ollivanders Wand Experience']},
+    {phase:'🌆 Evening',tip:'Hogsmeade at dusk is magical. Nighttime Lights show runs at specific evening times — check the schedule.',rides:['Superheroes Meet & Greet','The Nighttime Lights at Hogsmeade']},
+  ],
+  'Epic Universe':[
+    {phase:'🌅 Rope Drop',tip:'Book Harry Potter: Battle at the Ministry LL immediately at 7am. Starfall Racers will be the park\'s busiest ride — hit it at rope drop.',rides:['Starfall Racers','Harry Potter and the Battle at the Ministry']},
+    {phase:'🌤️ Morning',tip:'Explore Nintendo World early before families with children arrive en masse.',rides:["Bowser's Challenge (Mario Kart)","The Dragon Racer's Rally",'Ministry of Magic Wand Experience']},
+    {phase:'☀️ Midday',tip:'The Monsters world tends to be quieter — great for afternoon when other areas are busiest.',rides:['The Curse of the Werewolf',"Yoshi's Adventure","Hiccup's Wing Gliders"]},
+    {phase:'🌇 Afternoon',tip:'Character meets tend to be shorter in the afternoon. Explore Celestial Park hub at leisure.',rides:['Meet Mario & Nintendo Characters','Meet Hiccup & Toothless','Celestial Park Live Entertainment']},
+  ],
+  'SeaWorld Orlando':[
+    {phase:'🌅 Morning',tip:'Pipeline and Mako have shortest queues at opening. Hit both thrill coasters first.',rides:['Pipeline: The Surf Coaster','Mako','Manta']},
+    {phase:'☀️ Midday',tip:'Penguin and dolphin experiences are a great midday break from rides.',rides:['Antarctica: Empire of the Penguin','Ice Breaker','Penguin Up-Close Tour']},
+    {phase:'🌇 Afternoon',tip:'Plan shows around the schedule. Orca Encounter is the standout — get there 15 mins early.',rides:['Orca Encounter','Dolphin Days','Dolphin Encounter','Pets Ahoy!']},
+  ],
+  'Volcano Bay':[
+    {phase:'🌅 Early (open–10am)',tip:'Tap your TapuTapu for Ko\'okiri and Krakatau the moment the park opens — virtual queues fill fast.',rides:['Krakatau Aqua Coaster',"Ko'okiri Body Plunge"]},
+    {phase:'☀️ Midday',tip:'The group slides and river are great for the family when the main slides have long virtual queues.',rides:['TeAwa The Fearless River','Honu ika Moana Slides']},
+    {phase:'🏖️ All Day',tip:'Book a sun lounger via TapuTapu when you arrive. Puka Uli Lagoon is the perfect base camp.',rides:['Puka Uli Lagoon']},
+  ],
+  'Gatorland':[
+    {phase:'🌅 Morning',tip:'Book the zip line at the entrance immediately — afternoon slots fill up. Do the jeep tour early while animals are active.',rides:["Screamin' Gator Zip Line","Stompin' Gator Off-Road Adventure"]},
+    {phase:'☀️ Midday',tip:'Shows run on a schedule — pick up the show timetable at the entrance.',rides:["Gator Wrestlin' Show",'Alligator Feeding']},
+  ],
+  'Discovery Cove':[
+    {phase:'🌅 Morning (8am)',tip:'Arrive at opening — your dolphin swim time slot is assigned at check-in. Earlier arrival = better time slot options.',rides:['Dolphin Swim']},
+    {phase:'☀️ All Day',tip:'All experiences are included — spend the whole day. The reef snorkel is the highlight after the dolphin swim.',rides:['Grand Reef Snorkel','Freshwater Oasis','Aviary Walk-Through']},
+  ],
+};
 function getWaitForRide(name) {
   if(!window._waitTimesData) return null;
   const all = (window._waitTimesData.lands||[]).flatMap(l=>l.rides||[]);
@@ -2621,6 +2769,148 @@ function getWaitForRide(name) {
   })||null;
 }
 function waitColor(m){if(m===0)return'bg-gray-100 text-gray-500';if(m<20)return'bg-green-100 text-green-700';if(m<45)return'bg-yellow-100 text-yellow-700';if(m<75)return'bg-orange-100 text-orange-700';return'bg-red-100 text-red-700';}
+
+// ============================================================
+// MAPS & ROUTES
+// ============================================================
+function renderMaps() {
+  const sel  = window._mapPark || 'Magic Kingdom';
+  const tab  = window._mapTab  || 'map';
+  const mapParks = Object.keys(PARK_LANDS);
+  const shortName = p => p.replace('Magic Kingdom','MK').replace('Hollywood Studios','HS').replace('Animal Kingdom','AK').replace('Islands of Adventure','IoA').replace('Universal Studios','USF').replace('Discovery Cove','Disc Cove').replace('Volcano Bay','Vol Bay').replace('SeaWorld Orlando','SeaWorld').replace('Epic Universe','Epic U');
+
+  const parkPicker = `<div class="flex flex-wrap gap-1.5 mb-4">
+    ${mapParks.map(p=>`<button onclick="window._mapPark='${p}';renderSection()"
+      class="text-xs font-bold px-2.5 py-1 rounded-full transition ${p===sel?'bg-orange-400 text-white':'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-orange-100'}">
+      ${PARK_EMOJIS[p]||'🎢'} ${shortName(p)}</button>`).join('')}
+  </div>`;
+
+  const tabBar = `<div class="flex gap-2 mb-5 bg-slate-100 dark:bg-slate-800 rounded-2xl p-1.5">
+    <button onclick="window._mapTab='map';renderSection()" class="flex-1 text-xs font-bold py-2 rounded-xl transition ${tab==='map'?'bg-white dark:bg-slate-600 text-orange-500 shadow':'text-slate-500 dark:text-slate-400 hover:text-slate-700'}">🗺️ Park Map</button>
+    <button onclick="window._mapTab='route';renderSection()" class="flex-1 text-xs font-bold py-2 rounded-xl transition ${tab==='route'?'bg-white dark:bg-slate-600 text-orange-500 shadow':'text-slate-500 dark:text-slate-400 hover:text-slate-700'}">🧭 Smart Route</button>
+  </div>`;
+
+  // ── MAP TAB
+  const coords = PARK_MAP_COORDS[sel];
+  const lands  = PARK_LANDS[sel] || [];
+  const mapTab = `
+    ${coords ? `
+    <div class="rounded-2xl overflow-hidden mb-2 border border-slate-200 dark:border-slate-700 shadow">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${coords.bbox}&layer=mapnik&marker=${coords.lat},${coords.lon}"
+        width="100%" height="280" frameborder="0" loading="lazy" style="display:block;border:0"></iframe>
+    </div>
+    <div class="flex items-center justify-between mb-4">
+      <p class="text-xs text-slate-400">📍 Shows park location — tap below for full navigation</p>
+      <a href="${coords.gmaps}" target="_blank" class="text-xs bg-green-500 text-white font-bold px-3 py-1.5 rounded-xl">Open in Maps 📍</a>
+    </div>` : ''}
+    <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">Areas & Attractions</p>
+    ${lands.map(land=>{
+      if(land.rides.length===0) return '';
+      return `<div class="bg-white dark:bg-slate-800 rounded-2xl p-4 mb-3 border border-slate-100 dark:border-slate-700">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="text-lg">${land.emoji}</span>
+          <p class="font-black text-sm">${land.name}</p>
+          ${land.note?`<span class="text-xs text-slate-400 ml-auto italic">${land.note}</span>`:''}
+        </div>
+        <div class="flex flex-wrap gap-1.5">
+          ${land.rides.map(name=>{
+            const wt = getWaitForRide(name);
+            const badge = wt
+              ? wt.is_open
+                ? `<span class="text-xs font-black ${waitColor(wt.wait_time)} px-1.5 py-0.5 rounded-full ml-1">${wt.wait_time===0?'Walk On':wt.wait_time+'m'}</span>`
+                : wt.status==='DOWN'?'<span class="text-xs bg-yellow-100 text-yellow-700 px-1.5 rounded-full ml-1">Down</span>'
+                : wt.status==='REFURBISHMENT'?'<span class="text-xs bg-blue-100 text-blue-600 px-1.5 rounded-full ml-1">Refurb</span>'
+                : '<span class="text-xs text-slate-400 ml-1">✗</span>'
+              : '';
+            return `<span class="text-xs bg-slate-50 dark:bg-slate-700 border border-slate-100 dark:border-slate-600 px-2 py-0.5 rounded-full text-slate-700 dark:text-slate-300 flex items-center gap-0.5">${name}${badge}</span>`;
+          }).join('')}
+        </div>
+      </div>`;
+    }).join('')}
+    ${!window._waitTimesData && PARK_MAP_COORDS[sel] ? `<div class="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 rounded-xl px-3 py-2 mt-2">
+      <span class="text-sm">⏱️</span>
+      <p class="text-xs text-orange-700 dark:text-orange-300 flex-1">Load live wait times to see current queue lengths on each attraction</p>
+      <button onclick="fetchWaitTimes('${sel}')" class="text-xs bg-orange-400 text-white font-bold px-3 py-1 rounded-lg shrink-0">Load</button>
+    </div>` : ''}`;
+
+  // ── SMART ROUTE TAB
+  const expert = PARK_EXPERT_ROUTES[sel] || [];
+  const hasLive = !!window._waitTimesData;
+  const allParkRides = RIDE_GUIDE[sel] || [];
+
+  // Live wait time tiers
+  const liveRides = hasLive ? allParkRides.map(r=>({...r,wt:getWaitForRide(r.name)})).filter(r=>r.wt) : [];
+  const walkOn    = liveRides.filter(r=>r.wt.is_open && r.wt.wait_time < 20);
+  const moderate  = liveRides.filter(r=>r.wt.is_open && r.wt.wait_time >= 20 && r.wt.wait_time < 45);
+  const longWait  = liveRides.filter(r=>r.wt.is_open && r.wt.wait_time >= 45);
+  const downRides = liveRides.filter(r=>!r.wt.is_open && r.wt.status==='DOWN');
+  const closedRides = liveRides.filter(r=>!r.wt.is_open && r.wt.status!=='DOWN' && r.wt.status!=='REFURBISHMENT');
+  const rideCard = (r,showWt) => `<div class="flex items-center gap-2 py-1.5 border-b border-slate-50 dark:border-slate-700 last:border-0">
+    <span class="text-base">${typeIcon(r.type)}</span>
+    <span class="flex-1 text-sm font-semibold">${r.name}</span>
+    ${showWt && r.wt ? `<span class="text-xs font-black px-2.5 py-1 rounded-full ${waitColor(r.wt.wait_time)}">${r.wt.wait_time===0?'Walk On':r.wt.wait_time+' min'}</span>` : ''}
+  </div>`;
+
+  const routeTab = `
+    ${hasLive ? `
+    <div class="mb-1">
+      <p class="text-xs text-slate-400 mb-3">Live data · Updated ${window._waitTimesTs?window._waitTimesTs.toLocaleTimeString():''} · <button onclick="window._waitTimesData=null;fetchWaitTimes('${sel}')" class="text-orange-400 font-bold">Refresh</button></p>
+      ${walkOn.length ? `<div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-4 mb-3 border border-green-100 dark:border-green-800">
+        <p class="font-black text-green-700 dark:text-green-400 text-sm mb-2">🟢 Go Right Now — Short / Walk On</p>
+        ${walkOn.sort((a,b)=>a.wt.wait_time-b.wt.wait_time).map(r=>rideCard(r,true)).join('')}
+      </div>` : ''}
+      ${moderate.length ? `<div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl p-4 mb-3 border border-yellow-100 dark:border-yellow-800">
+        <p class="font-black text-yellow-700 dark:text-yellow-400 text-sm mb-2">🟡 Moderate Wait — Plan Ahead</p>
+        ${moderate.sort((a,b)=>a.wt.wait_time-b.wt.wait_time).map(r=>rideCard(r,true)).join('')}
+      </div>` : ''}
+      ${longWait.length ? `<div class="bg-red-50 dark:bg-red-900/20 rounded-2xl p-4 mb-3 border border-red-100 dark:border-red-800">
+        <p class="font-black text-red-700 dark:text-red-400 text-sm mb-2">🔴 Long Wait — Use Lightning Lane</p>
+        ${longWait.sort((a,b)=>a.wt.wait_time-b.wt.wait_time).map(r=>rideCard(r,true)).join('')}
+      </div>` : ''}
+      ${downRides.length ? `<div class="bg-yellow-50 dark:bg-yellow-900/20 rounded-2xl p-3 mb-3">
+        <p class="font-bold text-yellow-700 text-xs mb-1">⚠️ Temporarily Down</p>
+        ${downRides.map(r=>rideCard(r,false)).join('')}
+      </div>` : ''}
+      ${closedRides.length ? `<div class="bg-slate-50 dark:bg-slate-700/50 rounded-2xl p-3 mb-3">
+        <p class="font-bold text-slate-500 text-xs mb-1">🔒 Closed Today</p>
+        ${closedRides.map(r=>rideCard(r,false)).join('')}
+      </div>` : ''}
+    </div>
+    <div class="border-t border-slate-100 dark:border-slate-700 pt-4 mt-2">` : `
+    <div class="flex items-center gap-2 bg-orange-50 dark:bg-orange-900/20 rounded-xl px-3 py-2.5 mb-4">
+      <span class="text-sm">⏱️</span>
+      <p class="text-xs text-orange-700 dark:text-orange-300 flex-1">Load live wait times for a personalised route based on today's actual queues</p>
+      ${PARK_MAP_COORDS[sel]?`<button onclick="fetchWaitTimes('${sel}')" class="text-xs bg-orange-400 text-white font-bold px-3 py-1 rounded-lg shrink-0">Load</button>`:''}
+    </div>
+    <div>`}
+      <p class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">⭐ Expert Route — ${sel}</p>
+      ${expert.map((phase,i)=>`
+      <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 mb-3 border border-slate-100 dark:border-slate-700">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-sm font-black text-orange-500">${i+1}</span>
+          <p class="font-black text-sm">${phase.phase}</p>
+        </div>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mb-2 leading-relaxed">${phase.tip}</p>
+        <div class="flex flex-wrap gap-1.5">
+          ${phase.rides.map(name=>{
+            const wt = getWaitForRide(name);
+            const badge = wt && wt.is_open ? `<span class="font-black ${waitColor(wt.wait_time)} px-1.5 py-0.5 rounded-full ml-1 text-xs">${wt.wait_time===0?'Walk On':wt.wait_time+'m'}</span>` : '';
+            return `<span class="text-xs bg-orange-50 dark:bg-orange-900/30 border border-orange-100 dark:border-orange-800/50 text-orange-800 dark:text-orange-300 px-2 py-0.5 rounded-full">${name}${badge}</span>`;
+          }).join('')}
+        </div>
+      </div>`).join('')}
+    </div>`;
+
+  return `<div>
+    <div class="mb-4">
+      <h1 class="text-2xl font-black">🗺️ Maps & Routes</h1>
+      <p class="text-sm text-slate-500 dark:text-slate-400 mt-0.5">Park maps, area guides, and smart route planning.</p>
+    </div>
+    ${parkPicker}
+    ${tabBar}
+    ${tab==='map' ? mapTab : routeTab}
+  </div>`;
+}
 
 function renderAttractions() {
   const tab = window._attractTab || 'guide';
