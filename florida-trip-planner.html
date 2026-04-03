@@ -3113,7 +3113,7 @@ async function fetchWaitTimes(parkName) {
   window._waitTimesData    = null;
   window._waitTimesError   = null;
   // Don't force-switch tabs — let the caller decide which tab to show
-  if(S.currentSection==='attractions') renderSection();
+  if(S.currentSection==='attractions'||S.currentSection==='maps') renderSection();
   try {
     const parkId = await fetchTPWParkId(parkName);
     const data = await tpwFetch('https://api.themeparks.wiki/v1/entity/'+parkId+'/live');
@@ -3132,7 +3132,7 @@ async function fetchWaitTimes(parkName) {
     window._waitTimesError = e.message||'Network error';
   }
   window._waitTimesLoading = false;
-  if(S.currentSection==='attractions') renderSection();
+  if(S.currentSection==='attractions'||S.currentSection==='maps') renderSection();
 }
 
 function togglePack(i) { S.checklist.packing[i].done=!S.checklist.packing[i].done; saveState(); renderSection(); }
